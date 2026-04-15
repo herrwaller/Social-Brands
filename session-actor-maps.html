@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Brands · Actor Maps &amp; How Might We</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F2EB;--bg2:#EBE7DE;--card:#FDFAF4;--ink:#1A1714;--ink2:#46403A;--ink3:#7A756C;--border2:rgba(26,23,20,.06);--green:#4A8A28;--r:12px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+.hero{background:#1A1714;color:#F5F2EB;padding:60px 48px 52px;position:relative;overflow:hidden;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 700px 400px at 80% 50%,rgba(74,138,40,.18) 0%,transparent 70%)}
+.hero::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.012) 0,rgba(255,255,255,.012) 1px,transparent 1px,transparent 14px)}
+.hero-inner{position:relative;z-index:1;max-width:860px;margin:0 auto;width:100%}
+.hero-tag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,242,235,.38);margin-bottom:14px}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4.5vw,50px);font-weight:700;line-height:1.05;margin-bottom:12px}
+.hero-title span{color:#6AAA38}
+.hero-sub{font-size:13.5px;color:rgba(245,242,235,.5);max-width:580px;line-height:1.65}
+.lang-row{position:absolute;top:24px;right:24px;display:flex;gap:6px;z-index:2}
+.lb{background:none;border:1px solid rgba(245,242,235,.25);color:rgba(245,242,235,.55);padding:4px 14px;border-radius:20px;font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer;transition:all .15s}
+.lb.on{background:var(--green);border-color:var(--green);color:#fff}
+.page{max-width:860px;margin:0 auto;padding:24px 24px 60px}
+.coming-soon{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:40px 32px;text-align:center;margin:32px 0}
+.cs-icon{font-size:36px;margin-bottom:16px}
+.cs-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;margin-bottom:10px;color:var(--ink)}
+.cs-text{font-size:14px;color:var(--ink3);line-height:1.75;max-width:480px;margin:0 auto}
+.cs-tags{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-top:18px}
+.cs-tag{background:var(--bg2);border-radius:20px;padding:4px 12px;font-size:11px;color:var(--ink3)}
+.nav-bar{border-top:1px solid var(--border2);padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:20px}
+.nav-link{text-decoration:none;color:var(--green);font-size:13px;font-weight:500;transition:opacity .15s}
+.nav-link:hover{opacity:.7}
+.nav-center{font-size:11px;color:var(--ink3);letter-spacing:.06em;text-align:center}
+body.zh .en-only{display:none!important}
+body.en .zh-only{display:none!important}
+</style>
+</head>
+<body class="en">
+<div class="lang-row">
+  <button class="lb on" onclick="setLang('en')">EN</button>
+  <button class="lb" onclick="setLang('zh')">中文</button>
+</div>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag en-only">Social Brands · Session 4 · 07.01.2026</div>
+    <div class="hero-tag zh-only" style="font-family:'Noto Serif SC',serif">社会品牌 · 第4课 · 2026年1月7日</div>
+    <div class="hero-title en-only">Actor Maps &amp; <span>How Might We</span></div>
+    <div class="hero-title zh-only" style="font-family:'Noto Serif SC',serif">行动者地图与<span>"我们如何"</span></div>
+    <div class="hero-sub en-only">Mapping the stakeholder ecosystem and translating transformation insights into strategic design opportunities using the "How Might We" method.</div>
+    <div class="hero-sub zh-only" style="font-family:'Noto Serif SC',serif">绘制利益相关者生态系统地图，并运用"我们如何"方法将转型洞察转化为战略设计机遇。</div>
+  </div>
+</div>
+<div class="page">
+  <div class="coming-soon">
+    <div class="cs-icon">📋</div>
+    <div class="cs-title en-only">Session Materials Coming Soon</div>
+    <div class="cs-title zh-only" style="font-family:'Noto Serif SC',serif">课程材料即将推出</div>
+    <p class="cs-text en-only">The full session content for Actor Maps &amp; How Might We will be added here. Check back after 07.01.2026.</p>
+    <p class="cs-text zh-only" style="font-family:'Noto Serif SC',serif">行动者地图与"我们如何"的完整课程内容将在此添加。请在2026年1月7日后回来查看。</p>
+    <div class="cs-tags"><span class="cs-tag">Actor Maps</span><span class="cs-tag">HMW</span><span class="cs-tag">Stakeholders</span></div>
+  </div>
+  <div class="nav-bar">
+    <a class="nav-link" href="session-challenges.html">← <span class="en-only">Session 3</span><span class="zh-only" style="font-family:'Noto Serif SC',serif">第3课</span></a>
+    <div class="nav-center"><span class="en-only">Session 04 of 06 · Social Brands</span><span class="zh-only" style="font-family:'Noto Serif SC',serif">第4课，共6课 · 社会品牌</span></div>
+    <a class="nav-link" href="session-results.html"><span class="en-only">Session 5</span><span class="zh-only" style="font-family:'Noto Serif SC',serif">第5课</span> →</a>
+  </div>
+</div>
+<script>
+function setLang(l){document.body.className=l;document.querySelectorAll('.lb').forEach(b=>b.classList.toggle('on',(l==='en'&&b.textContent==='EN')||(l==='zh'&&b.textContent==='中文')));}
+</script>
+</body>
+</html>

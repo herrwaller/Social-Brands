@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Brands · Transformation Processes &amp; Analysis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F2EB; --bg2:#EBE7DE; --bg3:#DAD5C8; --card:#FDFAF4;
+  --ink:#1A1714; --ink2:#46403A; --ink3:#7A756C;
+  --border:rgba(26,23,20,.10); --border2:rgba(26,23,20,.06);
+  --green:#4A8A28; --r:12px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+
+/* HERO */
+.hero{background:#1A1714;color:#F5F2EB;padding:60px 48px 52px;position:relative;overflow:hidden;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 700px 400px at 80% 50%,rgba(74,138,40,.18) 0%,transparent 70%)}
+.hero::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.012) 0,rgba(255,255,255,.012) 1px,transparent 1px,transparent 14px)}
+.hero-inner{position:relative;z-index:1;max-width:860px;margin:0 auto;width:100%}
+.hero-tag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,242,235,.38);margin-bottom:14px}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4.5vw,50px);font-weight:700;line-height:1.05;margin-bottom:12px}
+.hero-title span{color:#6AAA38}
+.hero-sub{font-size:13.5px;color:rgba(245,242,235,.5);max-width:600px;line-height:1.65}
+
+/* TOC PILLS */
+.toc-pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}
+.toc-pill{background:rgba(245,242,235,.08);border:1px solid rgba(245,242,235,.16);color:rgba(245,242,235,.6);padding:5px 14px;border-radius:20px;font-size:11.5px;text-decoration:none;transition:all .15s}
+.toc-pill:hover{background:rgba(74,138,40,.25);border-color:rgba(74,138,40,.4);color:#F5F2EB}
+
+/* LANG BAR */
+.lang-row{position:absolute;top:24px;right:24px;display:flex;gap:6px;z-index:2}
+.lb{background:none;border:1px solid rgba(245,242,235,.25);color:rgba(245,242,235,.55);
+    padding:4px 14px;border-radius:20px;font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer;transition:all .15s}
+.lb.on{background:var(--green);border-color:var(--green);color:#fff}
+
+/* LAYOUT */
+.page{max-width:860px;margin:0 auto;padding:0 24px 60px}
+
+/* SECTION HEADER */
+.section-head{padding:44px 0 20px}
+.sec-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);
+  font-weight:500;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.sec-label::after{content:'';flex:1;height:1px;background:rgba(74,138,40,.2)}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,30px);font-weight:700;line-height:1.2;margin-bottom:6px}
+.sec-text{font-size:14px;color:var(--ink2);line-height:1.75;max-width:680px;margin-bottom:6px}
+.sec-text-zh{font-family:'Noto Serif SC',serif;font-size:13px;color:var(--ink3);line-height:1.9;max-width:680px;padding-left:14px;border-left:2px solid var(--bg3);margin-top:8px}
+
+/* CALLOUT */
+.callout{background:#fff;border-left:3px solid var(--green);border-radius:0 var(--r) var(--r) 0;padding:18px 22px;margin:18px 0;font-size:14px;color:var(--ink2);line-height:1.75}
+.callout strong{color:var(--ink);font-weight:600}
+.callout-accent{background:rgba(74,138,40,.07);border-left:3px solid var(--green);border-radius:0 var(--r) var(--r) 0;padding:18px 22px;margin:18px 0;font-size:14px;color:var(--ink);line-height:1.75;font-style:italic}
+.callout-dark{background:#1A1714;color:#F5F2EB;border-left:3px solid #6AAA38;border-radius:0 var(--r) var(--r) 0;padding:20px 24px;margin:18px 0;font-size:14px;line-height:1.75}
+.callout-dark em{color:#6AAA38;font-style:normal;font-weight:600}
+
+/* APPROACH GRID (3-col) */
+.approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+@media(max-width:640px){.approach-grid{grid-template-columns:1fr}}
+.approach-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:20px}
+.ap-icon{font-size:22px;margin-bottom:10px}
+.ap-title{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;margin-bottom:8px;color:var(--ink)}
+.ap-title-zh{font-family:'Noto Serif SC',serif;font-size:15px;font-weight:600;margin-bottom:8px;color:var(--ink)}
+.ap-text{font-size:12.5px;color:var(--ink3);line-height:1.65}
+.ap-text-zh{font-family:'Noto Serif SC',serif;font-size:12px;color:var(--ink3);line-height:1.8}
+.ap-list{font-size:12px;color:var(--ink2);line-height:1.8;list-style:none;padding:0;margin-top:8px}
+.ap-list li::before{content:'·';color:var(--green);margin-right:6px;font-weight:700}
+
+/* COMPARE GRID (2-col) */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+@media(max-width:560px){.compare-grid{grid-template-columns:1fr}}
+.compare-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:20px}
+.cc-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);font-weight:500;margin-bottom:6px}
+.cc-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;margin-bottom:10px;color:var(--ink)}
+.cc-text{font-size:13px;color:var(--ink2);line-height:1.7}
+.cc-text-zh{font-family:'Noto Serif SC',serif;font-size:12px;color:var(--ink2);line-height:1.85}
+.cc-list{font-size:12.5px;color:var(--ink2);line-height:1.8;list-style:none;padding:0;margin-top:8px}
+.cc-list li::before{content:'→';color:var(--green);margin-right:7px;font-weight:700}
+
+/* INFO CARDS */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:18px 0}
+.info-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:20px}
+.ic-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);font-weight:500;margin-bottom:6px}
+.ic-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;margin-bottom:8px}
+.ic-text{font-size:12.5px;color:var(--ink2);line-height:1.65}
+.ic-text-zh{font-family:'Noto Serif SC',serif;font-size:12px;color:var(--ink3);line-height:1.85}
+
+/* TRANSFORMATION PROCESS CARDS — large feature cards */
+.transform-section{margin:28px 0}
+.transform-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);overflow:hidden;margin-bottom:14px}
+.tc-header{background:#1A1714;color:#F5F2EB;padding:20px 24px;display:flex;align-items:baseline;gap:14px;position:relative;overflow:hidden}
+.tc-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 300px 200px at 80% 50%,rgba(74,138,40,.15) 0%,transparent 70%)}
+.tc-num{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,242,235,.4);position:relative}
+.tc-name{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:#F5F2EB;position:relative}
+.tc-name span{color:#6AAA38}
+.tc-name-zh{font-family:'Noto Serif SC',serif;font-size:16px;color:rgba(245,242,235,.7);position:relative;margin-left:auto;align-self:center}
+.tc-body{padding:22px 24px}
+.tc-desc{font-size:14px;color:var(--ink2);line-height:1.75;margin-bottom:16px}
+.tc-desc-zh{font-family:'Noto Serif SC',serif;font-size:13px;color:var(--ink3);line-height:1.9;margin-bottom:16px;padding-left:12px;border-left:2px solid var(--bg3)}
+.tc-trends{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:600px){.tc-trends{grid-template-columns:1fr}}
+.tc-trend{background:var(--bg);border-radius:8px;padding:12px 14px}
+.tt-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:500;margin-bottom:4px}
+.tt-name{font-size:13.5px;font-weight:500;color:var(--ink);line-height:1.4}
+.tt-name-zh{font-family:'Noto Serif SC',serif;font-size:12px;color:var(--ink3);margin-top:2px}
+.tt-text{font-size:12px;color:var(--ink3);line-height:1.6;margin-top:4px}
+
+/* ASSIGNMENT BOX */
+.assignment{background:#1A1714;color:#F5F2EB;border-radius:var(--r);padding:28px 32px;margin:32px 0;position:relative;overflow:hidden}
+.assignment::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 500px 300px at 85% 50%,rgba(74,138,40,.12) 0%,transparent 70%)}
+.assign-inner{position:relative;z-index:1}
+.assign-label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,242,235,.35);margin-bottom:8px}
+.assign-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin-bottom:12px;color:#F5F2EB}
+.assign-text{font-size:13.5px;color:rgba(245,242,235,.65);line-height:1.75}
+.assign-text-zh{font-family:'Noto Serif SC',serif;font-size:13px;color:rgba(245,242,235,.55);line-height:1.9;margin-top:8px;padding-left:12px;border-left:2px solid rgba(74,138,40,.4)}
+
+/* NAV BAR */
+.nav-bar{border-top:1px solid var(--border2);padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:20px}
+.nav-link{text-decoration:none;color:var(--green);font-size:13px;font-weight:500;display:flex;align-items:center;gap:6px;transition:opacity .15s}
+.nav-link:hover{opacity:.7}
+.nav-center{font-size:11px;color:var(--ink3);letter-spacing:.06em;text-align:center}
+
+body.zh .en-only{display:none!important}
+body.en .zh-only{display:none!important}
+</style>
+</head>
+<body class="en">
+
+<div class="lang-row">
+  <button class="lb on" onclick="setLang('en')">EN</button>
+  <button class="lb" onclick="setLang('zh')">中文</button>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag en-only">Social Brands · Session 2 · 10.12.2025</div>
+    <div class="hero-tag zh-only" style="font-family:'Noto Serif SC',serif">社会品牌 · 第2课 · 2025年12月10日</div>
+    <div class="hero-title en-only">Transformation Processes<br>&amp; <span>Analysis</span></div>
+    <div class="hero-title zh-only" style="font-family:'Noto Serif SC',serif">转型进程<br>与<span>分析</span></div>
+    <div class="hero-sub en-only">The Future:System framework — mapping six transformation processes that are reshaping the Next Society, and understanding their consequences for brands.</div>
+    <div class="hero-sub zh-only" style="font-family:'Noto Serif SC',serif">未来系统框架——描绘正在重塑下一个社会的六大转型进程，并理解其对品牌的影响。</div>
+    <div class="toc-pills">
+      <a class="toc-pill" href="#future-system">Future:System</a>
+      <a class="toc-pill" href="#eco-transition">Eco Transition</a>
+      <a class="toc-pill" href="#glocalisation">Glocalisation</a>
+      <a class="toc-pill" href="#mindshift">Mindshift Revolution</a>
+      <a class="toc-pill" href="#co-society">Co-Society</a>
+      <a class="toc-pill" href="#conscious-economy">Conscious Economy</a>
+      <a class="toc-pill" href="#human-digitality">Human Digitality</a>
+      <a class="toc-pill" href="#next-society">Next Society</a>
+      <a class="toc-pill" href="#consequences">Brand Consequences</a>
+      <a class="toc-pill" href="#assignment">Assignment</a>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- ① FUTURE:SYSTEM FRAMEWORK -->
+  <div class="section-head" id="future-system">
+    <div class="sec-label en-only">Framework · Future:System</div>
+    <div class="sec-label zh-only" style="font-family:'Noto Serif SC',serif">框架 · 未来系统</div>
+    <div class="sec-title en-only">The Future:System Framework</div>
+    <div class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">未来系统框架</div>
+    <p class="sec-text en-only">The Future:System is a strategic analytical framework that identifies six major transformation processes simultaneously reshaping society, the economy, and culture. Brands that want to remain relevant must understand these forces — and take a stance on them.</p>
+    <p class="sec-text-zh zh-only">未来系统是一个战略分析框架，识别出六大主要转型进程，它们正在同步重塑社会、经济与文化。希望保持竞争力的品牌必须理解这些力量——并对其表明立场。</p>
+  </div>
+
+  <div class="callout en-only">
+    <strong>What is a transformation process?</strong> A macro-level societal shift driven by multiple interacting trends that fundamentally changes how people live, work, consume, and relate to one another — and to institutions, brands, and companies.
+  </div>
+  <div class="callout zh-only" style="font-family:'Noto Serif SC',serif">
+    <strong>什么是转型进程？</strong>由多种相互作用的趋势驱动的宏观社会转变，从根本上改变人们的生活、工作、消费方式，以及与他人、机构、品牌和公司的关系。
+  </div>
+
+  <div class="approach-grid">
+    <div class="approach-card">
+      <div class="ap-icon">🌍</div>
+      <div class="ap-title en-only">Eco Transition</div>
+      <div class="ap-title-zh zh-only">生态转型</div>
+      <div class="ap-text en-only">Climate change, resource scarcity, and biodiversity loss — the ecological transformation driving systemic change across all industries.</div>
+      <div class="ap-text-zh zh-only">气候变化、资源匮乏与生物多样性丧失——推动各行业系统性变革的生态转型。</div>
+    </div>
+    <div class="approach-card">
+      <div class="ap-icon">🌐</div>
+      <div class="ap-title en-only">Glocalisation</div>
+      <div class="ap-title-zh zh-only">全球本土化</div>
+      <div class="ap-text en-only">Localisation, new markets, and geopolitical tensions — the simultaneous fragmentation and reconnection of global and local contexts.</div>
+      <div class="ap-text-zh zh-only">本地化、新兴市场与地缘政治张力——全球与本地语境的同步碎片化与重新连接。</div>
+    </div>
+    <div class="approach-card">
+      <div class="ap-icon">🧠</div>
+      <div class="ap-title en-only">Mindshift Revolution</div>
+      <div class="ap-title-zh zh-only">意识革命</div>
+      <div class="ap-text en-only">Value shifts, demographic change, and consciousness shifts — the internal transformation of what people believe and expect from brands and society.</div>
+      <div class="ap-text-zh zh-only">价值观转变、人口结构变化与意识转移——人们对品牌和社会期望的内在转型。</div>
+    </div>
+    <div class="approach-card">
+      <div class="ap-icon">🤝</div>
+      <div class="ap-title en-only">Co-Society</div>
+      <div class="ap-title-zh zh-only">共同社会</div>
+      <div class="ap-text en-only">Cooperative economy, community economy, and prosumer culture — the shift from individual consumption to collective co-creation.</div>
+      <div class="ap-text-zh zh-only">合作经济、社区经济与产消者文化——从个人消费转向集体共创。</div>
+    </div>
+    <div class="approach-card">
+      <div class="ap-icon">💚</div>
+      <div class="ap-title en-only">Conscious Economy</div>
+      <div class="ap-title-zh zh-only">意识经济</div>
+      <div class="ap-text en-only">Sustainable consumption, impact investment, and wellbeing economy — redefining economic success beyond GDP toward human and planetary flourishing.</div>
+      <div class="ap-text-zh zh-only">可持续消费、影响力投资与福祉经济——将经济成功的定义从GDP延伸至人类与星球的繁荣。</div>
+    </div>
+    <div class="approach-card">
+      <div class="ap-icon">🤖</div>
+      <div class="ap-title en-only">Human Digitality</div>
+      <div class="ap-title-zh zh-only">人机融合</div>
+      <div class="ap-text en-only">Artificial intelligence, platform economy, and digital twins — the deep interweaving of digital technologies with human identity and experience.</div>
+      <div class="ap-text-zh zh-only">人工智能、平台经济与数字孪生——数字技术与人类身份和体验的深度交织。</div>
+    </div>
+  </div>
+
+  <!-- ② ECO TRANSITION -->
+  <div class="section-head" id="eco-transition">
+    <div class="sec-label en-only">Transformation Process 1</div>
+    <div class="sec-label zh-only" style="font-family:'Noto Serif SC',serif">转型进程 1</div>
+    <div class="sec-title en-only">Eco Transition</div>
+    <div class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">生态转型</div>
+  </div>
+
+  <div class="transform-section">
+    <div class="transform-card">
+      <div class="tc-header">
+        <span class="tc-num">T1</span>
+        <span class="tc-name en-only">Eco <span>Transition</span></span>
+        <span class="tc-name zh-only" style="font-family:'Noto Serif SC',serif">生态<span>转型</span></span>
+        <span class="tc-name-zh zh-only" style="font-family:'Noto Serif SC',serif; display:none"></span>
+      </div>
+      <div class="tc-body">
+        <p class="tc-desc en-only">The ecological transformation represents the most urgent systemic challenge of our time. Climate change, resource depletion, and the collapse of biodiversity are not separate crises — they are interconnected symptoms of an economic model that has externalized its costs onto the natural world. Brands operating within this transformation can no longer ignore their ecological footprint.</p>
+        <p class="tc-desc-zh zh-only">生态转型代表着我们时代最紧迫的系统性挑战。气候变化、资源耗竭和生物多样性崩溃并非独立的危机——它们是一种将成本外部化于自然世界的经济模式的相互关联的症状。在这一转型中运营的品牌再也无法忽视其生态足迹。</p>
+        <div class="tc-trends">
+          <div class="tc-trend">
+            <div class="tt-label en-only">Trend 1</div>
+            <div class="tt-label zh-only" style="font-family:'Noto Serif SC',serif">趋势 1</div>
+            <div class="tt-name en-only">Climate Change</div>
+            <div class="tt-name-zh zh-only" style="font-family:'Noto Serif SC',serif">气候变化</div>
+            <div class="tt-text en-only">Rising temperatures, extreme weather events, sea level rise. Brands face regulatory pressure, supply chain disruption, and consumer expectations for climate action.</div>
+            <div class="tt-text zh-only" style="font-family:'Noto Serif SC',serif">气温上升、极端天气事件、海平面上升。品牌面临监管压力、供应链中断以及消费者对气候行动的期望。</div>
+          </div>
+          <div class="tc-trend">
+            <div class="tt-label en-only">Trend 2</div>
+            <div class="tt-label zh-only" style="font-family:'Noto Serif SC',serif">趋势 2</div>
+            <div class="tt-name en-only">Resource Scarcity</div>
+            <div class="tt-name-zh zh-only" style="font-family:'Noto Serif SC',serif">资源匮乏</div>
+            <div class="tt-text en-only">Water stress, material shortages, energy transition. The circular economy moves from niche to necessity as linear production models become untenable.</div>
+            <div class="tt-text zh-only" style="font-family:'Noto Serif SC',serif">水资源压力、原材料短缺、能源转型。随着线性生产模式变得难以为继，循环经济从利基走向必需。</div>
+          </div>
+          <div class="tc-trend">
+            <div class="tt-label en-only">Trend 3</div>
+            <div class="tt-label zh-only" style="font-family:'Noto Serif SC',serif">趋势 3</div>
+            <div class="tt-name en-only">Biodiversity Loss</div>
+            <div class="tt-name-zh zh-only" style="font-family:'Noto Serif SC',serif">生物多样性丧失</div>
+            <div class="tt-text en-only">Mass species extinction, ecosystem collapse, soil degradation. The concept of "nature positive" brands is emerging as a response to biocide by consumption.</div>
+            <div class="tt-text zh-only" style="font-family:'Noto Serif SC',serif">物种大规模灭绝、生态系统崩溃、土壤退化。"自然正效益"品牌概念正在兴起，以应对消费引发的生态破坏。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ③ GLOCALISATION -->
+  <div class="section-head" id="glocalisation">
+    <div class="sec-label en-only">Transformation Process 2</div>
+    <div class="sec-label zh-only" style="font-family:'Noto Serif SC',serif">转型进程 2</div>
+    <div class="sec-title en-only">Glocalisation</div>
+    <div class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">全球本土化</div>
+  </div>
+
+  <div class="transform-section">
+    <div class="transform-card">
+      <div class="tc-header">
+        <span class="tc-num">T2</span>
+        <span class="tc-name en-only">Gloca<span>lisation</span></span>
+        <span class="tc-name zh-only" style="font-family:'Noto Serif SC',serif">全球<span>本土化</span></span>
+      </div>
+      <div class="tc-body">
+        <p class="tc-desc en-only">Glocalisation describes the simultaneous and often contradictory dynamics of globalization and localization. While global supply chains, digital platforms, and cultural exchange continue to integrate the world, geopolitical tensions, nationalism, and consumer demand for local authenticity are driving fragmentation. Brands must navigate both forces at once.</p>
+        <p class="tc-desc-zh zh-only">全球本土化描述了全球化与本地化同步进行且往往相互矛盾的动态。一方面，全球供应链、数字平台和文化交流持续整合世界；另一方面，地缘政治紧张、民族主义以及消费者对本地真实性的需求正在推动碎片化。品牌必须同时应对这两种力量。</p>
+        <div class="tc-trends">
+          <div class="tc-trend">
+            <div class="tt-label en-only">Trend 1</div>
+            <div class="tt-label zh-only" style="font-family:'Noto Serif SC',serif">趋势 1</div>
+            <div class="tt-name en-only">Localisation</div>
+            <div class="tt-name-zh zh-only" style="font-family:'Noto Serif SC',serif">本地化</div>
+            <div class="tt-text en-only">Consumers demanding regional authenticity, local production, and cultural resonance. Global brands adapting to local markets rather than imposing global standards.</div>
+            <div class="tt-text zh-only" style="font-family:'Noto Serif SC',serif">消费者要求地区真实性、本地生产和文化共鸣。全球品牌正在适应本地市场，而非强加全球标准。</div>
+          </div>
+          <div class="tc-trend">
+            <div class="tt-label en-only">Trend 2</div>
+            <div class="tt-label zh-only" style="font-family:'Noto Serif SC',serif">趋势 2</div>
+            <div class="tt-name en-only">New Markets</div>
+            <div class="tt-name-zh zh-only" style="font-family:'Noto Serif SC',serif">新兴市场</div>
+            <div class="tt-text en-only">Growth of middle classes in Africa, Southeast Asia, and Latin America. New consumers with distinct values, aesthetics, and aspirations challenging Western brand models.</div>
+            <div class="tt-text zh-only" style="font-family:'Noto Serif SC',serif">非洲、东南亚和拉丁美洲中产阶级的崛起。具有独特价值观、审美和抱负的新消费者正在挑战西方品牌模式。</div>
+          </div>
+          <div class="tc-trend">
+            <div class="tt-label en-only">Trend 3</div>
+            <div class="tt-label zh-only" style="font-family:'Noto Serif SC',serif">趋势 3</div>
+            <div class="tt-name en-only">Geopolitical Tensions</div>
+            <div class="tt-name-zh zh-only" style="font-family:'Noto Serif SC',serif">地缘政治张力</div>
+            <div class="tt-text en-only">Trade wars, sanctions, and supply chain weaponization. Brands caught between markets, forced to take positions on international conflicts and national loyalties.</div>
+            <div class="tt-text zh-only" style="font-family:'Noto Serif SC',serif">贸易战、制裁与供应链武器化。品牌夹在市场之间，被迫就国际冲突和国家忠诚表明立场。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ④ MINDSHIFT REVOLUTION -->
+  <div class="section-head" id="mindshift">
+    <div class="sec-label en-only">Transformation Process 3</div>
+    <div class="sec-label zh-only" style="font-family:'Noto Serif SC',serif">转型进程 3</div>
+    <div class="sec-title en-only">Mindshift Revolution</div>
+    <div class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">意识革命</div>
+  </div>
+
+  <div class="transform-section">
+    <div class="transform-card">
+      <div class="tc-header">
+        <span class="tc-num">T3</span>
+        <span class="tc-name en-only">Mindshift <span>Revolution</span></span>
+        <span class="tc-name zh-only" style="font-family:'Noto Serif SC',serif">意识<span>革命</span></span>
+      </div>
+      <div class="tc-body">
+        <p class="tc-desc en-only">The Mindshift Revolution is the internal dimension of transformation — a profound shift in values, consciousness, and worldview happening across generations. Driven by demographic change, mental health awareness, and cultural evolution, people are redefining what constitutes a good life, a good company, and a good brand.</p>
+        <p class="tc-desc-zh zh-only">意识革命是转型的内在维度——跨越各代人的价值观、意识和世界观的深刻转变。在人口结构变化、心理健康意识和文化演变的驱动下，人们正在重新定义什么是美好生活、好公司和好品牌。</p>
+        <div class="tc-trends">
+          <div class="tc-trend">
+            <div class="tt-label en-only">Trend 1</div>
+            <div class="tt-label zh-only" style="font-family:'Noto Serif SC',serif">趋势 1</div>
+            <div class="tt-name en-only">Value Shift</div>
+            <div class="tt-name-zh zh-only" style="font-family:'Noto Serif SC',serif">价值观转变</div>
+            <div class="tt-text en-only">Post-materialist values, purpose over status, experience over ownership. Consumers evaluating brands by their contribution to society, not just product quality.</div>
+            <div class="tt-text zh-only" style="font-family:'Noto Serif SC',serif">后物质主义价值观、使命感超越地位、体验超越所有权。消费者以品牌对社会的贡献来评估品牌，而不仅仅是产品质量。</div>
+          </div>
+          <div class="tc-trend">
+            <div class="tt-label en-only">Trend 2</div>
+            <div class="tt-label zh-only" style="font-family:'Noto Serif SC',serif">趋势 2</div>
+            <div class="tt-name en-only">Demographic Change</div>
+            <div class="tt-name-zh zh-only" style="font-family:'Noto Serif SC',serif">人口结构变化</div>
+            <div class="tt-text en-only">Aging societies in the Global North, Gen Z and Alpha as dominant consumer forces, migration and cultural hybridity reshaping what "mainstream" means.</div>
+            <div class="tt-text zh-only" style="font-family:'Noto Serif SC',serif">全球北方社会老龄化，Z世代和α世代作为主导消费力量，移民和文化混血正在重塑"主流"的定义。</div>
+          </div>
+          <div class="tc-trend">
+            <div class="tt-label en-only">Trend 3</div>
+            <div class="tt-label zh-only" style="font-family:'Noto Serif SC',serif">趋势 3</div>
+            <div class="tt-name en-only">Consciousness Shift</div>
+            <div class="tt-name-zh zh-only" style="font-family:'Noto Serif SC',serif">意识转移</div>
+            <div class="tt-text en-only">Mental health, spirituality, embodiment, and holistic wellbeing enter mainstream discourse. Brands expected to support not just physical but psychological and social health.</div>
+            <div class="tt-text zh-only" style="font-family:'Noto Serif SC',serif">心理健康、灵性、具身性和整体福祉进入主流话语。品牌不仅需要支持身体健康，也要支持心理和社会健康。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑤ CO-SOCIETY -->
+  <div class="section-head" id="co-society">
+    <div class="sec-label en-only">Transformation Process 4</div>
+    <div class="sec-label zh-only" style="font-family:'Noto Serif SC',serif">转型进程 4</div>
+    <div class="sec-title en-only">Co-Society</div>
+    <div class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">共同社会</div>
+  </div>
+
+  <div class="transform-section">
+    <div class="transform-card">
+      <div class="tc-header">
+        <span class="tc-num">T4</span>
+        <span class="tc-name en-only">Co-<span>Society</span></span>
+        <span class="tc-name zh-only" style="font-family:'Noto Serif SC',serif">共同<span>社会</span></span>
+      </div>
+      <div class="tc-body">
+        <p class="tc-desc en-only">Co-Society describes the emergence of new cooperative and collaborative economic structures that challenge the dominant model of individual consumption. From community energy grids to platform cooperatives, from open-source design to shared ownership — people are building economic alternatives that put collective value creation at the center.</p>
+        <p class="tc-desc-zh zh-only">共同社会描述了挑战主导个人消费模式的新型合作与协作经济结构的兴起。从社区能源电网到平台合作社，从开源设计到共同所有权——人们正在构建以集体价值创造为核心的经济替代方案。</p>
+        <div class="tc-trends">
+          <div class="tc-trend">
+            <div class="tt-label en-only">Trend 1</div>
+            <div class="tt-label zh-only" style="font-family:'Noto Serif SC',serif">趋势 1</div>
+            <div class="tt-name en-only">Cooperative Economy</div>
+            <div class="tt-name-zh zh-only" style="font-family:'Noto Serif SC',serif">合作经济</div>
+            <div class="tt-text en-only">Worker-owned platforms, B-corps, social enterprises. The economic logic of competition supplemented — or replaced — by cooperation and mutualism.</div>
+            <div class="tt-text zh-only" style="font-family:'Noto Serif SC',serif">工人拥有的平台、B型企业、社会企业。竞争的经济逻辑被合作与互助补充——或取代。</div>
+          </div>
+          <div class="tc-trend">
+            <div class="tt-label en-only">Trend 2</div>
+            <div class="tt-label zh-only" style="font-family:'Noto Serif SC',serif">趋势 2</div>
+            <div class="tt-name en-only">Community Economy</div>
+            <div class="tt-name-zh zh-only" style="font-family:'Noto Serif SC',serif">社区经济</div>
+            <div class="tt-text en-only">Local exchange networks, community currencies, neighborhood economies. The scaling down of economic life to human-scale communities where relationships matter.</div>
+            <div class="tt-text zh-only" style="font-family:'Noto Serif SC',serif">本地交换网络、社区货币、邻里经济。经济生活缩小到人性化社区规模，关系在其中至关重要。</div>
+          </div>
+          <div class="tc-trend">
+            <div class="tt-label en-only">Trend 3</div>
+            <div class="tt-label zh-only" style="font-family:'Noto Serif SC',serif">趋势 3</div>
+            <div class="tt-name en-only">Prosumer Culture</div>
+            <div class="tt-name-zh zh-only" style="font-family:'Noto Serif SC',serif">产消者文化</div>
+            <div class="tt-text en-only">Consumers as co-creators, co-investors, and co-designers. Brands that don't invite participation risk becoming irrelevant in an era of user-generated culture.</div>
+            <div class="tt-text zh-only" style="font-family:'Noto Serif SC',serif">消费者作为共同创造者、共同投资者和共同设计者。在用户生成文化时代，不邀请参与的品牌面临被边缘化的风险。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑥ CONSCIOUS ECONOMY -->
+  <div class="section-head" id="conscious-economy">
+    <div class="sec-label en-only">Transformation Process 5</div>
+    <div class="sec-label zh-only" style="font-family:'Noto Serif SC',serif">转型进程 5</div>
+    <div class="sec-title en-only">Conscious Economy</div>
+    <div class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">意识经济</div>
+  </div>
+
+  <div class="transform-section">
+    <div class="transform-card">
+      <div class="tc-header">
+        <span class="tc-num">T5</span>
+        <span class="tc-name en-only">Conscious <span>Economy</span></span>
+        <span class="tc-name zh-only" style="font-family:'Noto Serif SC',serif">意识<span>经济</span></span>
+      </div>
+      <div class="tc-body">
+        <p class="tc-desc en-only">The Conscious Economy reframes what success means in business. Moving beyond GDP and shareholder returns, it centers human flourishing, planetary boundaries, and social justice as economic goals. From impact investment to wellbeing indicators, from regenerative business models to ethical supply chains — a new economic grammar is emerging.</p>
+        <p class="tc-desc-zh zh-only">意识经济重新定义了商业成功的含义。超越GDP和股东回报，它将人类繁荣、地球边界和社会公正作为经济目标。从影响力投资到福祉指标，从再生商业模式到道德供应链——一种新的经济语法正在兴起。</p>
+        <div class="tc-trends">
+          <div class="tc-trend">
+            <div class="tt-label en-only">Trend 1</div>
+            <div class="tt-label zh-only" style="font-family:'Noto Serif SC',serif">趋势 1</div>
+            <div class="tt-name en-only">Sustainable Consumption</div>
+            <div class="tt-name-zh zh-only" style="font-family:'Noto Serif SC',serif">可持续消费</div>
+            <div class="tt-text en-only">Conscious buying, sufficiency thinking, the shift from quantity to quality. Consumers applying ethical criteria to everyday purchasing decisions.</div>
+            <div class="tt-text zh-only" style="font-family:'Noto Serif SC',serif">有意识购买、充足性思维、从数量到质量的转变。消费者将道德标准应用于日常购买决策。</div>
+          </div>
+          <div class="tc-trend">
+            <div class="tt-label en-only">Trend 2</div>
+            <div class="tt-label zh-only" style="font-family:'Noto Serif SC',serif">趋势 2</div>
+            <div class="tt-name en-only">Impact Investment</div>
+            <div class="tt-name-zh zh-only" style="font-family:'Noto Serif SC',serif">影响力投资</div>
+            <div class="tt-text en-only">ESG criteria, green bonds, social impact metrics. Capital markets increasingly integrating non-financial performance into investment decisions.</div>
+            <div class="tt-text zh-only" style="font-family:'Noto Serif SC',serif">ESG标准、绿色债券、社会影响力指标。资本市场越来越多地将非财务绩效纳入投资决策。</div>
+          </div>
+          <div class="tc-trend">
+            <div class="tt-label en-only">Trend 3</div>
+            <div class="tt-label zh-only" style="font-family:'Noto Serif SC',serif">趋势 3</div>
+            <div class="tt-name en-only">Wellbeing Economy</div>
+            <div class="tt-name-zh zh-only" style="font-family:'Noto Serif SC',serif">福祉经济</div>
+            <div class="tt-text en-only">Gross National Happiness, Doughnut Economics, post-growth theory. Nations and cities redesigning economic systems around wellbeing rather than growth.</div>
+            <div class="tt-text zh-only" style="font-family:'Noto Serif SC',serif">国民幸福总值、甜甜圈经济学、后增长理论。国家和城市围绕福祉而非增长重新设计经济系统。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑦ HUMAN DIGITALITY -->
+  <div class="section-head" id="human-digitality">
+    <div class="sec-label en-only">Transformation Process 6</div>
+    <div class="sec-label zh-only" style="font-family:'Noto Serif SC',serif">转型进程 6</div>
+    <div class="sec-title en-only">Human Digitality</div>
+    <div class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">人机融合</div>
+  </div>
+
+  <div class="transform-section">
+    <div class="transform-card">
+      <div class="tc-header">
+        <span class="tc-num">T6</span>
+        <span class="tc-name en-only">Human <span>Digitality</span></span>
+        <span class="tc-name zh-only" style="font-family:'Noto Serif SC',serif">人机<span>融合</span></span>
+      </div>
+      <div class="tc-body">
+        <p class="tc-desc en-only">Human Digitality describes the deepening fusion of human experience and digital technology — not just as tools, but as constitutive of identity, relationship, and meaning. Artificial intelligence, platform economies, and the emergence of digital twins are not peripheral phenomena but central to how people experience themselves and engage with brands.</p>
+        <p class="tc-desc-zh zh-only">人机融合描述了人类体验与数字技术的深度融合——不仅作为工具，而且构成身份、关系和意义。人工智能、平台经济和数字孪生的出现不是边缘现象，而是人们体验自我和与品牌互动的核心方式。</p>
+        <div class="tc-trends">
+          <div class="tc-trend">
+            <div class="tt-label en-only">Trend 1</div>
+            <div class="tt-label zh-only" style="font-family:'Noto Serif SC',serif">趋势 1</div>
+            <div class="tt-name en-only">Artificial Intelligence</div>
+            <div class="tt-name-zh zh-only" style="font-family:'Noto Serif SC',serif">人工智能</div>
+            <div class="tt-text en-only">Generative AI, personalization at scale, AI-driven creativity. Brands face questions of authenticity, authorship, and the value of human craft in an age of automation.</div>
+            <div class="tt-text zh-only" style="font-family:'Noto Serif SC',serif">生成式AI、大规模个性化、AI驱动的创造力。在自动化时代，品牌面临真实性、著作权以及人类工艺价值的问题。</div>
+          </div>
+          <div class="tc-trend">
+            <div class="tt-label en-only">Trend 2</div>
+            <div class="tt-label zh-only" style="font-family:'Noto Serif SC',serif">趋势 2</div>
+            <div class="tt-name en-only">Platform Economy</div>
+            <div class="tt-name-zh zh-only" style="font-family:'Noto Serif SC',serif">平台经济</div>
+            <div class="tt-text en-only">Data as currency, algorithmic attention markets, platform power. Brands operating in ecosystems they don't own, subject to rules they didn't write.</div>
+            <div class="tt-text zh-only" style="font-family:'Noto Serif SC',serif">数据作为货币、算法注意力市场、平台权力。品牌在其不拥有的生态系统中运营，受其未编写的规则约束。</div>
+          </div>
+          <div class="tc-trend">
+            <div class="tt-label en-only">Trend 3</div>
+            <div class="tt-label zh-only" style="font-family:'Noto Serif SC',serif">趋势 3</div>
+            <div class="tt-name en-only">Digital Twins</div>
+            <div class="tt-name-zh zh-only" style="font-family:'Noto Serif SC',serif">数字孪生</div>
+            <div class="tt-text en-only">Virtual brand worlds, digital identity, the blurring of physical and digital experience. Spatial computing and the metaverse as emerging brand environments.</div>
+            <div class="tt-text zh-only" style="font-family:'Noto Serif SC',serif">虚拟品牌世界、数字身份、物理与数字体验的模糊化。空间计算和元宇宙作为新兴品牌环境。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑧ NEXT SOCIETY (BAECKER) -->
+  <div class="section-head" id="next-society">
+    <div class="sec-label en-only">Theory · Dirk Baecker</div>
+    <div class="sec-label zh-only" style="font-family:'Noto Serif SC',serif">理论 · 迪尔克·贝克尔</div>
+    <div class="sec-title en-only">The Next Society</div>
+    <div class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">下一个社会</div>
+    <p class="sec-text en-only">Sociologist Dirk Baecker's concept of the "Next Society" provides the theoretical foundation for the Future:System framework. Baecker argues that each major medium of communication — writing, print, electronic media, and now the computer/internet — triggers a fundamental restructuring of how society organizes itself.</p>
+    <p class="sec-text-zh zh-only">社会学家迪尔克·贝克尔的"下一个社会"概念为未来系统框架提供了理论基础。贝克尔认为，每一种主要传播媒介——文字、印刷、电子媒体，现在是计算机/互联网——都会引发社会组织方式的根本性重构。</p>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <div class="cc-label en-only">Baecker's Core Argument</div>
+      <div class="cc-label zh-only" style="font-family:'Noto Serif SC',serif">贝克尔的核心论点</div>
+      <div class="cc-title en-only">Medium Determines Society</div>
+      <div class="cc-title zh-only" style="font-family:'Noto Serif SC',serif">媒介决定社会</div>
+      <p class="cc-text en-only">Each new communication medium doesn't just change how we communicate — it changes how we think about organizations, institutions, and legitimacy. The digital medium is triggering the next transformation of social form.</p>
+      <p class="cc-text-zh zh-only">每种新的传播媒介不仅改变我们的沟通方式——它改变我们对组织、机构和合法性的思考方式。数字媒介正在引发社会形态的下一次转型。</p>
+    </div>
+    <div class="compare-card">
+      <div class="cc-label en-only">Implication for Brands</div>
+      <div class="cc-label zh-only" style="font-family:'Noto Serif SC',serif">对品牌的影响</div>
+      <div class="cc-title en-only">Legitimacy Must Be Re-earned</div>
+      <div class="cc-title zh-only" style="font-family:'Noto Serif SC',serif">合法性必须重新赢得</div>
+      <p class="cc-text en-only">In the Next Society, the old legitimation mechanisms for brands — authority, tradition, quality claims — are insufficient. New forms of transparency, participation, and social contribution are required.</p>
+      <p class="cc-text-zh zh-only">在下一个社会中，品牌旧有的合法性机制——权威、传统、质量主张——已经不够。需要新的透明度、参与和社会贡献形式。</p>
+    </div>
+  </div>
+
+  <div class="callout-accent en-only">
+    "The next society is not yet determined — but the transformation processes are already in motion. The brands that shape the next society will be those that understand the forces at work and take a clear stance within them."
+  </div>
+  <div class="callout-accent zh-only" style="font-family:'Noto Serif SC',serif">
+    "下一个社会尚未确定——但转型进程已经启动。塑造下一个社会的品牌将是那些理解当前运作力量并在其中表明明确立场的品牌。"
+  </div>
+
+  <!-- ⑨ CONSEQUENCES FOR BRANDS -->
+  <div class="section-head" id="consequences">
+    <div class="sec-label en-only">Application · Strategy</div>
+    <div class="sec-label zh-only" style="font-family:'Noto Serif SC',serif">应用 · 战略</div>
+    <div class="sec-title en-only">Transformation &amp; Consequences for Brands</div>
+    <div class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">转型与品牌后果</div>
+    <p class="sec-text en-only">The six transformation processes don't impact brands equally or uniformly. Each brand, depending on its industry, target group, and positioning, faces a specific configuration of pressures, opportunities, and legitimacy demands.</p>
+    <p class="sec-text-zh zh-only">六大转型进程对品牌的影响并不平等或均匀。每个品牌根据其所在行业、目标群体和定位，面临特定的压力、机遇和合法性需求组合。</p>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="ic-label en-only">Step 1</div>
+      <div class="ic-label zh-only" style="font-family:'Noto Serif SC',serif">第一步</div>
+      <div class="ic-title en-only">Relevance Analysis</div>
+      <div class="ic-title zh-only" style="font-family:'Noto Serif SC',serif">相关性分析</div>
+      <p class="ic-text en-only">Which of the six transformation processes are most relevant for your brand and industry? Rank and prioritize based on impact and urgency.</p>
+      <p class="ic-text-zh zh-only">六大转型进程中哪些与你的品牌和行业最相关？根据影响力和紧迫性进行排名和优先排序。</p>
+    </div>
+    <div class="info-card">
+      <div class="ic-label en-only">Step 2</div>
+      <div class="ic-label zh-only" style="font-family:'Noto Serif SC',serif">第二步</div>
+      <div class="ic-title en-only">Stakeholder Mapping</div>
+      <div class="ic-title zh-only" style="font-family:'Noto Serif SC',serif">利益相关者映射</div>
+      <p class="ic-text en-only">Who are the key actors in your transformation landscape? Map consumers, partners, regulators, activists, and competitors across each process.</p>
+      <p class="ic-text-zh zh-only">谁是你转型格局中的关键行动者？跨每个进程映射消费者、合作伙伴、监管机构、行动者和竞争对手。</p>
+    </div>
+    <div class="info-card">
+      <div class="ic-label en-only">Step 3</div>
+      <div class="ic-label zh-only" style="font-family:'Noto Serif SC',serif">第三步</div>
+      <div class="ic-title en-only">Positioning Opportunities</div>
+      <div class="ic-title zh-only" style="font-family:'Noto Serif SC',serif">定位机遇</div>
+      <p class="ic-text en-only">Where can your brand take a meaningful stance within these transformations? Identify concrete positioning opportunities that align brand values with societal needs.</p>
+      <p class="ic-text-zh zh-only">你的品牌在哪些转型中能够表明有意义的立场？识别将品牌价值与社会需求相匹配的具体定位机遇。</p>
+    </div>
+    <div class="info-card">
+      <div class="ic-label en-only">Step 4</div>
+      <div class="ic-label zh-only" style="font-family:'Noto Serif SC',serif">第四步</div>
+      <div class="ic-title en-only">How Might We</div>
+      <div class="ic-title zh-only" style="font-family:'Noto Serif SC',serif">我们如何</div>
+      <p class="ic-text en-only">Translate your analysis into design opportunities: "How Might We..." questions that open up strategic and creative solution spaces for your brand.</p>
+      <p class="ic-text-zh zh-only">将分析转化为设计机遇："我们如何……"问题，为你的品牌开启战略和创意解决方案空间。</p>
+    </div>
+  </div>
+
+  <div class="callout-dark en-only">
+    <em>Key insight:</em> The six transformation processes are not separate challenges to be managed one by one — they are a system. A brand strategy that addresses only one process while ignoring the others will be internally inconsistent. The Next Company thinks in systems.
+  </div>
+  <div class="callout-dark zh-only" style="font-family:'Noto Serif SC',serif">
+    <em>核心洞察：</em>六大转型进程不是可以逐一管理的独立挑战——它们是一个系统。只解决一个进程而忽视其他进程的品牌战略将在内部产生矛盾。下一家公司以系统思维运作。
+  </div>
+
+  <!-- ⑩ ASSIGNMENT -->
+  <div class="section-head" id="assignment">
+    <div class="sec-label en-only">Semester Assignment</div>
+    <div class="sec-label zh-only" style="font-family:'Noto Serif SC',serif">学期作业</div>
+    <div class="sec-title en-only">Welcome to The Next Company</div>
+    <div class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">欢迎来到下一家公司</div>
+  </div>
+
+  <div class="assignment">
+    <div class="assign-inner">
+      <div class="assign-label en-only">Social Brands · WiSe 2025/26 · Group Project</div>
+      <div class="assign-label zh-only" style="font-family:'Noto Serif SC',serif">社会品牌 · 2025/26冬季学期 · 小组项目</div>
+      <div class="assign-title en-only">Brand Strategy in the Next Society</div>
+      <div class="assign-title zh-only" style="font-family:'Noto Serif SC',serif">下一个社会中的品牌战略</div>
+      <p class="assign-text en-only">Choose a real brand and develop a strategic response to the six transformation processes of the Next Society. Your work will move through analysis (Which processes are most relevant?), stakeholder mapping (Who are the actors?), opportunity identification (Where can the brand take a stance?), and visualization (How do you communicate your strategy?)</p>
+      <p class="assign-text-zh zh-only">选择一个真实品牌，制定应对下一个社会六大转型进程的战略回应。你的工作将经历分析（哪些进程最相关？）、利益相关者映射（谁是行动者？）、机遇识别（品牌在哪里可以表明立场？）和可视化（如何传达你的战略？）等阶段。</p>
+      <p class="assign-text en-only" style="margin-top:14px"><strong style="color:#F5F2EB">Deliverables:</strong> Interim presentation (03.12.2025) + Final exam presentation (28.01.2026) with actor maps, transformation analysis, and brand positioning recommendations.</p>
+      <p class="assign-text-zh zh-only" style="font-family:'Noto Serif SC',serif; margin-top:14px"><strong style="color:#F5F2EB">交付成果：</strong>中期展示（2025年12月3日）+ 期末考试展示（2026年1月28日），包含行动者地图、转型分析和品牌定位建议。</p>
+    </div>
+  </div>
+
+  <!-- NAV BAR -->
+  <div class="nav-bar">
+    <a class="nav-link" href="index.html">← <span class="en-only">Course Overview</span><span class="zh-only" style="font-family:'Noto Serif SC',serif">课程概览</span></a>
+    <div class="nav-center">
+      <span class="en-only">Session 02 of 06 · Social Brands</span>
+      <span class="zh-only" style="font-family:'Noto Serif SC',serif">第2课，共6课 · 社会品牌</span>
+    </div>
+    <a class="nav-link" href="session-challenges.html"><span class="en-only">Session 3</span><span class="zh-only" style="font-family:'Noto Serif SC',serif">第3课</span> →</a>
+  </div>
+
+</div>
+
+<script>
+function setLang(l){
+  document.body.className=l;
+  document.querySelectorAll('.lb').forEach(b=>b.classList.toggle('on',
+    (l==='en'&&b.textContent==='EN')||(l==='zh'&&b.textContent==='中文')));
+}
+</script>
+</body>
+</html>
