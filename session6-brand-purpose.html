@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Session 6 – Brand Purpose | BT-03 Brand and Responsibility</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F2EB;--bg2:#EBE7DE;--card:#FDFAF4;--ink:#1A1714;--ink2:#46403A;--ink3:#7A756C;
+  --border:rgba(26,23,20,.10);--border2:rgba(26,23,20,.06);
+  --green:#4A8A28;--r:12px;--accent:#C84020;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6}
+body.en .zh-only{display:none!important}
+body.zh .en-only{display:none!important}
+
+/* HEADER */
+.header{background:#1A1714;padding:48px 0 36px;position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);
+  width:700px;height:400px;background:radial-gradient(ellipse,rgba(74,138,40,.22) 0%,transparent 70%);pointer-events:none}
+.header-inner{max-width:900px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+.back-link{color:rgba(255,255,255,.45);font-size:13px;text-decoration:none;letter-spacing:.04em}
+.back-link:hover{color:#fff}
+.session-tag{color:rgba(255,255,255,.35);font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:18px 0 14px}
+.header-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,48px);font-weight:600;
+  line-height:1.15;color:#fff;margin-bottom:22px}
+.header-title span{color:#7EC855}
+
+/* TOC */
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.toc-pill{background:var(--green);color:#fff;font-size:11.5px;font-weight:500;letter-spacing:.04em;
+  padding:5px 14px;border-radius:20px;text-decoration:none;transition:opacity .15s}
+.toc-pill:hover{opacity:.82}
+
+/* LANG BAR */
+.lang-bar{background:var(--bg2);border-bottom:1px solid var(--border);
+  display:flex;justify-content:flex-end;padding:8px 28px;max-width:100%}
+.lang-btn{background:none;border:1.5px solid var(--border);border-radius:6px;
+  color:var(--ink3);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;
+  font-weight:500;letter-spacing:.06em;padding:4px 14px;transition:all .15s}
+.lang-btn+.lang-btn{margin-left:6px}
+.lang-btn.active{background:var(--green);border-color:var(--green);color:#fff}
+
+/* MAIN */
+.main{max-width:900px;margin:0 auto;padding:52px 28px 80px}
+.section{margin-bottom:64px}
+.section-tag{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--green);margin-bottom:10px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3.5vw,32px);
+  font-weight:600;line-height:1.2;margin-bottom:20px;color:var(--ink)}
+.prose{color:var(--ink2);line-height:1.75;margin-bottom:16px}
+.prose strong{color:var(--ink);font-weight:600}
+
+/* CALLOUT */
+.callout{border-left:4px solid var(--green);background:var(--card);border-radius:0 var(--r) var(--r) 0;
+  padding:20px 24px;margin:24px 0;color:var(--ink2)}
+.callout-accent{border-left:4px solid var(--accent);background:var(--card);border-radius:0 var(--r) var(--r) 0;
+  padding:20px 24px;margin:24px 0;color:var(--ink2)}
+.callout strong,.callout-accent strong{color:var(--ink)}
+
+/* QUOTE */
+.quote-block{background:var(--card);border-radius:var(--r);padding:28px 32px;margin:24px 0;
+  border:1px solid var(--border)}
+.quote-block blockquote{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;
+  line-height:1.55;color:var(--ink);margin-bottom:12px}
+.quote-block cite{font-size:13px;color:var(--ink3);font-style:normal}
+
+/* COMPARE GRID */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+@media(max-width:600px){.compare-grid{grid-template-columns:1fr}}
+.compare-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:22px}
+.compare-card h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;
+  margin-bottom:10px;color:var(--ink)}
+.compare-card ul{padding-left:18px;color:var(--ink2);font-size:0.93rem;line-height:1.7}
+
+/* APPROACH GRID */
+.approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
+@media(max-width:650px){.approach-grid{grid-template-columns:1fr}}
+.approach-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:22px;text-align:center}
+.approach-card .icon{font-size:2rem;margin-bottom:10px}
+.approach-card h4{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;
+  color:var(--ink);margin-bottom:8px}
+.approach-card p{font-size:0.88rem;color:var(--ink2);line-height:1.6}
+
+/* INFO CARD */
+.info-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:24px 28px;margin:20px 0}
+.info-card h4{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;
+  color:var(--ink);margin-bottom:12px}
+.info-card ul{padding-left:20px;color:var(--ink2);line-height:1.75}
+.info-card ul li{margin-bottom:6px}
+
+/* LEVELS GRID */
+.levels-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
+@media(max-width:650px){.levels-grid{grid-template-columns:1fr}}
+.level-card{border-radius:var(--r);padding:22px;text-align:center}
+.level-card.social{background:rgba(74,138,40,.10);border:1px solid rgba(74,138,40,.25)}
+.level-card.individual{background:rgba(200,64,32,.08);border:1px solid rgba(200,64,32,.2)}
+.level-card.competitive{background:rgba(26,23,20,.05);border:1px solid var(--border)}
+.level-card h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;
+  color:var(--ink);margin-bottom:8px}
+.level-card p{font-size:0.88rem;color:var(--ink2);line-height:1.6}
+
+/* CASE BOX */
+.case-box{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  overflow:hidden;margin:28px 0}
+.case-box-header{background:#1A1714;padding:16px 24px}
+.case-box-header h4{color:#fff;font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600}
+.case-box-header span{color:rgba(255,255,255,.5);font-size:12px;display:block;margin-top:2px}
+.case-box-body{padding:22px 24px;color:var(--ink2);line-height:1.75}
+.case-box-body ul{padding-left:20px}
+.case-box-body ul li{margin-bottom:6px}
+.case-box-body strong{color:var(--ink)}
+
+/* BRAND EXAMPLES TABLE */
+.brand-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:0.91rem}
+.brand-table th{background:#1A1714;color:#fff;padding:10px 14px;text-align:left;font-weight:500;letter-spacing:.04em}
+.brand-table td{padding:10px 14px;border-bottom:1px solid var(--border2);color:var(--ink2);vertical-align:top}
+.brand-table tr:last-child td{border-bottom:none}
+.brand-table tr:nth-child(even) td{background:rgba(0,0,0,.02)}
+.brand-table td:first-child{font-weight:600;color:var(--ink);white-space:nowrap}
+
+/* ASSIGNMENT */
+.assignment{background:var(--card);border:2px solid var(--green);border-radius:var(--r);
+  padding:32px 36px;margin-top:52px}
+.assignment-badge{display:inline-block;background:var(--green);color:#fff;font-size:11px;
+  font-weight:600;letter-spacing:.10em;text-transform:uppercase;padding:4px 12px;
+  border-radius:20px;margin-bottom:14px}
+.assignment-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;
+  color:var(--ink);margin-bottom:14px}
+.assignment-body{color:var(--ink2);line-height:1.75;margin-bottom:8px}
+
+/* NAV BAR */
+.nav-bar{background:#1A1714;padding:20px 28px;display:flex;align-items:center;
+  justify-content:space-between;gap:16px}
+.nav-btn{color:rgba(255,255,255,.7);text-decoration:none;font-size:13.5px;
+  font-weight:500;letter-spacing:.02em;transition:color .15s}
+.nav-btn:hover{color:#fff}
+.nav-info{color:rgba(255,255,255,.35);font-size:12px;letter-spacing:.08em;text-align:center}
+
+hr.section-rule{border:none;border-top:1px solid var(--border);margin:52px 0}
+</style>
+</head>
+<body class="en">
+
+<div class="header">
+  <div class="header-inner">
+    <a class="back-link" href="index.html">← Course Overview</a>
+    <div class="session-tag">Session 06</div>
+    <h1 class="header-title en-only">Brand <span>Purpose</span></h1>
+    <h1 class="header-title zh-only" style="font-family:'Noto Serif SC',serif">品牌<span>目标</span></h1>
+    <nav class="toc">
+      <a class="toc-pill" href="#esg">ESG</a>
+      <a class="toc-pill" href="#purpose-concept">Purpose Concept</a>
+      <a class="toc-pill" href="#golden-circle">Golden Circle</a>
+      <a class="toc-pill" href="#three-levels">Three Levels</a>
+      <a class="toc-pill" href="#cases">Case Studies</a>
+      <a class="toc-pill" href="#outlook">Critical Outlook</a>
+    </nav>
+  </div>
+</div>
+
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('zh')">中文</button>
+</div>
+
+<div class="main">
+
+  <!-- SECTION 1: ESG -->
+  <div class="section" id="esg">
+    <div class="section-tag en-only">Section 01</div>
+    <div class="section-tag zh-only" style="font-family:'Noto Serif SC',serif">第一节</div>
+    <h2 class="section-title en-only">CSR & ESG: From Responsibility to Reporting</h2>
+    <h2 class="section-title zh-only" style="font-family:'Noto Serif SC',serif">企业社会责任与ESG：从责任到报告</h2>
+
+    <p class="prose en-only">While CSR describes the voluntary commitment of companies to social and environmental responsibility, <strong>ESG</strong> (Environmental, Social, Governance) translates this commitment into measurable, binding criteria — enabling investors, regulators, and stakeholders to assess corporate sustainability objectively.</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif">CSR描述企业对社会和环境责任的自愿承诺，而<strong>ESG</strong>（环境、社会、治理）将这种承诺转化为可量化的约束性标准，使投资者、监管机构和利益相关者能够客观评估企业可持续性。</p>
+
+    <div class="compare-grid">
+      <div class="compare-card">
+        <h4 class="en-only">CSR</h4>
+        <h4 class="zh-only" style="font-family:'Noto Serif SC',serif">企业社会责任</h4>
+        <ul class="en-only">
+          <li>Voluntary commitment</li>
+          <li>Qualitative, narrative orientation</li>
+          <li>Primarily communicative</li>
+          <li>Broad societal scope</li>
+          <li>Self-defined standards</li>
+        </ul>
+        <ul class="zh-only" style="font-family:'Noto Serif SC',serif">
+          <li>自愿承诺</li>
+          <li>定性、叙述性导向</li>
+          <li>以传播为主</li>
+          <li>广泛的社会范围</li>
+          <li>自定义标准</li>
+        </ul>
+      </div>
+      <div class="compare-card">
+        <h4 class="en-only">ESG</h4>
+        <h4 class="zh-only" style="font-family:'Noto Serif SC',serif">ESG标准</h4>
+        <ul class="en-only">
+          <li>Binding, measurable criteria</li>
+          <li>Quantitative KPIs</li>
+          <li>Investor-driven</li>
+          <li>E (Climate, resources), S (Labor, diversity), G (Compliance, transparency)</li>
+          <li>External verification and ratings</li>
+        </ul>
+        <ul class="zh-only" style="font-family:'Noto Serif SC',serif">
+          <li>约束性、可量化标准</li>
+          <li>量化关键绩效指标</li>
+          <li>投资者驱动</li>
+          <li>E（气候、资源）S（劳工、多元化）G（合规、透明度）</li>
+          <li>外部验证和评级</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout en-only">
+      <strong>Key insight:</strong> ESG shifts responsibility from a voluntary moral stance to a structural reporting obligation — making sustainability tangible for capital markets. The "no business as usual" imperative is no longer just an ethical appeal, but an investment-relevant criterion.
+    </div>
+    <div class="callout zh-only" style="font-family:'Noto Serif SC',serif">
+      <strong>核心洞察：</strong>ESG将责任从自愿性道德立场转变为结构性报告义务——使可持续性对资本市场变得可量化。"商业如常已不可能"不再只是道德呼吁，而是与投资相关的标准。
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- SECTION 2: BRAND PURPOSE CONCEPT -->
+  <div class="section" id="purpose-concept">
+    <div class="section-tag en-only">Section 02</div>
+    <div class="section-tag zh-only" style="font-family:'Noto Serif SC',serif">第二节</div>
+    <h2 class="section-title en-only">Brand Purpose: The Moral Compass</h2>
+    <h2 class="section-title zh-only" style="font-family:'Noto Serif SC',serif">品牌目标：道德指南针</h2>
+
+    <div class="quote-block">
+      <blockquote>"Efforts and courage are not enough without purpose and direction."</blockquote>
+      <cite>John F. Kennedy</cite>
+    </div>
+
+    <p class="prose en-only"><strong>Brand Purpose</strong> defines why a brand exists beyond profit orientation. It is the reason why a company does what it does — an identity-forming, meaningful mission that transcends the commercial dimension and positions the brand as a social actor.</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif"><strong>品牌目标</strong>定义了品牌超越利润导向而存在的原因。它是企业做其所做之事的理由——一种形成身份认同的、有意义的使命，超越商业维度，将品牌定位为社会行为者。</p>
+
+    <p class="prose en-only">The increasing societal relevance of brands is driven by a profound <strong>shift in values</strong> in Western (and increasingly global) societies: material values and consumer status symbols are being replaced by intangible values. Younger generations — especially Generation Z — negotiate new values and replace material status symbols with an intangible purpose (cf. Kamps 2022: 51).</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif">品牌日益增长的社会相关性源于西方（以及越来越多的全球）社会价值观的深刻<strong>转变</strong>：物质价值观和消费者地位象征正在被无形价值观所取代。年轻一代——尤其是Z世代——协商新价值观，并以无形目标取代物质地位象征。</p>
+
+    <div class="callout en-only">
+      <strong>The brand question has shifted:</strong> From product-centric ("What will I get for my money?") to value-based ("What does this brand stand for?"). Brand purpose addresses the social level of society: <em>What value does a brand have for society as a whole?</em>
+    </div>
+    <div class="callout zh-only" style="font-family:'Noto Serif SC',serif">
+      <strong>品牌问题已经转变：</strong>从以产品为中心（"我能得到什么？"）到基于价值观（"这个品牌代表什么？"）。品牌目标回答的是社会层面的问题：<em>品牌对整个社会有何价值？</em>
+    </div>
+
+    <div class="quote-block">
+      <blockquote>"A brand purpose is always a commitment to values."</blockquote>
+      <cite>Neye/Bongard 2024: 64</cite>
+    </div>
+
+    <div class="quote-block">
+      <blockquote>"Our clients are the planet's biggest and most successful businesses. And increasingly, these businesses are going to face questions from investors, employees and communities about their role in society."</blockquote>
+      <cite>Larry Fink, CEO BlackRock, annual letter to CEOs 2018</cite>
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- SECTION 3: GOLDEN CIRCLE -->
+  <div class="section" id="golden-circle">
+    <div class="section-tag en-only">Section 03</div>
+    <div class="section-tag zh-only" style="font-family:'Noto Serif SC',serif">第三节</div>
+    <h2 class="section-title en-only">Changing Values & the Golden Circle</h2>
+    <h2 class="section-title zh-only" style="font-family:'Noto Serif SC',serif">价值观变迁与黄金圈理论</h2>
+
+    <p class="prose en-only">Simon Sinek's <strong>Golden Circle</strong> provides a framework for understanding brand purpose. Most companies communicate from the outside in — starting with WHAT they make. Purpose-driven brands communicate from the inside out — starting with WHY they exist.</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif">西蒙·西内克的<strong>黄金圈</strong>为理解品牌目标提供了框架。大多数企业从外向内沟通——从"做什么"开始。目标驱动型品牌从内向外沟通——从"为什么"开始。</p>
+
+    <div class="approach-grid">
+      <div class="approach-card">
+        <div class="icon">❓</div>
+        <h4>WHY</h4>
+        <p class="en-only">Very few companies know <em>why</em> they do what they do. Making money is merely the result. The WHY is a purpose, a cause, a conviction — the real reason why the organization exists.</p>
+        <p class="zh-only" style="font-family:'Noto Serif SC',serif">很少有企业知道<em>为什么</em>做他们所做的事。赚钱只是结果。"为什么"是一种目标、事业或信念——是组织存在的真正原因。</p>
+      </div>
+      <div class="approach-card">
+        <div class="icon">⚙️</div>
+        <h4>HOW</h4>
+        <p class="en-only">Some companies know <em>how</em> they do things — the distinctive factors that make them special and set them apart from competitors.</p>
+        <p class="zh-only" style="font-family:'Noto Serif SC',serif">一些企业知道<em>如何</em>做事——这些独特因素使他们与竞争对手区别开来。</p>
+      </div>
+      <div class="approach-card">
+        <div class="icon">📦</div>
+        <h4>WHAT</h4>
+        <p class="en-only">Every organization knows <em>what</em> it does — the products it sells or the services it offers.</p>
+        <p class="zh-only" style="font-family:'Noto Serif SC',serif">每个组织都知道自己<em>做什么</em>——销售的产品或提供的服务。</p>
+      </div>
+    </div>
+
+    <div class="case-box">
+      <div class="case-box-header">
+        <h4>IKEA: Golden Circle in Practice</h4>
+        <span class="en-only">Example from Neye/Bongard 2025: 18</span>
+        <span class="zh-only" style="font-family:'Noto Serif SC',serif">来源：Neye/Bongard 2025: 18</span>
+      </div>
+      <div class="case-box-body">
+        <ul class="en-only">
+          <li><strong>WHY:</strong> To create a better everyday life for as many people as possible</li>
+          <li><strong>HOW:</strong> By offering a wide range of well-designed, functional home furnishing products at low prices</li>
+          <li><strong>WHAT:</strong> Flat-pack furniture, home accessories, food — sold in large, self-service stores worldwide</li>
+        </ul>
+        <ul class="zh-only" style="font-family:'Noto Serif SC',serif">
+          <li><strong>为什么：</strong>为尽可能多的人创造更美好的日常生活</li>
+          <li><strong>如何：</strong>以低价提供各种设计精良、功能实用的家居产品</li>
+          <li><strong>做什么：</strong>平板包装家具、家居用品、食品——在全球大型自助服务商场销售</li>
+        </ul>
+        <p class="en-only" style="margin-top:14px">IKEA's brand purpose anchors the company in a societal mission that justifies its existence beyond the sale of furniture: democratizing good design and making quality living accessible to everyone.</p>
+        <p class="zh-only" style="font-family:'Noto Serif SC',serif;margin-top:14px">宜家的品牌目标将公司锚定于一种社会使命，这种使命超越了家具销售本身：将好设计民主化，让每个人都能获得高质量的生活。</p>
+      </div>
+    </div>
+
+    <div class="callout en-only">
+      <strong>Brand Purpose Context (Neye/Bongard 2024: 63):</strong> Brand purpose operates at three levels: it provides legitimation for the company's existence, creates relevance for the individual consumer, and enables differentiation from competitors.
+    </div>
+    <div class="callout zh-only" style="font-family:'Noto Serif SC',serif">
+      <strong>品牌目标情境（Neye/Bongard 2024: 63）：</strong>品牌目标在三个层面发挥作用：为企业存在提供合法性，为个人消费者创造相关性，并实现与竞争对手的差异化。
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- SECTION 4: THREE LEVELS -->
+  <div class="section" id="three-levels">
+    <div class="section-tag en-only">Section 04</div>
+    <div class="section-tag zh-only" style="font-family:'Noto Serif SC',serif">第四节</div>
+    <h2 class="section-title en-only">Brand Purpose at Three Levels</h2>
+    <h2 class="section-title zh-only" style="font-family:'Noto Serif SC',serif">品牌目标的三个层次</h2>
+
+    <div class="levels-grid">
+      <div class="level-card social">
+        <h4 class="en-only">Social Level</h4>
+        <h4 class="zh-only" style="font-family:'Noto Serif SC',serif">社会层次</h4>
+        <p class="en-only">Companies need a societal "licence to operate" (Zerfaß 2007). Brand purpose with a social orientation — like Patagonia's "We're in business to save our home planet" — builds public trust and acceptance. Not every brand can authentically represent such sublime greatness.</p>
+        <p class="zh-only" style="font-family:'Noto Serif SC',serif">企业需要社会"运营许可"（Zerfaß 2007）。具有社会导向的品牌目标——如巴塔哥尼亚的"我们做生意是为了拯救地球家园"——建立公众信任和认可。并非每个品牌都能真实地代表如此崇高的使命。</p>
+      </div>
+      <div class="level-card individual">
+        <h4 class="en-only">Individual Level</h4>
+        <h4 class="zh-only" style="font-family:'Noto Serif SC',serif">个人层次</h4>
+        <p class="en-only">Purpose must connect societal value with individual benefit to become action-relevant. "A purpose transforms not just a brand, but also the people who use it — by helping them develop or enhance their self-image" (Baetzgen 2022: 17). 89% of American consumers say they are loyal to brands that share their values.</p>
+        <p class="zh-only" style="font-family:'Noto Serif SC',serif">目标必须将社会价值与个人利益相结合才能具有行动相关性。"目标不仅能转变一个品牌，也能转变使用它的人——帮助他们发展或提升自我形象"（Baetzgen 2022: 17）。89%的美国消费者表示他们忠于与自己价值观相符的品牌。</p>
+      </div>
+      <div class="level-card competitive">
+        <h4 class="en-only">Competitive Level</h4>
+        <h4 class="zh-only" style="font-family:'Noto Serif SC',serif">竞争层次</h4>
+        <p class="en-only">As product differences level out, marketing transforms into a communication competition. Digital transformation and information overload turn attention into the scarce resource — brand purpose differentiates through meaning rather than product features, creating "meaningful economics" (Neye/Bongard 2024: 65).</p>
+        <p class="zh-only" style="font-family:'Noto Serif SC',serif">随着产品差异趋同，营销转变为传播竞争。数字化转型和信息过载使注意力成为稀缺资源——品牌目标通过意义而非产品特性来实现差异化，创造"有意义的经济"（Neye/Bongard 2024: 65）。</p>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <blockquote>"It's a move from 'why' your organization matters in the world to understand how you as an organization can help me to achieve 'who' I want to be: making me matter."</blockquote>
+      <cite>Thomas Kolster 2020: 6</cite>
+    </div>
+
+    <div class="callout en-only">
+      <strong>The "economization" of brand purpose:</strong> Using meaning for economic ends is not only legitimate — it is perceived by consumers as quite acceptable, as long as the purpose is permanently and credibly anchored in the brand's goals, strategies, and value chain (Baetzgen 2022: 34). Authenticity is non-negotiable.
+    </div>
+    <div class="callout zh-only" style="font-family:'Noto Serif SC',serif">
+      <strong>品牌目标的"经济化"：</strong>将意义用于经济目的不仅是合法的——消费者认为这是完全可接受的，只要目标被永久、可信地嵌入品牌的目标、战略和价值链中（Baetzgen 2022: 34）。真实性是不可妥协的。
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- SECTION 5: VISION-MISSION-PURPOSE CASES -->
+  <div class="section" id="cases">
+    <div class="section-tag en-only">Section 05</div>
+    <div class="section-tag zh-only" style="font-family:'Noto Serif SC',serif">第五节</div>
+    <h2 class="section-title en-only">Vision, Mission, Purpose: Brand Case Studies</h2>
+    <h2 class="section-title zh-only" style="font-family:'Noto Serif SC',serif">愿景、使命、目标：品牌案例研究</h2>
+
+    <p class="prose en-only">Vision, mission, and purpose form an interconnected system of brand identity. Vision describes the long-term aspirational end state; mission defines the approach; brand purpose expresses the deeper reason for existence — the "why" that anchors social responsibility at the heart of the brand.</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif">愿景、使命和目标构成品牌身份的相互关联系统。愿景描述长期理想终态；使命界定方法；品牌目标表达更深层的存在理由——将社会责任锚定于品牌核心的"为什么"。</p>
+
+    <table class="brand-table">
+      <thead>
+        <tr>
+          <th>Brand</th>
+          <th class="en-only">Vision</th>
+          <th class="zh-only" style="font-family:'Noto Serif SC',serif">愿景</th>
+          <th class="en-only">Mission</th>
+          <th class="zh-only" style="font-family:'Noto Serif SC',serif">使命</th>
+          <th class="en-only">Brand Purpose</th>
+          <th class="zh-only" style="font-family:'Noto Serif SC',serif">品牌目标</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Patagonia</td>
+          <td class="en-only">Use all of our resources to protect life on earth.</td>
+          <td class="zh-only" style="font-family:'Noto Serif SC',serif">利用我们所有资源保护地球上的生命。</td>
+          <td class="en-only">Build the best product, cause no unnecessary harm, use business to inspire solutions to the environmental crisis.</td>
+          <td class="zh-only" style="font-family:'Noto Serif SC',serif">打造最优产品，避免不必要的伤害，以商业力量推动环境危机解决方案。</td>
+          <td><em>We're in business to save our home planet.</em></td>
+        </tr>
+        <tr>
+          <td>Tesla</td>
+          <td class="en-only">Create the most compelling car company of the 21st century by driving the world's transition to electric vehicles.</td>
+          <td class="zh-only" style="font-family:'Noto Serif SC',serif">通过推动全球向电动汽车转型，打造21世纪最具影响力的汽车公司。</td>
+          <td class="en-only">Bringing compelling mass-market electric cars to market as soon as possible.</td>
+          <td class="zh-only" style="font-family:'Noto Serif SC',serif">尽快将引人注目的大众市场电动汽车推向市场。</td>
+          <td><em>To accelerate the world's transition to sustainable energy.</em></td>
+        </tr>
+        <tr>
+          <td>Microsoft</td>
+          <td class="en-only">A computer on every desk and in every house. (Bill Gates, 1975)</td>
+          <td class="zh-only" style="font-family:'Noto Serif SC',serif">每张桌子上、每个家庭中都有一台电脑。（比尔·盖茨，1975）</td>
+          <td class="en-only">Empower every person and every organization on the planet to achieve more.</td>
+          <td class="zh-only" style="font-family:'Noto Serif SC',serif">赋能地球上每个人和每个组织实现更多。</td>
+          <td><em>To empower every person and every organization on the planet to achieve more.</em></td>
+        </tr>
+        <tr>
+          <td>SpaceX</td>
+          <td class="en-only">Enabling people to live on other planets.</td>
+          <td class="zh-only" style="font-family:'Noto Serif SC',serif">使人类能够在其他星球生活。</td>
+          <td class="en-only">To revolutionize space technology.</td>
+          <td class="zh-only" style="font-family:'Noto Serif SC',serif">彻底革新航天技术。</td>
+          <td><em>Making humanity multi-planetary.</em></td>
+        </tr>
+        <tr>
+          <td>Volvo</td>
+          <td class="en-only">By 2020, no one should be killed or seriously injured in a new Volvo car.</td>
+          <td class="zh-only" style="font-family:'Noto Serif SC',serif">到2020年，没有人应在新沃尔沃车中丧生或严重受伤。</td>
+          <td class="en-only">For life. Give the freedom to travel individually, sustainably and safely.</td>
+          <td class="zh-only" style="font-family:'Noto Serif SC',serif">为了生命。提供个性化、可持续、安全出行的自由。</td>
+          <td><em>For a better future. To make life easier, better and safer for everyone.</em></td>
+        </tr>
+        <tr>
+          <td>TUI</td>
+          <td class="en-only">Excellence in Leisure Experiences.</td>
+          <td class="zh-only" style="font-family:'Noto Serif SC',serif">休闲体验卓越典范。</td>
+          <td class="en-only">Putting a smile on people's faces.</td>
+          <td class="zh-only" style="font-family:'Noto Serif SC',serif">让人们绽放笑容。</td>
+          <td><em>TUI creates the moments that make life richer.</em></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- SECTION 6: CRITICAL OUTLOOK -->
+  <div class="section" id="outlook">
+    <div class="section-tag en-only">Section 06</div>
+    <div class="section-tag zh-only" style="font-family:'Noto Serif SC',serif">第六节</div>
+    <h2 class="section-title en-only">Purpose Overflow: Risks and Critical Outlook</h2>
+    <h2 class="section-title zh-only" style="font-family:'Noto Serif SC',serif">目标过载：风险与批判性展望</h2>
+
+    <p class="prose en-only">As hopeful as the theory of brand purpose is, the reality is sobering. The "Purpose Overflow" (Future Institute 2020: 14) has reached a point of saturation. As a pure marketing tool, the purpose boom has degenerated into greenwashing and "woke washing" — and has only accelerated the rampant loss of trust from which brands already suffer.</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif">尽管品牌目标理论充满希望，现实却令人警醒。"目标过载"（Future Institute 2020: 14）已到达饱和点。作为纯粹的营销工具，目标热潮已蜕变为绿色清洗和"觉醒清洗"——进一步加速了品牌已经面临的信任流失。</p>
+
+    <div class="callout-accent en-only">
+      <strong>The consequence — action speaks louder than words:</strong> Brand purpose can only be credible when social responsibility goes beyond communication and is deeply anchored in company strategy and value creation (Neye/Bongard 2025: 210).
+    </div>
+    <div class="callout-accent zh-only" style="font-family:'Noto Serif SC',serif">
+      <strong>结论——行动胜于言辞：</strong>品牌目标只有在社会责任超越传播层面、深度嵌入公司战略和价值创造时，才能具有可信度（Neye/Bongard 2025: 210）。
+    </div>
+
+    <div class="quote-block">
+      <blockquote>"It has to come from a systematic and demonstrable commitment and cause. It's a business idea, not a branding idea. […] More than a marketing bland, it's a way for businesses to conceptualize their place in the world and the ethical responsibilities that flow from it."</blockquote>
+      <cite>Asbury 2024: 12 f.</cite>
+    </div>
+
+    <div class="info-card">
+      <h4 class="en-only">Critical Limits of Brand Purpose</h4>
+      <h4 class="zh-only" style="font-family:'Noto Serif SC',serif">品牌目标的批判性局限</h4>
+      <ul class="en-only">
+        <li>Brands lack democratic legitimacy for political and social action — "brands that measure their right to exist by whether they want to save the world" overstep their proper domain</li>
+        <li>Morally toned purpose misunderstands the economic orientation of brands — it focuses on actors' motivation rather than systemic consequences</li>
+        <li>The road to hell is paved with good intentions — well-meant purpose without systemic thinking can produce counterproductive results</li>
+        <li>Brands that become "activists" must ensure their engagement goes beyond communication and is embedded in the entire value chain</li>
+      </ul>
+      <ul class="zh-only" style="font-family:'Noto Serif SC',serif">
+        <li>品牌缺乏政治和社会行动的民主合法性——"以是否想拯救世界来衡量存在权利的品牌"超越了其适当领域</li>
+        <li>道德色彩浓厚的目标误解了品牌的经济导向——它关注行动者动机而非系统性后果</li>
+        <li>通往地狱的道路由善意铺就——没有系统性思维的善意目标可能产生适得其反的结果</li>
+        <li>成为"活动家"的品牌必须确保其参与超越传播层面，嵌入整个价值链</li>
+      </ul>
+    </div>
+
+    <p class="prose en-only">The future of brand management lies in brands taking a clear stance — building relevant and credible profiles through contributions to sustainable change. "Brands that take a stance on important sociopolitical issues can create strong emotional connections with consumers, but only if it is seen as more than just communication" (Moumade et al. 2024: 4).</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif">品牌管理的未来在于品牌采取明确立场——通过对可持续变革的贡献建立相关且可信的形象。"对重要社会政治问题采取立场的品牌能够与消费者建立强烈的情感连接，但前提是这种立场被视为不仅仅是传播"（Moumade et al. 2024: 4）。</p>
+  </div>
+
+  <!-- ASSIGNMENT -->
+  <div class="assignment">
+    <div class="assignment-badge en-only">Semester Assignment</div>
+    <div class="assignment-badge zh-only" style="font-family:'Noto Serif SC',serif">学期作业</div>
+    <div class="assignment-title en-only">Group Presentation — CSR & Brand Purpose Analysis</div>
+    <div class="assignment-title zh-only" style="font-family:'Noto Serif SC',serif">小组报告——企业社会责任与品牌目标分析</div>
+    <p class="assignment-body en-only">Research how the brands you have selected anchor CSR in the company in terms of content and structure. Analyze and critically reflect on the CSR engagement (content/structural anchoring, projects, CSR communication) and the brand purpose.</p>
+    <p class="assignment-body zh-only" style="font-family:'Noto Serif SC',serif">研究您所选择的品牌如何在内容和结构上将企业社会责任嵌入公司。分析并批判性地反思CSR参与（内容/结构嵌入、项目、CSR传播）和品牌目标。</p>
+    <p class="assignment-body en-only"><strong>CSR Action Recommendations:</strong> What improvement opportunities would you recommend? <strong>Brand Purpose Development:</strong> Develop your own brand purpose for your brand. Summarize your results in a short presentation (max. 15 minutes).</p>
+    <p class="assignment-body zh-only" style="font-family:'Noto Serif SC',serif"><strong>CSR行动建议：</strong>您建议哪些改进机会？<strong>品牌目标开发：</strong>为您的品牌开发品牌目标。以简短报告（最多15分钟）总结您的成果。</p>
+    <p class="assignment-body en-only" style="margin-top:12px">
+      <strong>Filename:</strong> BT-03_Marke-und-Verantwortung_LastName_MatriculationNumber
+    </p>
+    <p class="assignment-body zh-only" style="font-family:'Noto Serif SC',serif;margin-top:12px">
+      <strong>文件名：</strong>BT-03_Marke-und-Verantwortung_姓名_学号
+    </p>
+  </div>
+
+</div><!-- /main -->
+
+<div class="nav-bar">
+  <a class="nav-btn" href="session5-csr-esg.html">← Session 5: CSR & ESG</a>
+  <span class="nav-info">Session 06 of 08</span>
+  <a class="nav-btn" href="session7-brand-activism.html">Session 7: Brand Activism →</a>
+</div>
+
+<script>
+function setLang(l){
+  document.body.className=l;
+  document.querySelectorAll('.lang-btn').forEach(function(b){
+    b.classList.toggle('active', b.textContent.trim().toLowerCase()===l||
+      (l==='zh'&&b.textContent.trim()==='中文'));
+  });
+}
+</script>
+</body>
+</html>

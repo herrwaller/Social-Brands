@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Brands · Course Overview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F2EB; --bg2:#EBE7DE; --bg3:#DAD5C8; --card:#FDFAF4;
+  --ink:#1A1714; --ink2:#46403A; --ink3:#7A756C;
+  --border:rgba(26,23,20,.10); --border2:rgba(26,23,20,.06);
+  --green:#4A8A28; --r:12px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+
+/* HERO */
+.hero{background:#1A1714;color:#F5F2EB;padding:60px 48px 52px;position:relative;overflow:hidden;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 700px 400px at 80% 50%,rgba(74,138,40,.18) 0%,transparent 70%)}
+.hero::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.012) 0,rgba(255,255,255,.012) 1px,transparent 1px,transparent 14px)}
+.hero-inner{position:relative;z-index:1;max-width:860px;margin:0 auto;width:100%}
+.hero-tag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,242,235,.38);margin-bottom:14px}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,58px);font-weight:700;line-height:1.05;margin-bottom:12px}
+.hero-title span{color:#6AAA38}
+.hero-sub{font-size:13.5px;color:rgba(245,242,235,.5);max-width:580px;line-height:1.65}
+.lang-row{position:absolute;top:24px;right:24px;display:flex;gap:6px;z-index:2}
+.lb{background:none;border:1px solid rgba(245,242,235,.25);color:rgba(245,242,235,.55);
+    padding:4px 14px;border-radius:20px;font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer;transition:all .15s}
+.lb.on{background:var(--green);border-color:var(--green);color:#fff}
+
+/* LAYOUT */
+.page{max-width:860px;margin:0 auto;padding:0 24px}
+
+/* SECTION HEADER */
+.section-head{padding:44px 0 20px}
+.sec-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);
+  font-weight:500;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.sec-label::after{content:'';flex:1;height:1px;background:rgba(74,138,40,.2)}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,30px);font-weight:700;line-height:1.2;margin-bottom:6px}
+.sec-text{font-size:14px;color:var(--ink2);line-height:1.75;max-width:680px}
+.sec-text-zh{font-family:'Noto Serif SC',serif;font-size:13px;color:var(--ink3);line-height:1.9;max-width:680px;padding-left:14px;border-left:2px solid var(--bg3);margin-top:8px}
+
+/* LECTURE GRID */
+.lecture-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;padding-bottom:20px}
+.lecture-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:22px;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:all .18s;position:relative;overflow:hidden}
+.lecture-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+.lecture-card:hover{border-color:rgba(74,138,40,.25);box-shadow:0 4px 20px rgba(26,23,20,.08);transform:translateY(-2px)}
+.lecture-card:hover::before{transform:scaleX(1)}
+.lc-num{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);font-weight:500;margin-bottom:4px}
+.lc-date{font-size:10px;color:var(--ink3);margin-bottom:8px}
+.lc-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;line-height:1.2;margin-bottom:10px}
+.lc-desc{font-size:12.5px;color:var(--ink3);line-height:1.65;margin-bottom:14px;flex:1}
+.lc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto}
+.lc-tag{background:var(--bg2);border-radius:20px;padding:3px 10px;font-size:10.5px;color:var(--ink3)}
+.lc-arrow{color:var(--green);font-size:12.5px;margin-top:10px;display:block;font-weight:500}
+
+/* CALLOUT TILE */
+.callout-tile{background:#1A1714;color:#F5F2EB;border-radius:var(--r);padding:32px 36px;position:relative;overflow:hidden;margin-bottom:4px}
+.callout-tile::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 500px 300px at 85% 50%,rgba(74,138,40,.15) 0%,transparent 70%)}
+.ct-inner{position:relative;z-index:1}
+.ct-label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,242,235,.35);margin-bottom:10px}
+.ct-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3.5vw,34px);font-weight:700;line-height:1.2;color:#F5F2EB;margin-bottom:10px}
+.ct-quote span{color:#6AAA38}
+.ct-attr{font-size:12px;color:rgba(245,242,235,.45)}
+
+/* TASK TILE */
+.task-tile{background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:28px 32px;margin-bottom:4px}
+.task-tile .et-label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.task-tile .et-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin-bottom:16px;line-height:1.2;color:var(--ink)}
+.task-tile .et-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:560px){.task-tile .et-grid{grid-template-columns:1fr}}
+.task-tile .et-row{font-size:13px;color:var(--ink2);line-height:1.7}
+.task-tile .et-row strong{color:var(--ink);font-weight:500}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--border2);margin-top:20px;padding:28px 0 48px}
+.footer-text{font-size:12px;color:var(--ink3);line-height:1.7}
+
+body.zh .en-only{display:none!important}
+body.en .zh-only{display:none!important}
+</style>
+</head>
+<body class="en">
+
+<div class="lang-row">
+  <button class="lb on" onclick="setLang('en')">EN</button>
+  <button class="lb" onclick="setLang('zh')">中文</button>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag en-only">Brand University of Applied Sciences · WiSe 2025/26 · Part II</div>
+    <div class="hero-tag zh-only" style="font-family:'Noto Serif SC',serif">品牌应用科学大学 · 2025/26冬季学期 · 第二部分</div>
+    <div class="hero-title">Social <span>Brands</span></div>
+    <div class="hero-sub en-only">A seminar by Prof. Dr. Sandra Groll on societal transformation, brand responsibility, and the future of brand strategy in an era of radical change.</div>
+    <div class="hero-sub zh-only" style="font-family:'Noto Serif SC',serif">Sandra Groll教授主讲的研讨课——探讨社会转型、品牌责任，以及激烈变革时代品牌战略的未来。</div>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="section-head">
+    <div class="sec-label en-only">Seminar · 6 Sessions</div>
+    <div class="sec-label zh-only" style="font-family:'Noto Serif SC',serif">研讨课 · 6次课</div>
+    <div class="sec-title en-only">Session Overview</div>
+    <div class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">课程概览</div>
+    <p class="sec-text en-only">Six sessions examining the six major transformation processes reshaping society — and how brands must respond. From analysis to actor maps, visualizations, and final presentations.</p>
+    <p class="sec-text-zh zh-only">六次课程，审视重塑社会的六大转型进程——以及品牌应如何回应。从分析到行动者地图、可视化呈现，直至期末展示。</p>
+  </div>
+
+  <div class="lecture-grid">
+
+    <a class="lecture-card" href="session-interim.html">
+      <div class="lc-num">Session #1</div>
+      <div class="lc-date">03.12.2025</div>
+      <div class="lc-title en-only">Interim Presentation</div>
+      <div class="lc-title zh-only" style="font-family:'Noto Serif SC',serif">中期展示</div>
+      <p class="lc-desc en-only">First presentation of group work — sharing research findings, brand analysis, and initial strategic directions with the seminar group.</p>
+      <p class="lc-desc zh-only" style="font-family:'Noto Serif SC',serif">小组研究的首次展示——与研讨班分享调研发现、品牌分析及初步战略方向。</p>
+      <div class="lc-tags"><span class="lc-tag">Presentation</span><span class="lc-tag">Interim</span><span class="lc-tag">Feedback</span></div>
+      <span class="lc-arrow en-only">Open session →</span>
+      <span class="lc-arrow zh-only" style="font-family:'Noto Serif SC',serif">打开讲义 →</span>
+    </a>
+
+    <a class="lecture-card" href="session-transformation.html">
+      <div class="lc-num">Session #2</div>
+      <div class="lc-date">10.12.2025</div>
+      <div class="lc-title en-only">Transformation Processes &amp; Analysis</div>
+      <div class="lc-title zh-only" style="font-family:'Noto Serif SC',serif">转型进程与分析</div>
+      <p class="lc-desc en-only">The Future:System framework — six transformation processes reshaping the Next Society: Eco Transition, Glocalisation, Mindshift Revolution, Co-Society, Conscious Economy, Human Digitality.</p>
+      <p class="lc-desc zh-only" style="font-family:'Noto Serif SC',serif">未来系统框架——重塑下一个社会的六大转型进程：生态转型、全球本土化、意识革命、共同社会、意识经济、人机融合。</p>
+      <div class="lc-tags"><span class="lc-tag">Future:System</span><span class="lc-tag">Transformation</span><span class="lc-tag">Next Society</span></div>
+      <span class="lc-arrow en-only">Open session →</span>
+      <span class="lc-arrow zh-only" style="font-family:'Noto Serif SC',serif">打开讲义 →</span>
+    </a>
+
+    <a class="lecture-card" href="session-challenges.html">
+      <div class="lc-num">Session #3</div>
+      <div class="lc-date">17.12.2025</div>
+      <div class="lc-title en-only">Brand &amp; Industry Challenges</div>
+      <div class="lc-title zh-only" style="font-family:'Noto Serif SC',serif">品牌与行业挑战</div>
+      <p class="lc-desc en-only">How the six transformation processes create specific challenges for your brand and industry — developing a systemic understanding of pressure points and opportunities.</p>
+      <p class="lc-desc zh-only" style="font-family:'Noto Serif SC',serif">六大转型进程如何为你的品牌和行业带来具体挑战——系统理解压力点与机遇。</p>
+      <div class="lc-tags"><span class="lc-tag">Challenges</span><span class="lc-tag">Industry</span><span class="lc-tag">Analysis</span></div>
+      <span class="lc-arrow en-only">Open session →</span>
+      <span class="lc-arrow zh-only" style="font-family:'Noto Serif SC',serif">打开讲义 →</span>
+    </a>
+
+    <a class="lecture-card" href="session-actor-maps.html">
+      <div class="lc-num">Session #4</div>
+      <div class="lc-date">07.01.2026</div>
+      <div class="lc-title en-only">Actor Maps &amp; How Might We</div>
+      <div class="lc-title zh-only" style="font-family:'Noto Serif SC',serif">行动者地图与"我们如何"</div>
+      <p class="lc-desc en-only">Mapping the stakeholder ecosystem and translating transformation insights into strategic design opportunities using the "How Might We" method.</p>
+      <p class="lc-desc zh-only" style="font-family:'Noto Serif SC',serif">绘制利益相关者生态系统地图，并运用"我们如何"方法将转型洞察转化为战略设计机遇。</p>
+      <div class="lc-tags"><span class="lc-tag">Actor Maps</span><span class="lc-tag">HMW</span><span class="lc-tag">Stakeholders</span></div>
+      <span class="lc-arrow en-only">Open session →</span>
+      <span class="lc-arrow zh-only" style="font-family:'Noto Serif SC',serif">打开讲义 →</span>
+    </a>
+
+    <a class="lecture-card" href="session-results.html">
+      <div class="lc-num">Session #5</div>
+      <div class="lc-date">14.01.2026</div>
+      <div class="lc-title en-only">Results &amp; Visualizations</div>
+      <div class="lc-title zh-only" style="font-family:'Noto Serif SC',serif">成果与可视化</div>
+      <p class="lc-desc en-only">Presenting visual outcomes — translating strategic analysis into compelling visual formats and preparing materials for the final exam presentation.</p>
+      <p class="lc-desc zh-only" style="font-family:'Noto Serif SC',serif">呈现视觉成果——将战略分析转化为有说服力的视觉形式，并为期末考试展示准备材料。</p>
+      <div class="lc-tags"><span class="lc-tag">Visualization</span><span class="lc-tag">Results</span><span class="lc-tag">Presentation</span></div>
+      <span class="lc-arrow en-only">Open session →</span>
+      <span class="lc-arrow zh-only" style="font-family:'Noto Serif SC',serif">打开讲义 →</span>
+    </a>
+
+    <a class="lecture-card" href="session-feedback.html">
+      <div class="lc-num">Session #6</div>
+      <div class="lc-date">21.01.2026</div>
+      <div class="lc-title en-only">Feedback &amp; Presentation Preparation</div>
+      <div class="lc-title zh-only" style="font-family:'Noto Serif SC',serif">反馈与展示准备</div>
+      <p class="lc-desc en-only">Final feedback round, refining presentations, and preparing for the exam presentation — structuring the narrative of your brand strategy.</p>
+      <p class="lc-desc zh-only" style="font-family:'Noto Serif SC',serif">最终反馈轮次、完善展示内容，并为考试展示做准备——构建品牌战略的叙事结构。</p>
+      <div class="lc-tags"><span class="lc-tag">Feedback</span><span class="lc-tag">Refinement</span><span class="lc-tag">Exam Prep</span></div>
+      <span class="lc-arrow en-only">Open session →</span>
+      <span class="lc-arrow zh-only" style="font-family:'Noto Serif SC',serif">打开讲义 →</span>
+    </a>
+
+  </div>
+
+  <div class="section-head">
+    <div class="sec-label en-only">Core Thesis</div>
+    <div class="sec-label zh-only" style="font-family:'Noto Serif SC',serif">核心命题</div>
+  </div>
+
+  <div class="callout-tile">
+    <div class="ct-inner">
+      <div class="ct-label en-only">Prof. Dr. Sandra Groll · Brand University of Applied Sciences</div>
+      <div class="ct-label zh-only" style="font-family:'Noto Serif SC',serif">Sandra Groll教授 · 品牌应用科学大学</div>
+      <div class="ct-quote en-only">"Branding without a <span>stance</span> is fraud."</div>
+      <div class="ct-quote zh-only" style="font-family:'Noto Serif SC',serif">"没有<span>立场</span>的品牌是欺诈。"</div>
+      <div class="ct-attr en-only">The seminar's guiding principle — brands must take responsibility for the transformations reshaping our society.</div>
+      <div class="ct-attr zh-only" style="font-family:'Noto Serif SC',serif">研讨课的指导原则——品牌必须对重塑我们社会的各种转型承担责任。</div>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <div class="sec-label en-only">Semester Assignment</div>
+    <div class="sec-label zh-only" style="font-family:'Noto Serif SC',serif">学期作业</div>
+    <div class="sec-title en-only">Welcome to The Next Company</div>
+    <div class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">欢迎来到下一家公司</div>
+  </div>
+
+  <div class="task-tile">
+    <div class="et-label en-only">Social Brands · WiSe 2025/26</div>
+    <div class="et-label zh-only" style="font-family:'Noto Serif SC',serif">社会品牌 · 2025/26冬季学期</div>
+    <div class="et-title en-only">Brand Strategy in the Next Society</div>
+    <div class="et-title zh-only" style="font-family:'Noto Serif SC',serif">下一个社会中的品牌战略</div>
+    <div class="et-grid">
+      <div>
+        <div class="et-row en-only"><strong>Brief:</strong> Choose a real brand and develop a strategy for how it must adapt to the six transformation processes of the Next Society.</div>
+        <div class="et-row zh-only" style="font-family:'Noto Serif SC',serif"><strong>任务：</strong>选择一个真实品牌，制定其应对下一个社会六大转型进程的战略。</div>
+        <div class="et-row en-only"><strong>Format:</strong> Group presentation with visualizations and actor maps</div>
+        <div class="et-row zh-only" style="font-family:'Noto Serif SC',serif"><strong>形式：</strong>带有可视化成果与行动者地图的小组展示</div>
+      </div>
+      <div>
+        <div class="et-row en-only"><strong>Exam Date:</strong> Wednesday, 28.01.2026</div>
+        <div class="et-row zh-only" style="font-family:'Noto Serif SC',serif"><strong>考试日期：</strong>2026年1月28日（星期三）</div>
+        <div class="et-row en-only"><strong>Examiner:</strong> Prof. Dr. Sandra Groll</div>
+        <div class="et-row zh-only" style="font-family:'Noto Serif SC',serif"><strong>主考官：</strong>Sandra Groll教授</div>
+        <div class="et-row en-only"><strong>Interim:</strong> 03.12.2025 — first presentation of research</div>
+        <div class="et-row zh-only" style="font-family:'Noto Serif SC',serif"><strong>中期：</strong>2025年12月3日——首次研究展示</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-text">
+      <span class="en-only">Social Brands · Prof. Dr. Sandra Groll · Brand University of Applied Sciences · WiSe 2025/26</span>
+      <span class="zh-only" style="font-family:'Noto Serif SC',serif">社会品牌 · Sandra Groll教授 · 品牌应用科学大学 · 2025/26冬季学期</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function setLang(l){
+  document.body.className=l;
+  document.querySelectorAll('.lb').forEach(b=>b.classList.toggle('on',
+    (l==='en'&&b.textContent==='EN')||(l==='zh'&&b.textContent==='中文')));
+}
+</script>
+</body>
+</html>

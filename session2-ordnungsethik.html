@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Session 2 — Regulatory Ethics &amp; Order Ethics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F2EB;--bg2:#EBE7DE;--bg3:#DAD5C8;--card:#FDFAF4;
+  --ink:#1A1714;--ink2:#46403A;--ink3:#7A756C;
+  --border:rgba(26,23,20,.10);--border2:rgba(26,23,20,.06);
+  --green:#4A8A28;--r:12px;--accent:#C84020;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7}
+body.en .zh-only{display:none!important}
+body.zh .en-only{display:none!important}
+
+.header{background:#1A1714;padding:0;position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;top:-60px;right:-80px;width:420px;height:420px;background:radial-gradient(circle,rgba(74,138,40,.28) 0%,transparent 70%);pointer-events:none}
+.header-inner{max-width:860px;margin:0 auto;padding:36px 32px 40px}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:rgba(245,242,235,.45);text-decoration:none;font-size:12px;letter-spacing:.05em;margin-bottom:24px;transition:color .15s}
+.back-link:hover{color:rgba(245,242,235,.8)}
+.session-tag{display:inline-block;background:rgba(74,138,40,.22);color:#7EC855;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:18px}
+.header-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4.5vw,48px);font-weight:600;color:#F5F2EB;line-height:1.15;margin-bottom:8px}
+.header-title span{color:#7EC855}
+.header-subtitle{font-family:'Noto Serif SC',serif;font-size:16px;color:rgba(245,242,235,.5);margin-bottom:24px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.toc-pill{background:rgba(245,242,235,.07);border:1px solid rgba(245,242,235,.12);color:rgba(245,242,235,.6);padding:5px 14px;border-radius:20px;font-size:12px;text-decoration:none;transition:all .15s}
+.toc-pill:hover{background:rgba(74,138,40,.2);border-color:rgba(74,138,40,.4);color:#7EC855}
+
+.lang-bar{background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 32px}
+.lang-wrap{max-width:860px;margin:0 auto;display:flex;justify-content:flex-end}
+.lang-btn{background:none;border:1px solid var(--border);padding:5px 16px;border-radius:20px;font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;color:var(--ink2);transition:all .15s}
+.lang-btn:hover,.lang-btn.active{background:var(--green);border-color:var(--green);color:#fff}
+
+.main{max-width:860px;margin:0 auto;padding:40px 32px 60px}
+
+.section{margin-bottom:52px}
+.sec-label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3.5vw,30px);font-weight:600;color:var(--ink);line-height:1.25;margin-bottom:18px}
+.sec-text{color:var(--ink2);line-height:1.8;margin-bottom:12px}
+.sec-text-zh{font-family:'Noto Serif SC',serif;color:var(--ink3);line-height:2;margin-bottom:12px;font-size:14px}
+
+.callout{border-left:3px solid var(--green);background:var(--card);border-radius:0 var(--r) var(--r) 0;padding:18px 22px;margin:24px 0;box-shadow:0 2px 8px var(--border2)}
+.callout p{font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;color:var(--ink);line-height:1.6;margin-bottom:0}
+.callout .callout-src{font-size:12px;color:var(--ink3);margin-top:8px;font-style:normal;font-family:'DM Sans',sans-serif}
+.callout .callout-zh{font-family:'Noto Serif SC',serif;font-size:15px;color:var(--ink3);margin-top:8px;font-style:normal}
+.callout-accent{border-left-color:var(--accent)}
+.callout-accent p{color:var(--ink)}
+
+.card-grid{display:grid;gap:16px;margin:24px 0}
+.card-grid.col2{grid-template-columns:repeat(2,1fr)}
+.card-grid.col3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:600px){.card-grid.col2,.card-grid.col3{grid-template-columns:1fr}}
+
+.info-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px;box-shadow:0 2px 6px var(--border2)}
+.info-card-label{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:10px;color:var(--green)}
+.info-card ul{padding-left:0;list-style:none}
+.info-card ul li{font-size:13.5px;color:var(--ink2);padding:5px 0;border-bottom:1px solid var(--border2)}
+.info-card ul li:last-child{border-bottom:none}
+.info-card ul li::before{content:'→ ';color:var(--ink3)}
+
+.approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
+@media(max-width:680px){.approach-grid{grid-template-columns:1fr}}
+.approach-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;box-shadow:0 2px 6px var(--border2)}
+.approach-card-num{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.approach-card-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--ink);margin-bottom:8px}
+.approach-card-body{font-size:13px;color:var(--ink2);line-height:1.65}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+@media(max-width:560px){.compare-grid{grid-template-columns:1fr}}
+.compare-card{background:var(--card);border-radius:var(--r);padding:22px;box-shadow:0 2px 8px var(--border2)}
+.compare-card.accent-card{border-top:3px solid var(--accent)}
+.compare-card.green-card{border-top:3px solid var(--green)}
+.compare-card-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+.compare-card.accent-card .compare-card-label{color:var(--accent)}
+.compare-card.green-card .compare-card-label{color:var(--green)}
+.compare-list{list-style:none;padding:0}
+.compare-list li{font-size:13.5px;color:var(--ink2);padding:5px 0;border-bottom:1px solid var(--border2);display:flex;align-items:flex-start;gap:8px}
+.compare-list li:last-child{border-bottom:none}
+.compare-list li::before{content:'·';font-size:18px;line-height:1;flex-shrink:0;color:var(--ink3)}
+
+.case-box{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:24px 28px;margin:24px 0;box-shadow:0 2px 8px var(--border2)}
+.case-box-label{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.case-box-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--ink);margin-bottom:12px}
+.case-list{list-style:none;padding:0}
+.case-list li{font-size:13.5px;color:var(--ink2);padding:5px 0 5px 14px;border-bottom:1px solid var(--border2);position:relative}
+.case-list li:last-child{border-bottom:none}
+.case-list li::before{content:'–';position:absolute;left:0;color:var(--ink3)}
+
+.levels-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:24px 0;border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+@media(max-width:640px){.levels-grid{grid-template-columns:1fr}}
+.level-cell{padding:22px 20px;border-right:1px solid var(--border)}
+.level-cell:last-child{border-right:none}
+@media(max-width:640px){.level-cell{border-right:none;border-bottom:1px solid var(--border)}}
+.level-cell:nth-child(1){background:rgba(74,138,40,.07)}
+.level-cell:nth-child(2){background:rgba(74,138,40,.04)}
+.level-cell:nth-child(3){background:var(--card)}
+.level-label{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--green);margin-bottom:6px}
+.level-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.level-sub{font-size:12px;color:var(--ink3);margin-bottom:10px}
+.level-body{font-size:13px;color:var(--ink2);line-height:1.6}
+
+.assignment{background:var(--card);border:1px solid rgba(74,138,40,.25);border-radius:var(--r);padding:28px 28px 24px;margin:40px 0 28px;box-shadow:0 2px 12px var(--border2)}
+.assignment-badge{display:inline-block;background:var(--green);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:14px}
+.assignment-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--ink);margin-bottom:14px}
+.assignment-body{font-size:14px;color:var(--ink2);line-height:1.8}
+
+.section-divider{border:none;border-top:1px solid var(--border);margin:0 0 48px}
+
+.nav-bar{background:#1A1714;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;margin-top:40px}
+.nav-btn{color:rgba(245,242,235,.6);text-decoration:none;font-size:13px;transition:color .15s}
+.nav-btn:hover{color:#F5F2EB}
+.nav-info{font-size:12px;color:rgba(245,242,235,.3);letter-spacing:.06em}
+</style>
+</head>
+<body class="en">
+
+<div class="header">
+  <div class="header-inner">
+    <a class="back-link" href="index.html">← Course Overview</a>
+    <div class="session-tag">Session 02</div>
+    <h1 class="header-title en-only">Regulatory Ethics &amp; <span>Order Ethics</span></h1>
+    <h1 class="header-title zh-only" style="font-family:'Noto Serif SC',serif">监管伦理与<span>秩序伦理</span></h1>
+    <p class="header-subtitle zh-only">BT-03：品牌与责任 · 第二讲</p>
+    <nav class="toc">
+      <a class="toc-pill en-only" href="#s-recap">Recap</a>
+      <a class="toc-pill zh-only" href="#s-recap">回顾</a>
+      <a class="toc-pill en-only" href="#s-dilemma">Prisoner's Dilemma</a>
+      <a class="toc-pill zh-only" href="#s-dilemma">囚徒困境</a>
+      <a class="toc-pill en-only" href="#s-levels">Three Levels</a>
+      <a class="toc-pill zh-only" href="#s-levels">三个层面</a>
+      <a class="toc-pill en-only" href="#s-smith">Adam Smith</a>
+      <a class="toc-pill zh-only" href="#s-smith">亚当·斯密</a>
+      <a class="toc-pill en-only" href="#s-homann">Order Ethics</a>
+      <a class="toc-pill zh-only" href="#s-homann">秩序伦理</a>
+      <a class="toc-pill en-only" href="#s-limits">Limits &amp; Race to Bottom</a>
+      <a class="toc-pill zh-only" href="#s-limits">局限与竞次</a>
+      <a class="toc-pill en-only" href="#s-justification">Justification Context</a>
+      <a class="toc-pill zh-only" href="#s-justification">正当性语境</a>
+    </nav>
+  </div>
+</div>
+
+<div class="lang-bar">
+  <div class="lang-wrap">
+    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-zh" onclick="setLang('zh')" style="margin-left:6px">中文</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- SECTION 1: RECAP -->
+  <section class="section" id="s-recap">
+    <div class="sec-label en-only">Section 1</div>
+    <div class="sec-label zh-only">第一节</div>
+    <h2 class="sec-title en-only">Recap: Economics &amp; Society</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">回顾：经济与社会</h2>
+
+    <p class="sec-text en-only">Economic activity <em>always</em> has consequences for society. Therefore, companies and brands must justify their existence at a superordinate level — gaining societal acceptance in the sense of a <strong>"license to operate."</strong> The Brand Context Model (Neye/Bongard 2024) frames three forces every brand must navigate simultaneously: <em>Legitimation</em> from society, <em>Relevance</em> to the individual, and <em>Differentiation</em> from competition.</p>
+    <p class="sec-text-zh zh-only">经济活动<em>始终</em>对社会产生影响。因此，企业和品牌必须在更高层面证明其存在的合理性——以"运营许可证"的方式获得社会认可。品牌语境模型（Neye/Bongard 2024）指出每个品牌必须同时应对三种力量：来自社会的<em>合法性</em>、对个体的<em>相关性</em>，以及相对竞争的<em>差异化</em>。</p>
+
+    <p class="sec-text en-only">For more than 20 years, there has been a <strong>"business ethics boom"</strong> in academic discourse — a seemingly permanent high season. But a fundamental tension persists:</p>
+    <p class="sec-text-zh zh-only">二十余年来，学术讨论中持续存在<strong>"商业伦理热潮"</strong>。但一个根本张力始终存在：</p>
+
+    <div class="callout callout-accent">
+      <p class="en-only">The main purpose of branding is to get more people to buy more stuff, for more years, at a higher price. — But is this compatible with ethical responsibility?</p>
+      <p class="callout-zh zh-only">品牌的核心目的是让更多人购买更多产品、持续更多年、以更高价格——但这与伦理责任相容吗？</p>
+    </div>
+
+    <p class="sec-text en-only">Karl Homann articulated the foundational insight: <strong>"Ethics without economics is empty, economics without ethics is blind."</strong> Economics and ethics are not mutually exclusive opposites but must be considered together — since economic activity has consequences for society and the individual, every economic question also carries an ethical dimension.</p>
+    <p class="sec-text-zh zh-only">卡尔·霍曼（Karl Homann）提出了基础性洞见：<strong>"没有经济学的伦理是空洞的，没有伦理的经济学是盲目的。"</strong>经济学与伦理学并非相互排斥的对立面，而必须共同考量——因为经济活动对社会和个体产生后果，每一个经济问题也都具有伦理维度。</p>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 2: PRISONER'S DILEMMA -->
+  <section class="section" id="s-dilemma">
+    <div class="sec-label en-only">Section 2</div>
+    <div class="sec-label zh-only">第二节</div>
+    <h2 class="sec-title en-only">The Prisoner's Dilemma in Economics</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">经济学中的囚徒困境</h2>
+
+    <p class="sec-text en-only">The central challenge of business ethics is not that companies are populated by evil people — but that the competitive structure itself creates moral dilemmas. The Prisoner's Dilemma illustrates the core problem:</p>
+    <p class="sec-text-zh zh-only">商业伦理的核心挑战不在于企业中充斥着坏人——而在于竞争结构本身制造了道德困境。囚徒困境揭示了这一核心问题：</p>
+
+    <div class="compare-grid">
+      <div class="compare-card accent-card">
+        <div class="compare-card-label en-only">The Problem</div>
+        <div class="compare-card-label zh-only">问题所在</div>
+        <ul class="compare-list">
+          <li class="en-only">Competition is "blind" — it cannot distinguish whether a provider is economically unable to keep up, or for moral reasons refuses to exploit a competitive advantage</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">竞争是"盲目的"——它无法区分供应商是因经济上无力跟进，还是因道德原因拒绝利用竞争优势</li>
+          <li class="en-only">The market sanctions morally responsible but economically disadvantageous behaviour</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">市场惩罚道德上负责任但经济上处于劣势的行为</li>
+          <li class="en-only">The market promotes immoral but economically advantageous behaviour (Aßländer 2011: 119)</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">市场促进不道德但经济上有利的行为（Aßländer 2011: 119）</li>
+        </ul>
+      </div>
+      <div class="compare-card green-card">
+        <div class="compare-card-label en-only">The Consequence</div>
+        <div class="compare-card-label zh-only">后果</div>
+        <ul class="compare-list">
+          <li class="en-only">Due to the "risk of exploitation" by others, actors are forced to always pursue their own benefit first</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">由于被他人"利用的风险"，参与者被迫始终首先追求自身利益</li>
+          <li class="en-only">They do not want to be the only ones to bear the costs of moral behaviour alone</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">他们不愿独自承担道德行为的成本</li>
+          <li class="en-only">Result: individually rational decisions lead to collectively irrational outcomes</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">结果：个体理性决策导致集体非理性结果</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-box">
+      <div class="case-box-label en-only">Moral Dilemma Case</div>
+      <div class="case-box-label zh-only">道德困境案例</div>
+      <div class="case-box-title en-only">Weapons Export to Crisis Regions</div>
+      <div class="case-box-title zh-only" style="font-family:'Noto Serif SC',serif">向危机地区出口武器</div>
+      <p class="sec-text en-only" style="font-size:13.5px">A company faces a dilemma: <strong>Either</strong> it ignores moral concerns and exports weapons to crisis regions — which is economically profitable and secures local jobs. <strong>Or</strong> it abstains for moral reasons — in which case a competitor will exploit the situation, conclude the deal, and gain a competitive advantage. This is not a question of individual goodness or evil. It is a question of how the system is structured.</p>
+      <p class="sec-text-zh zh-only" style="font-family:'Noto Serif SC',serif;font-size:13.5px">一家企业面临困境：<strong>要么</strong>忽视道德顾虑，向危机地区出口武器——这在经济上有利可图并能保住当地就业。<strong>要么</strong>出于道德原因放弃——此时竞争对手将利用这一局面，达成交易并获得竞争优势。这不是个体善恶的问题，而是系统结构的问题。</p>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 3: THREE LEVELS -->
+  <section class="section" id="s-levels">
+    <div class="sec-label en-only">Section 3</div>
+    <div class="sec-label zh-only">第三节</div>
+    <h2 class="sec-title en-only">The Three Levels of Business Ethics</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">商业伦理的三个层面</h2>
+
+    <p class="sec-text en-only">Business ethics operates at three distinct levels, each with its own logic, actors, and responsibilities (Noll 2013: 44):</p>
+    <p class="sec-text-zh zh-only">商业伦理在三个不同层面运作，每个层面有其自身的逻辑、行为者和责任（Noll 2013: 44）：</p>
+
+    <div class="levels-grid">
+      <div class="level-cell">
+        <div class="level-label en-only">Macro Level</div>
+        <div class="level-label zh-only">宏观层面</div>
+        <div class="level-title en-only">Order Ethics</div>
+        <div class="level-title zh-only" style="font-family:'Noto Serif SC',serif">秩序伦理</div>
+        <div class="level-sub en-only">State / Political System</div>
+        <div class="level-sub zh-only" style="font-family:'Noto Serif SC',serif">国家 / 政治体系</div>
+        <div class="level-body en-only">Deals with the "right" economic system. Setting an efficient and just framework — the task of politics. Defines the rules of the game that all companies must follow and that states enforce.</div>
+        <div class="level-body zh-only" style="font-family:'Noto Serif SC',serif">处理"正确"的经济体系。制定高效且公正的框架——这是政治的任务。定义所有企业必须遵守、由国家强制执行的游戏规则。</div>
+      </div>
+      <div class="level-cell">
+        <div class="level-label en-only">Meso Level</div>
+        <div class="level-label zh-only">中观层面</div>
+        <div class="level-title en-only">Corporate Ethics</div>
+        <div class="level-title zh-only" style="font-family:'Noto Serif SC',serif">企业伦理</div>
+        <div class="level-sub en-only">Organisation / Company Code</div>
+        <div class="level-sub zh-only" style="font-family:'Noto Serif SC',serif">组织 / 企业准则</div>
+        <div class="level-body en-only">The structural and cultural aspects of an organisation that determine the conditions for ethically correct action. Companies have significant freedom within the framework — how they use it reflects their corporate ethics.</div>
+        <div class="level-body zh-only" style="font-family:'Noto Serif SC',serif">决定道德行动条件的组织结构与文化方面。企业在框架内拥有相当大的自由度——如何运用这种自由反映了企业伦理。</div>
+      </div>
+      <div class="level-cell">
+        <div class="level-label en-only">Micro Level</div>
+        <div class="level-label zh-only">微观层面</div>
+        <div class="level-title en-only">Individual Ethics</div>
+        <div class="level-title zh-only" style="font-family:'Noto Serif SC',serif">个体伦理</div>
+        <div class="level-sub en-only">Manager / Consumer</div>
+        <div class="level-sub zh-only" style="font-family:'Noto Serif SC',serif">管理者 / 消费者</div>
+        <div class="level-body en-only">The duties of the individual in relation to themselves, fellow human beings, and the environment. Applies to managers and employees — but also to consumers, whose purchasing decisions carry moral weight.</div>
+        <div class="level-body zh-only" style="font-family:'Noto Serif SC',serif">个体对自身、他人和环境的义务。适用于管理者和员工——也适用于消费者，其购买决策承载着道德重量。</div>
+      </div>
+    </div>
+
+    <p class="sec-text en-only">The systematic location of morality in a market economy is the <strong>framework</strong>. Morality is a <em>public good</em> — something that must be established collectively (Homann/Lütge 2013: 20f.). This requires a distinction between <em>actions</em> (what an actor controls) and <em>conditions of action</em> (the factors that determine actions but that the individual cannot control).</p>
+    <p class="sec-text-zh zh-only">在市场经济中，道德的系统性位置在于<strong>框架</strong>。道德是一种<em>公共品</em>——必须集体建立（Homann/Lütge 2013: 20f.）。这需要区分<em>行动</em>（行为者可控制的）与<em>行动条件</em>（决定行动但个体无法控制的因素）。</p>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 4: ADAM SMITH -->
+  <section class="section" id="s-smith">
+    <div class="sec-label en-only">Section 4 · Excursus</div>
+    <div class="sec-label zh-only">第四节 · 延伸阅读</div>
+    <h2 class="sec-title en-only">Adam Smith &amp; Classical Political Economics</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">亚当·斯密与古典政治经济学</h2>
+
+    <p class="sec-text en-only">With Adam Smith (1723–1790), economics emerged as an independent scientific discipline and created the foundations for a market-economic system (Noll 2013: 37). Smith advocated for free competition — not only because it enables the practical distribution of forces and resources, but because it promotes the common good.</p>
+    <p class="sec-text-zh zh-only">亚当·斯密（1723–1790）使经济学成为一门独立的科学学科，并为市场经济体系奠定了基础（Noll 2013: 37）。斯密倡导自由竞争——不仅因为它能实现力量与资源的合理分配，更因为它能促进公共利益。</p>
+
+    <div class="callout">
+      <p class="en-only">"It is not from the benevolence of the butcher, the brewer, or the baker that we expect our dinner, but from their regard to their own interest. We address ourselves, not to their humanity, but to their self-love, and never talk to them of our own necessities but of their advantages."</p>
+      <p class="callout-zh zh-only">"我们的晚饭不是来自屠夫、酿酒师或面包师的仁慈，而是来自他们对自身利益的关注。我们向他们诉诸的不是人道主义，而是自爱，我们与他们谈论的不是自身的需要，而是他们的利益。"</p>
+      <p class="callout-src">Adam Smith, The Wealth of Nations (1776), p. 17</p>
+    </div>
+
+    <p class="sec-text en-only">This concept of market self-regulation — the <strong>"invisible hand"</strong> — describes how individual self-interest unintentionally leads to the common good. Under certain social framework conditions, self-interest simultaneously functions as a productive factor for the benefit of the general public (Korff 1999: 24).</p>
+    <p class="sec-text-zh zh-only">这种市场自我调节的概念——<strong>"看不见的手"</strong>——描述了个体自利如何无意间导向公共利益。在特定社会框架条件下，自利同时成为促进公共利益的生产要素（Korff 1999: 24）。</p>
+
+    <div class="approach-grid">
+      <div class="approach-card">
+        <div class="approach-card-num en-only">For Companies</div>
+        <div class="approach-card-num zh-only">对企业</div>
+        <div class="approach-card-title en-only">Profit Motive Drives Quality</div>
+        <div class="approach-card-title zh-only" style="font-family:'Noto Serif SC',serif">利润动机驱动质量</div>
+        <div class="approach-card-body en-only">Companies gain advantages by aiming to generate profits — self-serving motives actually serve the market by incentivising better products and services.</div>
+        <div class="approach-card-body zh-only" style="font-family:'Noto Serif SC',serif">企业通过追求利润获得优势——自利动机实际上通过激励更好的产品和服务来服务于市场。</div>
+      </div>
+      <div class="approach-card">
+        <div class="approach-card-num en-only">For Competitors</div>
+        <div class="approach-card-num zh-only">对竞争者</div>
+        <div class="approach-card-title en-only">Competition Limits Advantage</div>
+        <div class="approach-card-title zh-only" style="font-family:'Noto Serif SC',serif">竞争限制垄断优势</div>
+        <div class="approach-card-body en-only">Competitors ensure that competitive advantages in the market are mostly temporary — expanding the range and lowering prices for everyone.</div>
+        <div class="approach-card-body zh-only" style="font-family:'Noto Serif SC',serif">竞争者确保市场中的竞争优势大多是暂时的——为所有人扩大供给范围并降低价格。</div>
+      </div>
+      <div class="approach-card">
+        <div class="approach-card-num en-only">For Consumers</div>
+        <div class="approach-card-num zh-only">对消费者</div>
+        <div class="approach-card-title en-only">Better Supply at Lower Prices</div>
+        <div class="approach-card-title zh-only" style="font-family:'Noto Serif SC',serif">更好供给与更低价格</div>
+        <div class="approach-card-body en-only">Consumers receive better market provision and regulated low prices through competition — the collective benefit of individual self-interest.</div>
+        <div class="approach-card-body zh-only" style="font-family:'Noto Serif SC',serif">消费者通过竞争获得更好的市场供给和受调节的低价格——个体自利的集体收益。</div>
+      </div>
+    </div>
+
+    <p class="sec-text en-only">Crucially, coordination in market activity is established not through the <em>motives</em> of actors (their "good attitude") — but through the <em>consequences</em> of actions in the entire system. Competition is <em>"the greatest and most ingenious instrument of disempowerment in history, because it works incorruptibly"</em> (Böhm 1961: 22, cited in Noll 2013: 240).</p>
+    <p class="sec-text-zh zh-only">关键在于，市场活动中的协调不是通过行为者的<em>动机</em>（"好的态度"）——而是通过整个系统中行动的<em>后果</em>来建立的。竞争是<em>"历史上最伟大、最精妙的去权力化工具，因为它廉洁地运作"</em>（Böhm 1961: 22，引自Noll 2013: 240）。</p>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 5: ORDER ETHICS (HOMANN) -->
+  <section class="section" id="s-homann">
+    <div class="sec-label en-only">Section 5</div>
+    <div class="sec-label zh-only">第五节</div>
+    <h2 class="sec-title en-only">The Order Ethics Concept: Homann's Primacy</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">秩序伦理概念：霍曼的优先性</h2>
+
+    <p class="sec-text en-only">Since competition does not arise on its own and is permanently at risk, it must be protected by the state — as the regulatory authority, rule-setter, and referee (e.g. through cartel bans or strict merger control). Building on Adam Smith, Karl Homann developed the concept of the <strong>primacy of order ethics</strong>:</p>
+    <p class="sec-text-zh zh-only">由于竞争不会自然产生且时刻面临风险，必须由国家——作为监管权威、规则制定者和裁判——加以保护（例如通过反垄断禁令或严格的并购控制）。在亚当·斯密的基础上，卡尔·霍曼发展了<strong>秩序伦理优先性</strong>的概念：</p>
+
+    <div class="callout">
+      <p class="en-only">"The prosperity of all depends on suitable rules of the game, from the appropriate order of the economy. Morally questionable states of the world must no longer be attributed to the evil will of actors, their selfishness or greed; they are rather to be considered as a consequence of an inappropriate or missing order of the economy."</p>
+      <p class="callout-zh zh-only">"所有人的繁荣取决于合适的游戏规则，取决于经济的适当秩序。世界上道德上可疑的状态，不应再归因于行为者的邪恶意志、自私或贪婪；它们应被视为不适当或缺失的经济秩序的后果。"</p>
+      <p class="callout-src">Homann/Lütge 2013: 21f.</p>
+    </div>
+
+    <p class="sec-text en-only">The concept rests on a crucial separation — between the <strong>rules of the game</strong> and the <strong>plays of the game</strong> (James M. Buchanan). Business ethics is designed in two stages:</p>
+    <p class="sec-text-zh zh-only">这一概念建立在一个关键区分之上——<strong>游戏规则</strong>与<strong>游戏行动</strong>的区分（詹姆斯·布坎南）。商业伦理分两个阶段设计：</p>
+
+    <div class="card-grid col2">
+      <div class="info-card">
+        <div class="info-card-label en-only">1. Ethics of Conditions</div>
+        <div class="info-card-label zh-only">1. 条件伦理</div>
+        <ul>
+          <li class="en-only">Through incentives (e.g. tax relief) and sanctions (e.g. antitrust fines), the framework for free competition is created</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">通过激励（如税收优惠）和制裁（如反垄断罚款），为自由竞争创建框架</li>
+          <li class="en-only">The political level sets framework conditions that all companies must submit to</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">政治层面设定所有企业必须遵守的框架条件</li>
+          <li class="en-only">Within these conditions, companies have complete freedom</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">在这些条件内，企业拥有完全的自由</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label en-only">Advantages of This Primacy</div>
+        <div class="info-card-label zh-only">优先性的优势</div>
+        <ul>
+          <li class="en-only">Clear, comprehensible and enforceable rules for all companies</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">对所有企业明确、清晰且可执行的规则</li>
+          <li class="en-only">Equal treatment regarding ethical and moral standards</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">在道德标准上的平等对待</li>
+          <li class="en-only">Free competition within set framework conditions</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">在既定框架条件内的自由竞争</li>
+          <li class="en-only">Companies can consistently pursue their own interests while observing the rules</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">企业可以在遵守规则的同时始终如一地追求自身利益</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 6: LIMITS & RACE TO BOTTOM -->
+  <section class="section" id="s-limits">
+    <div class="sec-label en-only">Section 6</div>
+    <div class="sec-label zh-only">第六节</div>
+    <h2 class="sec-title en-only">Limits of Order Ethics &amp; Race to the Bottom</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">秩序伦理的局限与竞次效应</h2>
+
+    <p class="sec-text en-only">The primacy of order ethics faces serious structural limitations, particularly in an era of globalisation:</p>
+    <p class="sec-text-zh zh-only">秩序伦理的优先性面临严重的结构性局限，尤其是在全球化时代：</p>
+
+    <div class="card-grid col3">
+      <div class="info-card">
+        <div class="info-card-label en-only">Problem 1</div>
+        <div class="info-card-label zh-only">问题一</div>
+        <ul>
+          <li class="en-only" style="border:none;padding:0">Framework regulations are mostly <strong>incomplete and deficient</strong> — they cannot regulate everything. Legality and legitimacy get falsely equated.</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif;border:none;padding:0">框架法规大多<strong>不完整且存在缺陷</strong>——无法规制一切。合法性与正当性被错误等同。</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label en-only">Problem 2</div>
+        <div class="info-card-label zh-only">问题二</div>
+        <ul>
+          <li class="en-only" style="border:none;padding:0">Globalisation makes globally uniform rules <strong>nearly impossible</strong> — politics reaches only the lowest common denominator as an "art of compromise."</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif;border:none;padding:0">全球化使全球统一规则<strong>几乎不可能</strong>——政治作为"妥协的艺术"只能达到最低公分母。</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label en-only">Problem 3</div>
+        <div class="info-card-label zh-only">问题三</div>
+        <ul>
+          <li class="en-only" style="border:none;padding:0">Comprehensive political interventions are rejected as inadmissible interference with market freedom — creating a dangerous internal contradiction.</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif;border:none;padding:0">全面的政治干预被作为对市场自由不允许的干涉而拒绝——形成危险的内在矛盾。</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sec-text en-only">Globalisation has intensified location competition between states. As factors of production (capital, entrepreneurial spirit, qualified workers) become increasingly mobile, companies gain new relocation options — you can live here, work there, and invest capital worldwide (Schäfer 2001: 30f.). This can lead to a <strong>system competition</strong> and a dangerous downward spiral:</p>
+    <p class="sec-text-zh zh-only">全球化加剧了国家之间的区位竞争。随着生产要素（资本、企业家精神、熟练工人）流动性增强，企业获得了新的迁址选项（Schäfer 2001: 30f.）。这可能导致<strong>系统性竞争</strong>和危险的向下螺旋：</p>
+
+    <div class="callout callout-accent">
+      <p class="en-only">The "Race to the Bottom" thesis: Multinational companies systematically exploit competition between states that undercut each other in social and environmental standards — while outdoing each other with subsidies and tax breaks. A higher-level global economic order remains out of reach due to conflicting national interests (Noll 2013: 140).</p>
+      <p class="callout-zh zh-only">"竞次"论题：跨国公司系统性地利用国家之间在社会和环境标准上相互压低、同时在补贴和税收减免上相互攀比的竞争。由于国家利益冲突，更高层次的全球经济秩序遥不可及（Noll 2013: 140）。</p>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card accent-card">
+        <div class="compare-card-label en-only">What States Compete On</div>
+        <div class="compare-card-label zh-only">国家竞争的内容</div>
+        <ul class="compare-list">
+          <li class="en-only">Wages below the subsistence level and child labour</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">低于生存水平的工资与童工</li>
+          <li class="en-only">Discrimination against minorities</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">对少数群体的歧视</li>
+          <li class="en-only">Lack of occupational safety and environmental protection</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">缺乏职业安全与环境保护</li>
+          <li class="en-only">Entrenched economic structures and corruption</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">根深蒂固的经济结构与腐败</li>
+        </ul>
+      </div>
+      <div class="compare-card green-card">
+        <div class="compare-card-label en-only">Why Companies Still Care</div>
+        <div class="compare-card-label zh-only">企业仍然关注的原因</div>
+        <ul class="compare-list">
+          <li class="en-only">Relocations involve significant information and mobility costs — complex strategic decisions</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">迁址涉及大量信息成本和流动成本——复杂的战略决策</li>
+          <li class="en-only">In a globally networked media world, multinationals are under sharp observation by customers, media, and NGOs</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">在全球互联的媒体世界中，跨国公司受到客户、媒体和非政府组织的密切监视</li>
+          <li class="en-only">Brand reputation depends on moral compliance — violations destroy trust built over decades</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">品牌声誉取决于道德合规——违规行为会摧毁数十年积累的信任</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p class="en-only">"Robert Haas, long-time CEO of Levi Strauss: his company's brand loyalty generates millions in annual advertising investment — investment he could write off completely if it became known that Levi Strauss used child labour or systematically discriminated against women."</p>
+      <p class="callout-zh zh-only">"李维斯长期首席执行官罗伯特·哈斯：其公司的品牌忠诚度每年带来数百万广告投资——而一旦被曝出李维斯使用童工或系统性歧视女性，这些投资将化为乌有。"</p>
+      <p class="callout-src">cited in Homann 1999: 8</p>
+    </div>
+
+    <p class="sec-text en-only"><strong>Conclusion:</strong> More than 7,000 multinational companies and organisations now support the <strong>UN Global Compact</strong> (former Secretary-General Kofi Annan), which seeks to give globalisation a "human face" through ten principles covering human rights, better working conditions, and the worldwide fight against corruption. Markets function not unconditionally — and at the same time, the state cannot regulate everything. The market depends on stable moral standards in society (Noll 2013: 251). Without a "minimal morality," monitoring and enforcement costs would be extremely high and human freedom extremely low. <strong>Companies cannot be completely dismissed from their ethical and moral responsibility.</strong></p>
+    <p class="sec-text-zh zh-only"><strong>结论：</strong>超过7000家跨国公司和组织现已支持<strong>联合国全球契约</strong>（前秘书长科菲·安南），通过十项原则使全球化拥有"人性的面孔"，涵盖人权、改善工作条件和全球反腐。市场并非无条件运作——而与此同时，国家也无法规制一切。市场有赖于社会稳定的道德标准（Noll 2013: 251）。没有"最低道德"，监控和执行成本将极高，人类自由将极低。<strong>企业不能被完全免除其伦理和道德责任。</strong></p>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 7: JUSTIFICATION CONTEXT -->
+  <section class="section" id="s-justification">
+    <div class="sec-label en-only">Section 7</div>
+    <div class="sec-label zh-only">第七节</div>
+    <h2 class="sec-title en-only">The Justification Context: Legal ≠ Legitimate</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">正当性语境：合法不等于正当</h2>
+
+    <p class="sec-text en-only">Business ethics must primarily be understood as a response to crisis experiences. Two landmark cases demonstrate that meeting minimum regulatory standards is not enough — companies must also secure <em>societal acceptance</em>:</p>
+    <p class="sec-text-zh zh-only">商业伦理必须主要被理解为对危机经验的回应。两个标志性案例表明，仅满足最低监管标准是不够的——企业还必须获得<em>社会认可</em>：</p>
+
+    <div class="callout">
+      <p class="en-only">"We must always be able to justify two things: our numbers and our rationale. As bankers, we strive to become more efficient and effective every day. As funders, we stand for the meaning and sustainability of our actions."</p>
+      <p class="callout-zh zh-only">"我们必须始终能够为两件事辩护：我们的数字和我们的理由。作为银行家，我们每天努力变得更高效、更有效。作为资金提供者，我们代表我们行动的意义与可持续性。"</p>
+      <p class="callout-src">Hans W. Reich, Spokesman of the Board of KfW</p>
+    </div>
+
+    <div class="case-box">
+      <div class="case-box-label en-only">Case Study 1</div>
+      <div class="case-box-label zh-only">案例研究 1</div>
+      <div class="case-box-title en-only">Stuttgart 21: Protest &amp; Democratic Decision</div>
+      <div class="case-box-title zh-only" style="font-family:'Noto Serif SC',serif">斯图加特21：抗议与民主决策</div>
+      <p class="sec-text en-only" style="font-size:13.5px;margin-bottom:12px">The relocation of Stuttgart's main train station underground became a years-long controversy. Despite all legal approvals, massive public protests erupted — culminating in a demonstration of 65,000–90,000 participants (October 2010) and a "Black Thursday" (30.09.2010) in which 180 people were injured. The conflict showed that no major project today can proceed without a participatory process.</p>
+      <p class="sec-text-zh zh-only" style="font-family:'Noto Serif SC',serif;font-size:13.5px;margin-bottom:12px">斯图加特主火车站地下化迁移成为一场持续数年的争议。尽管获得了所有法律批准，仍爆发了大规模公众抗议——最终演变为一场有6.5万至9万人参与的示威游行（2010年10月）和"黑色星期四"（2010年9月30日），造成180人受伤。这场冲突表明，如今任何重大项目都不能在没有参与性程序的情况下推进。</p>
+      <ul class="case-list">
+        <li class="en-only">1985–1988: The idea for Stuttgart 21 is born — from above-ground terminal to underground through station</li>
+        <li class="zh-only" style="font-family:'Noto Serif SC',serif">1985–1988年：斯图加特21方案诞生——从地面终点站改为地下直通站</li>
+        <li class="en-only">2010: Official start of construction triggers massive citizen protests</li>
+        <li class="zh-only" style="font-family:'Noto Serif SC',serif">2010年：正式开工引发大规模市民抗议</li>
+        <li class="en-only">22.10.2010: Public conciliation proceedings begin with mediator Heiner Geißler</li>
+        <li class="zh-only" style="font-family:'Noto Serif SC',serif">2010年10月22日：公众调解程序启动，调解人为海纳·盖斯勒</li>
+        <li class="en-only">27.11.2011: Referendum held — narrowly in favour of continuing construction</li>
+        <li class="zh-only" style="font-family:'Noto Serif SC',serif">2011年11月27日：公投举行——以微弱优势支持继续建设</li>
+      </ul>
+    </div>
+
+    <div class="case-box">
+      <div class="case-box-label en-only">Case Study 2</div>
+      <div class="case-box-label zh-only">案例研究 2</div>
+      <div class="case-box-title en-only">Brent Spar: Shell vs. Greenpeace (1995)</div>
+      <div class="case-box-title zh-only" style="font-family:'Noto Serif SC',serif">布伦特斯帕：壳牌对抗绿色和平（1995年）</div>
+      <p class="sec-text en-only" style="font-size:13.5px;margin-bottom:12px">Shell had received full legal approval to sink its Brent Spar oil platform in the North Atlantic. Yet Greenpeace's occupation of the platform and vivid media images sparked a massive public boycott of Shell petrol stations across Germany — with losses of up to 50% for tenants, death threats, and incendiary devices thrown at stations. "Those were catastrophic images," recalls Shell Germany communications head Klaus-Peter Johanssen. "We knew this story would end badly."</p>
+      <p class="sec-text-zh zh-only" style="font-family:'Noto Serif SC',serif;font-size:13.5px;margin-bottom:12px">壳牌已获得在北大西洋沉没布伦特斯帕石油平台的完整法律批准。然而绿色和平对平台的占领和生动的媒体画面，在德国各地引发了对壳牌加油站的大规模公众抵制——租户损失高达50%，还有死亡威胁，甚至有人向加油站投掷燃烧弹。"那些画面是灾难性的，"壳牌德国传播负责人约翰森回忆道。"我们知道这个故事会有个糟糕的结局。"</p>
+      <ul class="case-list">
+        <li class="en-only">April 30, 1995: Greenpeace activists occupy the Brent Spar — spectacular media images follow</li>
+        <li class="zh-only" style="font-family:'Noto Serif SC',serif">1995年4月30日：绿色和平活动人士占领布伦特斯帕——壮观的媒体画面随之而来</li>
+        <li class="en-only">Shell UK had all legal approvals — but ignored internal warnings from the German subsidiary</li>
+        <li class="zh-only" style="font-family:'Noto Serif SC',serif">英国壳牌拥有所有法律批准——但忽视了德国子公司的内部警告</li>
+        <li class="en-only">June 20, 1995: Due to enormous public pressure, Shell announced it would abandon the sinking</li>
+        <li class="zh-only" style="font-family:'Noto Serif SC',serif">1995年6月20日：迫于巨大公众压力，壳牌宣布放弃沉没计划</li>
+        <li class="en-only">1998: Brent Spar disposed of on land in Erfjord, Norway; 2015: Shell commits to dispose of all Brent Field platforms on land</li>
+        <li class="zh-only" style="font-family:'Noto Serif SC',serif">1998年：布伦特斯帕在挪威厄尔峡湾完成陆地处置；2015年：壳牌承诺对所有布伦特油田平台进行陆地处置</li>
+      </ul>
+    </div>
+
+    <div class="callout callout-accent">
+      <p class="en-only">Conclusion from both cases: It is not crucial to have the law on your side — what matters is securing acceptance in the public sphere. It is not enough that entrepreneurial action is <strong>legal</strong>; it must also be morally <strong>legitimate</strong> (Noll 2013: 114).</p>
+      <p class="callout-zh zh-only">两个案例的结论：关键不在于法律站在你这边——重要的是在公共领域获得认可。仅靠企业行为<strong>合法</strong>是不够的；它还必须在道德上具有<strong>正当性</strong>（Noll 2013: 114）。</p>
+    </div>
+  </section>
+
+  <!-- ASSIGNMENT -->
+  <div class="assignment">
+    <div class="assignment-badge en-only">Semester Assignment</div>
+    <div class="assignment-badge zh-only" style="font-family:'Noto Serif SC',serif">学期作业</div>
+    <div class="assignment-title en-only">Group Presentation — Brand &amp; Responsibility Analysis</div>
+    <div class="assignment-title zh-only" style="font-family:'Noto Serif SC',serif">小组展示——品牌与责任分析</div>
+    <p class="assignment-body en-only">Apply the frameworks from this session to your chosen brand. Consider: Where does your brand operate within legal frameworks but potentially outside societal legitimacy? Has your brand ever faced a "Brent Spar moment" — technically legal but publicly unacceptable? How does your brand balance regulatory compliance with genuine societal acceptance?</p>
+    <p class="assignment-body en-only" style="margin-top:12px"><strong>Examiners:</strong> Prof. Dr. Bongard &amp; Prof. Dr. Groll | <strong>Filename:</strong> BT-03_Marke-und-Verantwortung_LastName_MatriculationNumber</p>
+    <p class="assignment-body zh-only" style="font-family:'Noto Serif SC',serif">将本节课的框架应用于您选择的品牌。思考：您的品牌在哪里以合法但可能在社会正当性上存疑的方式运营？您的品牌是否曾面临"布伦特斯帕时刻"？您的品牌如何在法规合规与真正的社会认可之间取得平衡？</p>
+    <p class="assignment-body zh-only" style="font-family:'Noto Serif SC',serif;margin-top:12px"><strong>主考：</strong>邦加德教授 &amp; 格罗尔教授 | <strong>文件名：</strong>BT-03_Marke-und-Verantwortung_姓名_学号</p>
+  </div>
+
+</div>
+
+<div class="nav-bar">
+  <a class="nav-btn" href="session1-kickoff.html">← Session 1: Kick-off</a>
+  <span class="nav-info">Session 02 of 08</span>
+  <a class="nav-btn" href="session3-corporate-ethics.html">Session 3: Corporate Ethics →</a>
+</div>
+
+<script>
+function setLang(l){
+  document.body.className=l;
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  document.getElementById('btn-zh').classList.toggle('active',l==='zh');
+}
+</script>
+</body>
+</html>

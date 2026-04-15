@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Session 5 — CSR, Sustainability &amp; the Triple Bottom Line</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F2EB;--bg2:#EBE7DE;--bg3:#DAD5C8;--card:#FDFAF4;
+  --ink:#1A1714;--ink2:#46403A;--ink3:#7A756C;
+  --border:rgba(26,23,20,.10);--border2:rgba(26,23,20,.06);
+  --green:#4A8A28;--r:12px;--accent:#C84020;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7}
+body.en .zh-only{display:none!important}
+body.zh .en-only{display:none!important}
+
+.header{background:#1A1714;padding:0;position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;top:-60px;right:-80px;width:420px;height:420px;background:radial-gradient(circle,rgba(74,138,40,.28) 0%,transparent 70%);pointer-events:none}
+.header-inner{max-width:860px;margin:0 auto;padding:36px 32px 40px}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:rgba(245,242,235,.45);text-decoration:none;font-size:12px;letter-spacing:.05em;margin-bottom:24px;transition:color .15s}
+.back-link:hover{color:rgba(245,242,235,.8)}
+.session-tag{display:inline-block;background:rgba(74,138,40,.22);color:#7EC855;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:18px}
+.header-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4.5vw,48px);font-weight:600;color:#F5F2EB;line-height:1.15;margin-bottom:8px}
+.header-title span{color:#7EC855}
+.header-subtitle{font-family:'Noto Serif SC',serif;font-size:16px;color:rgba(245,242,235,.5);margin-bottom:24px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.toc-pill{background:rgba(245,242,235,.07);border:1px solid rgba(245,242,235,.12);color:rgba(245,242,235,.6);padding:5px 14px;border-radius:20px;font-size:12px;text-decoration:none;transition:all .15s}
+.toc-pill:hover{background:rgba(74,138,40,.2);border-color:rgba(74,138,40,.4);color:#7EC855}
+
+.lang-bar{background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 32px}
+.lang-wrap{max-width:860px;margin:0 auto;display:flex;justify-content:flex-end}
+.lang-btn{background:none;border:1px solid var(--border);padding:5px 16px;border-radius:20px;font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;color:var(--ink2);transition:all .15s}
+.lang-btn:hover,.lang-btn.active{background:var(--green);border-color:var(--green);color:#fff}
+
+.main{max-width:860px;margin:0 auto;padding:40px 32px 60px}
+
+.section{margin-bottom:52px}
+.sec-label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3.5vw,30px);font-weight:600;color:var(--ink);line-height:1.25;margin-bottom:18px}
+.sec-text{color:var(--ink2);line-height:1.8;margin-bottom:12px}
+.sec-text-zh{font-family:'Noto Serif SC',serif;color:var(--ink3);line-height:2;margin-bottom:12px;font-size:14px}
+
+.callout{border-left:3px solid var(--green);background:var(--card);border-radius:0 var(--r) var(--r) 0;padding:18px 22px;margin:24px 0;box-shadow:0 2px 8px var(--border2)}
+.callout p{font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;color:var(--ink);line-height:1.6;margin-bottom:0}
+.callout .callout-src{font-size:12px;color:var(--ink3);margin-top:8px;font-style:normal;font-family:'DM Sans',sans-serif}
+.callout-accent{border-left-color:var(--accent)}
+.callout-accent p{color:var(--ink)}
+
+.card-grid{display:grid;gap:16px;margin:24px 0}
+.card-grid.col2{grid-template-columns:repeat(2,1fr)}
+.card-grid.col3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:600px){.card-grid.col2,.card-grid.col3{grid-template-columns:1fr}}
+
+.info-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px;box-shadow:0 2px 6px var(--border2)}
+.info-card-label{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:10px;color:var(--green)}
+.info-card ul{padding-left:0;list-style:none}
+.info-card ul li{font-size:13.5px;color:var(--ink2);padding:5px 0;border-bottom:1px solid var(--border2)}
+.info-card ul li:last-child{border-bottom:none}
+.info-card ul li::before{content:'→ ';color:var(--ink3)}
+
+.approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
+@media(max-width:680px){.approach-grid{grid-template-columns:1fr}}
+.approach-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;box-shadow:0 2px 6px var(--border2)}
+.approach-card-num{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.approach-card-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--ink);margin-bottom:8px}
+.approach-card-body{font-size:13px;color:var(--ink2);line-height:1.65}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+@media(max-width:560px){.compare-grid{grid-template-columns:1fr}}
+.compare-card{background:var(--card);border-radius:var(--r);padding:22px;box-shadow:0 2px 8px var(--border2)}
+.compare-card.accent-card{border-top:3px solid var(--accent)}
+.compare-card.green-card{border-top:3px solid var(--green)}
+.compare-card-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+.compare-card.accent-card .compare-card-label{color:var(--accent)}
+.compare-card.green-card .compare-card-label{color:var(--green)}
+.compare-list{list-style:none;padding:0}
+.compare-list li{font-size:13.5px;color:var(--ink2);padding:5px 0;border-bottom:1px solid var(--border2);display:flex;align-items:flex-start;gap:8px}
+.compare-list li:last-child{border-bottom:none}
+.compare-list li::before{content:'·';font-size:18px;line-height:1;flex-shrink:0;color:var(--ink3)}
+
+.tbl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:24px 0;border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+@media(max-width:640px){.tbl-grid{grid-template-columns:1fr}}
+.tbl-cell{padding:24px 20px;border-right:1px solid var(--border)}
+.tbl-cell:last-child{border-right:none}
+@media(max-width:640px){.tbl-cell{border-right:none;border-bottom:1px solid var(--border)}}
+.tbl-cell:nth-child(1){background:rgba(74,138,40,.08)}
+.tbl-cell:nth-child(2){background:rgba(74,138,40,.04)}
+.tbl-cell:nth-child(3){background:var(--card)}
+.tbl-icon{font-size:28px;margin-bottom:10px}
+.tbl-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--green);margin-bottom:6px}
+.tbl-sub{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:10px}
+.tbl-body{font-size:13px;color:var(--ink2);line-height:1.65}
+
+.csr-types{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:24px 0}
+@media(max-width:560px){.csr-types{grid-template-columns:1fr}}
+.csr-type{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px;box-shadow:0 2px 6px var(--border2)}
+.csr-type-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:12px;margin-bottom:10px}
+.csr-type-badge.ethical{background:rgba(74,138,40,.12);color:var(--green)}
+.csr-type-badge.altruist{background:rgba(74,138,40,.2);color:var(--green)}
+.csr-type-badge.reactive{background:rgba(200,64,32,.1);color:var(--accent)}
+.csr-type-badge.strategic{background:#1A1714;color:#F5F2EB}
+.csr-type-title{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--ink);margin-bottom:8px}
+.csr-type-body{font-size:13px;color:var(--ink2);line-height:1.65}
+
+.assignment{background:var(--card);border:1px solid rgba(74,138,40,.25);border-radius:var(--r);padding:28px 28px 24px;margin:40px 0 28px;box-shadow:0 2px 12px var(--border2)}
+.assignment-badge{display:inline-block;background:var(--green);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:14px}
+.assignment-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--ink);margin-bottom:14px}
+.assignment-body{font-size:14px;color:var(--ink2);line-height:1.8}
+
+.section-divider{border:none;border-top:1px solid var(--border);margin:0 0 48px}
+
+.nav-bar{background:#1A1714;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;margin-top:40px}
+.nav-btn{color:rgba(245,242,235,.6);text-decoration:none;font-size:13px;transition:color .15s}
+.nav-btn:hover{color:#F5F2EB}
+.nav-info{font-size:12px;color:rgba(245,242,235,.3);letter-spacing:.06em}
+</style>
+</head>
+<body class="en">
+
+<div class="header">
+  <div class="header-inner">
+    <a class="back-link" href="index.html">← Course Overview</a>
+    <div class="session-tag">Session 05</div>
+    <h1 class="header-title en-only">CSR, Sustainability &amp; <span>Triple Bottom Line</span></h1>
+    <h1 class="header-title zh-only" style="font-family:'Noto Serif SC',serif">企业社会责任、可持续性与<span>三重底线</span></h1>
+    <p class="header-subtitle zh-only">BT-03：品牌与责任 · 第五讲</p>
+    <nav class="toc">
+      <a class="toc-pill en-only" href="#s-what">What Companies Are Responsible For</a>
+      <a class="toc-pill zh-only" href="#s-what">企业责任范畴</a>
+      <a class="toc-pill en-only" href="#s-csr-def">CSR Definitions</a>
+      <a class="toc-pill zh-only" href="#s-csr-def">CSR定义</a>
+      <a class="toc-pill en-only" href="#s-tbl">Triple Bottom Line</a>
+      <a class="toc-pill zh-only" href="#s-tbl">三重底线</a>
+      <a class="toc-pill en-only" href="#s-brand-comm">CSR as Brand Communication</a>
+      <a class="toc-pill zh-only" href="#s-brand-comm">CSR作为品牌传播</a>
+      <a class="toc-pill en-only" href="#s-types">CSR Strategy Types</a>
+      <a class="toc-pill zh-only" href="#s-types">CSR战略类型</a>
+    </nav>
+  </div>
+</div>
+
+<div class="lang-bar">
+  <div class="lang-wrap">
+    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-zh" onclick="setLang('zh')" style="margin-left:6px">中文</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- SECTION 1: WHAT COMPANIES ARE RESPONSIBLE FOR -->
+  <section class="section" id="s-what">
+    <div class="sec-label en-only">Section 1</div>
+    <div class="sec-label zh-only">第一节</div>
+    <h2 class="sec-title en-only">What Are Companies Responsible For?</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">企业对什么负责？</h2>
+
+    <p class="sec-text en-only">Companies primarily acquire social responsibility by generating profits — and with them benefits for the various stakeholders and society. However, morally responsible companies are only afforded public legitimacy when they achieve something more than just making money — "something truly valuable," something socially or ecologically meaningful (Noll 2012: 289).</p>
+    <p class="sec-text-zh zh-only">企业主要通过创造利润获得社会责任——从而为各利益相关者和社会带来利益。然而，只有当道德上负责任的企业实现超越赚钱的更多成就——"真正有价值"的事物、社会或生态上有意义的事物时，才能获得公众合法性（Noll 2012: 289）。</p>
+
+    <div class="compare-grid">
+      <div class="compare-card green-card">
+        <div class="compare-card-label en-only">Consumer Expectations (Havas 2023)</div>
+        <div class="compare-card-label zh-only">消费者期望（Havas 2023）</div>
+        <ul class="compare-list">
+          <li class="en-only"><strong>73%</strong> of those surveyed indicate that brands should actively carry responsibility for the well-being of society and the planet</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif"><strong>73%</strong>的受访者表示品牌应积极承担对社会和地球福祉的责任</li>
+          <li class="en-only">They especially trust brands that have the power to initiate and actively shape positive changes</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">他们尤其信任有能力发起并积极塑造积极变化的品牌</li>
+          <li class="en-only">Consumers credit brands with even greater creative power than elected governments</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">消费者认为品牌比民选政府拥有更大的创造力</li>
+        </ul>
+      </div>
+      <div class="compare-card accent-card">
+        <div class="compare-card-label en-only">The Credibility Gap</div>
+        <div class="compare-card-label zh-only">可信度差距</div>
+        <ul class="compare-list">
+          <li class="en-only">The belief in brands' creative power seems unbroken</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">对品牌创造力的信念似乎坚不可摧</li>
+          <li class="en-only">But brands are simultaneously no longer trusted to fulfil this mandate and truly make society better (Neye/Bongard 2025: 62)</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">但品牌同时不再被信任能够履行这一使命并真正改善社会（Neye/Bongard 2025: 62）</li>
+          <li class="en-only">From "consumer good brand" to "cultural asset brand" with transformative power</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">从"消费品品牌"到具有变革力量的"文化资产品牌"</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p class="en-only">"Transforming brands are no longer just passive consumer drivers trying to keep up with disruptive changes, no longer just profiteers of a growth-focused economy. Rather, they emancipate themselves from old constraints and actively drive forward-looking change processes, also beyond the economic field."</p>
+      <p class="callout-src">Future Institute 2020: 17; cited in Neye/Bongard 2025: 62</p>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 2: CSR DEFINITIONS -->
+  <section class="section" id="s-csr-def">
+    <div class="sec-label en-only">Section 2</div>
+    <div class="sec-label zh-only">第二节</div>
+    <h2 class="sec-title en-only">Defining Corporate Social Responsibility</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">定义企业社会责任</h2>
+
+    <p class="sec-text en-only">The CSR concept was developed in the USA, which still leads the scientific discussion. This reflects the US tradition of placing many topics of corporate responsibility within the social rather than the political sphere (Aßländer 2011: 326).</p>
+    <p class="sec-text-zh zh-only">CSR概念在美国发展而来，美国在科学讨论中仍处于领先地位。这反映了美国将企业责任的许多话题置于社会领域而非政治领域的传统（Aßländer 2011: 326）。</p>
+
+    <div class="card-grid col2">
+      <div class="info-card">
+        <div class="info-card-label en-only">European Commission Definition</div>
+        <div class="info-card-label zh-only">欧盟委员会定义</div>
+        <ul>
+          <li class="en-only" style="border:none;padding:0">CSR is a concept whereby companies, on a <strong>voluntary basis</strong>, integrate social concerns and environmental concerns in their business activities and in their interaction with their stakeholders (European Commission 2001: 7)</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif;border:none;padding:0">CSR是一个概念，企业在此概念下，以<strong>自愿为基础</strong>，在其商业活动和与利益相关者的互动中整合社会关切和环境关切（欧盟委员会 2001: 7）</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label en-only">German Federal Ministry Definition</div>
+        <div class="info-card-label zh-only">德国联邦劳工和社会部定义</div>
+        <ul>
+          <li class="en-only" style="border:none;padding:0">CSR means companies voluntarily assuming social responsibility beyond their legal duties. It is not about what is done with the profits — but <strong>how</strong> these profits are made: environmentally friendly, socially responsible, and economically successful (Neye/Bongard 2025: 72)</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif;border:none;padding:0">CSR意味着企业自愿承担超出法律义务的社会责任。这不是关于利润如何使用——而是<strong>如何</strong>获取这些利润：环境友好、社会负责任且经济上成功（Neye/Bongard 2025: 72）</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sec-text en-only">Three essential characteristics of a holistic CSR approach:</p>
+    <p class="sec-text-zh zh-only">整体CSR方法的三个基本特征：</p>
+
+    <div class="approach-grid">
+      <div class="approach-card">
+        <div class="approach-card-num en-only">Characteristic 1</div>
+        <div class="approach-card-num zh-only">特征 1</div>
+        <div class="approach-card-title en-only">Voluntary</div>
+        <div class="approach-card-title zh-only" style="font-family:'Noto Serif SC',serif">自愿性</div>
+        <div class="approach-card-body en-only">CSR is based on voluntary assumption of responsibility by companies — going beyond legally required minimums. This is what distinguishes genuine CSR from mere compliance.</div>
+        <div class="approach-card-body zh-only" style="font-family:'Noto Serif SC',serif">CSR基于企业自愿承担责任——超越法律要求的最低限度。这是真正的CSR与单纯合规的区别所在。</div>
+      </div>
+      <div class="approach-card">
+        <div class="approach-card-num en-only">Characteristic 2</div>
+        <div class="approach-card-num zh-only">特征 2</div>
+        <div class="approach-card-title en-only">Triple Bottom Line</div>
+        <div class="approach-card-title zh-only" style="font-family:'Noto Serif SC',serif">三重底线</div>
+        <div class="approach-card-body en-only">CSR addresses social, environmental, and economic questions — the so-called Triple Bottom Line. All three dimensions must be considered simultaneously, not as trade-offs.</div>
+        <div class="approach-card-body zh-only" style="font-family:'Noto Serif SC',serif">CSR关注社会、环境和经济问题——即所谓的三重底线。所有三个维度必须同时考虑，而非相互权衡。</div>
+      </div>
+      <div class="approach-card">
+        <div class="approach-card-num en-only">Characteristic 3</div>
+        <div class="approach-card-num zh-only">特征 3</div>
+        <div class="approach-card-title en-only">Stakeholder Dialogue</div>
+        <div class="approach-card-title zh-only" style="font-family:'Noto Serif SC',serif">利益相关者对话</div>
+        <div class="approach-card-body en-only">CSR activities emerge from discourse with all stakeholders — not only shareholders and customers, but also employees, communities, civil society, and future generations.</div>
+        <div class="approach-card-body zh-only" style="font-family:'Noto Serif SC',serif">CSR活动产生于与所有利益相关者的对话——不仅是股东和客户，还有员工、社区、公民社会和未来世代。</div>
+      </div>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card green-card">
+        <div class="compare-card-label en-only">Corporate Social Responsibility (CSR)</div>
+        <div class="compare-card-label zh-only">企业社会责任（CSR）</div>
+        <ul class="compare-list">
+          <li class="en-only">Explicitly addresses social and environmental dimensions</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">明确关注社会和环境维度</li>
+          <li class="en-only">Considers economic efficiency as a boundary condition</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">将经济效率视为边界条件</li>
+          <li class="en-only">Goes beyond what is required by law</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">超越法律要求</li>
+        </ul>
+      </div>
+      <div class="compare-card accent-card">
+        <div class="compare-card-label en-only">Corporate Sustainability (CS)</div>
+        <div class="compare-card-label zh-only">企业可持续性（CS）</div>
+        <ul class="compare-list">
+          <li class="en-only">Understands all three dimensions as an integrated unit</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">将所有三个维度视为一个整合单元</li>
+          <li class="en-only">All products and services serve a sustainable society and way of life</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">所有产品和服务服务于可持续社会和生活方式</li>
+          <li class="en-only">Integrates environmental and social considerations into core business strategy</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">将环境和社会考量整合到核心商业战略中</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 3: TRIPLE BOTTOM LINE -->
+  <section class="section" id="s-tbl">
+    <div class="sec-label en-only">Section 3</div>
+    <div class="sec-label zh-only">第三节</div>
+    <h2 class="sec-title en-only">The Triple Bottom Line: People · Planet · Prosperity</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">三重底线：人 · 地球 · 繁荣</h2>
+
+    <p class="sec-text en-only">John Elkington introduced the concept of the <strong>Triple Bottom Line (TBL)</strong> in 1994 — encouraging companies and organisations to evaluate their performance not only in financial terms, but also according to social and ecological criteria (Elkington 1997: 70). The TBL concept rests on the basic assumption that through expanding entrepreneurial awareness beyond economic aspects, companies' long-term financial value creation increases while simultaneously creating a positive impact on the world.</p>
+    <p class="sec-text-zh zh-only">约翰·埃尔金顿于1994年提出了<strong>三重底线（TBL）</strong>概念——鼓励企业和组织不仅从财务角度评估其业绩，还从社会和生态标准评估（Elkington 1997: 70）。TBL概念建立在基本假设上：通过将企业意识扩展到经济方面之外，企业的长期财务价值创造增加，同时对世界产生积极影响。</p>
+
+    <div class="tbl-grid">
+      <div class="tbl-cell">
+        <div class="tbl-icon">👥</div>
+        <div class="tbl-title en-only">People</div>
+        <div class="tbl-title zh-only" style="font-family:'Noto Serif SC',serif">人</div>
+        <div class="tbl-sub en-only">Social Dimension</div>
+        <div class="tbl-sub zh-only">社会维度</div>
+        <div class="tbl-body en-only">Good working conditions and fair wages for own employees and suppliers worldwide. Ensuring social justice and equal opportunities. Contributing to the well-being of communities.</div>
+        <div class="tbl-body zh-only" style="font-family:'Noto Serif SC',serif">为全球自有员工和供应商提供良好工作条件和公平工资。确保社会公正和平等机会。为社区福祉做出贡献。</div>
+      </div>
+      <div class="tbl-cell">
+        <div class="tbl-icon">🌍</div>
+        <div class="tbl-title en-only">Planet</div>
+        <div class="tbl-title zh-only" style="font-family:'Noto Serif SC',serif">地球</div>
+        <div class="tbl-sub en-only">Environmental Dimension</div>
+        <div class="tbl-sub zh-only">环境维度</div>
+        <div class="tbl-body en-only">Efficient use of natural resources and avoiding environmentally or health-harmful ingredients. Products and services that promote liveable conditions and serve the purpose of sustainable economic and social life.</div>
+        <div class="tbl-body zh-only" style="font-family:'Noto Serif SC',serif">高效利用自然资源，避免对环境或健康有害的成分。产品和服务促进宜居条件，服务于可持续经济和社会生活的目的。</div>
+      </div>
+      <div class="tbl-cell">
+        <div class="tbl-icon">📈</div>
+        <div class="tbl-title en-only">Prosperity</div>
+        <div class="tbl-title zh-only" style="font-family:'Noto Serif SC',serif">繁荣</div>
+        <div class="tbl-sub en-only">Economic Dimension</div>
+        <div class="tbl-sub zh-only">经济维度</div>
+        <div class="tbl-body en-only">Sustainable economic success that ensures the livelihoods of future generations. "Prosperity" rather than "profit" — drawing attention to collective well-being rather than purely financial returns (Kraaijenbrink 2019).</div>
+        <div class="tbl-body zh-only" style="font-family:'Noto Serif SC',serif">确保未来世代生计的可持续经济成功。"繁荣"而非"利润"——将注意力引向集体福祉而非纯粹财务回报（Kraaijenbrink 2019）。</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p class="en-only">"Today we think in terms of a 'triple bottom line', focusing on economic prosperity, environmental quality and — the element which business had preferred to overlook — social justice."</p>
+      <p class="callout-src">Elkington 1997: 70</p>
+    </div>
+
+    <p class="sec-text en-only">The three factors of the TBL may never be considered in isolation — only through the simultaneous interaction of economics, ecology and social issues can both the future of companies and the Earth's life-support systems be secured long-term (Neye/Bongard 2025: 68). Sustainability and economic success are two sides of the same coin: <strong>doing well by doing good.</strong></p>
+    <p class="sec-text-zh zh-only">TBL的三个因素决不能孤立考虑——只有通过经济、生态和社会问题的同时互动，才能长期保障企业的未来和地球的生命支持系统（Neye/Bongard 2025: 68）。可持续性和经济成功是同一枚硬币的两面：<strong>行善而兴盛。</strong></p>
+
+    <div class="callout callout-accent">
+      <p class="en-only">Elkington critically reflected on his concept 30 years after its publication: "The TBL wasn't designed to be just an accounting tool. It was supposed to provoke deeper thinking about capitalism and its future — but many early adopters understood it as a balancing act, adopting a trade-off mentality." (Elkington 2018)</p>
+      <p class="callout-zh zh-only">埃尔金顿在发表该概念30年后批判性地反思道："TBL的设计初衷不仅仅是一种会计工具。它本应引发对资本主义及其未来的更深层思考——但许多早期采用者将其理解为一种平衡行为，采用了权衡取舍的思维方式。"（Elkington 2018）</p>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 4: CSR AS BRAND COMMUNICATION -->
+  <section class="section" id="s-brand-comm">
+    <div class="sec-label en-only">Section 4</div>
+    <div class="sec-label zh-only">第四节</div>
+    <h2 class="sec-title en-only">CSR as Brand Communication</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">CSR作为品牌传播工具</h2>
+
+    <p class="sec-text en-only">Companies undertake social responsibility primarily by generating profits — and also by delivering additional benefits for stakeholders and society. The overarching motive is not altruism but economic calculation: CSR projects should contribute to the <em>differentiation and profiling</em> of a brand and thus provide a competitive advantage.</p>
+    <p class="sec-text-zh zh-only">企业承担社会责任主要通过创造利润——并为利益相关者和社会提供额外利益。总体动机不是利他主义而是经济计算：CSR项目应该有助于品牌的<em>差异化和定位</em>，从而提供竞争优势。</p>
+
+    <div class="callout">
+      <p class="en-only">CSR becomes an instrument of brand communication which uses <strong>morality as a resource for brand profiling</strong>. In short: Do good — and talk about it.</p>
+    </div>
+
+    <p class="sec-text en-only"><strong>The Paradox of CSR:</strong> The self-serving motives for assuming societal responsibility are not inherently objectionable from a teleological perspective. However, CSR is based on a cost-benefit analysis that — in order to even deliver this benefit — must not be openly communicated. If CSR communications expose their actual goals and motives (profiling, positive brand image), they deprive themselves of much of their moral legitimation in order to achieve that very goal.</p>
+    <p class="sec-text-zh zh-only"><strong>CSR的悖论：</strong>从目的论角度来看，承担社会责任的自利动机本身并不令人反感。然而，CSR基于成本收益分析——为了实现这种收益，这种分析不得公开传播。如果CSR传播暴露其实际目标和动机（定位、积极品牌形象），它们就会剥夺自身大部分道德合法性，以实现那个非常目标。</p>
+
+    <div class="callout callout-accent">
+      <p class="en-only">"The road to hell is paved with good intentions." A primarily morality-motivated understanding of CSR focuses on the motivation of economic actors — not on the consequences in the overall system — and is therefore bound to fail (Asbury 2024: 25ff.). What matters are outcomes, not declared intentions.</p>
+      <p class="callout-zh zh-only">"通往地狱的路由善意铺成。"以道德为主要动机的CSR理解关注经济行为者的动机——而非整个系统中的后果——因此注定失败（Asbury 2024: 25ff.）。重要的是结果，而非声明的意图。</p>
+    </div>
+
+    <p class="sec-text en-only">The consequence: Not only must companies do the right thing — they must also do it for the right (moral) reasons. CSR activities must be authentically embedded in corporate values, not merely deployed as communication instruments.</p>
+    <p class="sec-text-zh zh-only">后果：企业不仅必须做正确的事——还必须出于正确的（道德）原因去做。CSR活动必须真实地嵌入企业价值观，而不仅仅是作为传播工具使用。</p>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 5: CSR STRATEGY TYPES -->
+  <section class="section" id="s-types">
+    <div class="sec-label en-only">Section 5</div>
+    <div class="sec-label zh-only">第五节</div>
+    <h2 class="sec-title en-only">CSR Strategy Types: Four Approaches</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">CSR战略类型：四种方法</h2>
+
+    <p class="sec-text en-only">To make CSR meaningful, it should be integrated into the existing corporate and communications strategy. Based on motivation and integration into overall corporate strategy, four types of CSR can be distinguished (Meyer/Waßmann 2011: 12f.):</p>
+    <p class="sec-text-zh zh-only">为使CSR有意义，应将其整合到现有企业和传播战略中。基于动机及其在整体企业战略中的整合程度，可以区分四种CSR类型（Meyer/Waßmann 2011: 12f.）：</p>
+
+    <div class="csr-types">
+      <div class="csr-type">
+        <span class="csr-type-badge ethical">Ethical CSR</span>
+        <div class="csr-type-title en-only">Ethical CSR</div>
+        <div class="csr-type-title zh-only" style="font-family:'Noto Serif SC',serif">伦理型CSR</div>
+        <div class="csr-type-body en-only">Assuming social responsibility towards stakeholders who may be harmed by business activities. Based on a "social contract" — obligation to cover social costs caused by own activities. Compliance with laws as minimum social responsibility. Examples: Product safety spending, avoiding self-caused environmental damage.</div>
+        <div class="csr-type-body zh-only" style="font-family:'Noto Serif SC',serif">对可能因商业活动而受到伤害的利益相关者承担社会责任。基于"社会契约"——弥补自身活动造成的社会成本。将遵守法律作为最低社会责任。示例：产品安全支出、避免自身造成的环境破坏。</div>
+      </div>
+      <div class="csr-type">
+        <span class="csr-type-badge altruist">Altruist CSR</span>
+        <div class="csr-type-title en-only">Altruist CSR</div>
+        <div class="csr-type-title zh-only" style="font-family:'Noto Serif SC',serif">利他型CSR</div>
+        <div class="csr-type-body en-only">Goes beyond societal norms as a "good corporate citizen." Business activities with a focus on the common good. Examples: Partnerships with educational institutions, cultural sponsorship. Immediate moral duty to be proactive — no direct economic corporate target.</div>
+        <div class="csr-type-body zh-only" style="font-family:'Noto Serif SC',serif">作为"良好企业公民"超越社会规范。以公共利益为重点的商业活动。示例：与教育机构的合作关系、文化赞助。立即的道德义务积极主动——没有直接的经济企业目标。</div>
+      </div>
+      <div class="csr-type">
+        <span class="csr-type-badge reactive">Reactive CSR</span>
+        <div class="csr-type-title en-only">Reactive / Tactical CSR</div>
+        <div class="csr-type-title zh-only" style="font-family:'Noto Serif SC',serif">反应型/战术型CSR</div>
+        <div class="csr-type-body en-only">Based on no corporate or communication strategy. Implementation of CSR activities only following misconduct or under stakeholder pressure. Goal: Avoiding regulatory restrictions due to public pressure. The least credible and least effective form.</div>
+        <div class="csr-type-body zh-only" style="font-family:'Noto Serif SC',serif">不基于任何企业或传播战略。仅在不当行为发生后或在利益相关者压力下实施CSR活动。目标：避免因公众压力而产生的监管限制。可信度最低、效果最差的形式。</div>
+      </div>
+      <div class="csr-type">
+        <span class="csr-type-badge strategic">Strategic CSR</span>
+        <div class="csr-type-title en-only">Strategic CSR</div>
+        <div class="csr-type-title zh-only" style="font-family:'Noto Serif SC',serif">战略型CSR</div>
+        <div class="csr-type-body en-only">Voluntary social engagement leads to increased demand for products (win-win). CSR investment: benefits for society including an increase in own profit. Contribution to improving competitiveness. Increases effectiveness ("increasing demand") or efficiency ("reducing costs").</div>
+        <div class="csr-type-body zh-only" style="font-family:'Noto Serif SC',serif">自愿的社会参与导致对产品需求的增加（双赢）。CSR投资：包括自身利润增加在内的社会效益。对提高竞争力的贡献。提高有效性（"增加需求"）或效率（"降低成本"）。</div>
+      </div>
+    </div>
+
+    <p class="sec-text en-only">The strategic implementation of CSR should be informed by two complementary perspectives: the <strong>Inside-Out perspective</strong> (identifying existing value activities that already positively affect the socio-ecological environment) and the <strong>Outside-In perspective</strong> (using Porter's diamond model — Strategy &amp; Competition, Demand Conditions, Supporting Industries, Factors of Production — to derive future competitive advantages from CSR engagement).</p>
+    <p class="sec-text-zh zh-only">CSR的战略实施应从两个互补视角出发：<strong>由内而外视角</strong>（识别已对社会生态环境产生积极影响的现有价值活动）和<strong>由外而内视角</strong>（利用波特钻石模型——战略与竞争、需求条件、支持行业、生产要素——从CSR参与中推导出未来的竞争优势）。</p>
+  </section>
+
+  <!-- ASSIGNMENT -->
+  <div class="assignment">
+    <div class="assignment-badge en-only">Semester Assignment</div>
+    <div class="assignment-badge zh-only" style="font-family:'Noto Serif SC',serif">学期作业</div>
+    <div class="assignment-title en-only">Group Presentation — Brand &amp; Responsibility Analysis</div>
+    <div class="assignment-title zh-only" style="font-family:'Noto Serif SC',serif">小组展示——品牌与责任分析</div>
+    <p class="assignment-body en-only">Apply this session's frameworks to your chosen brand. Classify your brand's CSR approach: is it Ethical, Altruist, Reactive, or Strategic? Does your brand's CSR address all three dimensions of the Triple Bottom Line — People, Planet, and Prosperity? How authentic and credible are your brand's CSR claims to an informed observer?</p>
+    <p class="assignment-body en-only" style="margin-top:12px"><strong>Examiners:</strong> Prof. Dr. Bongard &amp; Prof. Dr. Groll | <strong>Filename:</strong> BT-03_Marke-und-Verantwortung_LastName_MatriculationNumber</p>
+    <p class="assignment-body zh-only" style="font-family:'Noto Serif SC',serif">将本节课的框架应用于您选择的品牌。对您品牌的CSR方法进行分类：是伦理型、利他型、反应型还是战略型？您品牌的CSR是否涉及三重底线的所有三个维度——人、地球和繁荣？对于知情观察者而言，您品牌的CSR主张有多真实、多可信？</p>
+    <p class="assignment-body zh-only" style="font-family:'Noto Serif SC',serif;margin-top:12px"><strong>主考：</strong>邦加德教授 &amp; 格罗尔教授 | <strong>文件名：</strong>BT-03_Marke-und-Verantwortung_姓名_学号</p>
+  </div>
+
+</div>
+
+<div class="nav-bar">
+  <a class="nav-btn" href="session4-csr1.html">← Session 4: Ethics Management</a>
+  <span class="nav-info">Session 05 of 08</span>
+  <a class="nav-btn" href="session6-brand-purpose.html">Session 6: Brand Purpose →</a>
+</div>
+
+<script>
+function setLang(l){
+  document.body.className=l;
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  document.getElementById('btn-zh').classList.toggle('active',l==='zh');
+}
+</script>
+</body>
+</html>

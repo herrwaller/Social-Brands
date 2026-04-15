@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Session 7 – Brand Activism | BT-03 Brand and Responsibility</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F2EB;--bg2:#EBE7DE;--card:#FDFAF4;--ink:#1A1714;--ink2:#46403A;--ink3:#7A756C;
+  --border:rgba(26,23,20,.10);--border2:rgba(26,23,20,.06);
+  --green:#4A8A28;--r:12px;--accent:#C84020;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6}
+body.en .zh-only{display:none!important}
+body.zh .en-only{display:none!important}
+
+.header{background:#1A1714;padding:48px 0 36px;position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);
+  width:700px;height:400px;background:radial-gradient(ellipse,rgba(74,138,40,.22) 0%,transparent 70%);pointer-events:none}
+.header-inner{max-width:900px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+.back-link{color:rgba(255,255,255,.45);font-size:13px;text-decoration:none;letter-spacing:.04em}
+.back-link:hover{color:#fff}
+.session-tag{color:rgba(255,255,255,.35);font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:18px 0 14px}
+.header-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,48px);font-weight:600;
+  line-height:1.15;color:#fff;margin-bottom:22px}
+.header-title span{color:#7EC855}
+
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.toc-pill{background:var(--green);color:#fff;font-size:11.5px;font-weight:500;letter-spacing:.04em;
+  padding:5px 14px;border-radius:20px;text-decoration:none;transition:opacity .15s}
+.toc-pill:hover{opacity:.82}
+
+.lang-bar{background:var(--bg2);border-bottom:1px solid var(--border);
+  display:flex;justify-content:flex-end;padding:8px 28px}
+.lang-btn{background:none;border:1.5px solid var(--border);border-radius:6px;
+  color:var(--ink3);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;
+  font-weight:500;letter-spacing:.06em;padding:4px 14px;transition:all .15s}
+.lang-btn+.lang-btn{margin-left:6px}
+.lang-btn.active{background:var(--green);border-color:var(--green);color:#fff}
+
+.main{max-width:900px;margin:0 auto;padding:52px 28px 80px}
+.section{margin-bottom:64px}
+.section-tag{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3.5vw,32px);
+  font-weight:600;line-height:1.2;margin-bottom:20px;color:var(--ink)}
+.prose{color:var(--ink2);line-height:1.75;margin-bottom:16px}
+.prose strong{color:var(--ink);font-weight:600}
+
+.callout{border-left:4px solid var(--green);background:var(--card);border-radius:0 var(--r) var(--r) 0;
+  padding:20px 24px;margin:24px 0;color:var(--ink2)}
+.callout-accent{border-left:4px solid var(--accent);background:var(--card);border-radius:0 var(--r) var(--r) 0;
+  padding:20px 24px;margin:24px 0;color:var(--ink2)}
+.callout strong,.callout-accent strong{color:var(--ink)}
+
+.quote-block{background:var(--card);border-radius:var(--r);padding:28px 32px;margin:24px 0;
+  border:1px solid var(--border)}
+.quote-block blockquote{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;
+  line-height:1.55;color:var(--ink);margin-bottom:12px}
+.quote-block cite{font-size:13px;color:var(--ink3);font-style:normal}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+@media(max-width:600px){.compare-grid{grid-template-columns:1fr}}
+.compare-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:22px}
+.compare-card h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;
+  margin-bottom:10px;color:var(--ink)}
+.compare-card ul{padding-left:18px;color:var(--ink2);font-size:0.93rem;line-height:1.7}
+
+.info-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:24px 28px;margin:20px 0}
+.info-card h4{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;
+  color:var(--ink);margin-bottom:12px}
+.info-card ul{padding-left:20px;color:var(--ink2);line-height:1.75}
+.info-card ul li{margin-bottom:6px}
+
+.case-box{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  overflow:hidden;margin:28px 0}
+.case-box-header{background:#1A1714;padding:16px 24px}
+.case-box-header h4{color:#fff;font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600}
+.case-box-header span{color:rgba(255,255,255,.5);font-size:12px;display:block;margin-top:2px}
+.case-box-body{padding:22px 24px;color:var(--ink2);line-height:1.75}
+.case-box-body ul{padding-left:20px}
+.case-box-body ul li{margin-bottom:6px}
+.case-box-body strong{color:var(--ink)}
+
+.stage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
+@media(max-width:650px){.stage-grid{grid-template-columns:1fr}}
+.stage-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:20px;position:relative}
+.stage-card .stage-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;
+  color:rgba(74,138,40,.15);line-height:1;margin-bottom:8px}
+.stage-card h4{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;
+  color:var(--ink);margin-bottom:8px}
+.stage-card p{font-size:0.88rem;color:var(--ink2);line-height:1.6}
+
+.assignment{background:var(--card);border:2px solid var(--green);border-radius:var(--r);
+  padding:32px 36px;margin-top:52px}
+.assignment-badge{display:inline-block;background:var(--green);color:#fff;font-size:11px;
+  font-weight:600;letter-spacing:.10em;text-transform:uppercase;padding:4px 12px;
+  border-radius:20px;margin-bottom:14px}
+.assignment-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;
+  color:var(--ink);margin-bottom:14px}
+.assignment-body{color:var(--ink2);line-height:1.75;margin-bottom:8px}
+
+.nav-bar{background:#1A1714;padding:20px 28px;display:flex;align-items:center;
+  justify-content:space-between;gap:16px}
+.nav-btn{color:rgba(255,255,255,.7);text-decoration:none;font-size:13.5px;
+  font-weight:500;letter-spacing:.02em;transition:color .15s}
+.nav-btn:hover{color:#fff}
+.nav-info{color:rgba(255,255,255,.35);font-size:12px;letter-spacing:.08em;text-align:center}
+
+hr.section-rule{border:none;border-top:1px solid var(--border);margin:52px 0}
+</style>
+</head>
+<body class="en">
+
+<div class="header">
+  <div class="header-inner">
+    <a class="back-link" href="index.html">← Course Overview</a>
+    <div class="session-tag">Session 07</div>
+    <h1 class="header-title en-only">Brand <span>Activism</span></h1>
+    <h1 class="header-title zh-only" style="font-family:'Noto Serif SC',serif">品牌<span>活动主义</span></h1>
+    <nav class="toc">
+      <a class="toc-pill" href="#evolution">From CSR to Activism</a>
+      <a class="toc-pill" href="#definition">Definition</a>
+      <a class="toc-pill" href="#profiling">Profiling &amp; Risks</a>
+      <a class="toc-pill" href="#credibility">Credibility</a>
+      <a class="toc-pill" href="#oatly">Oatly Case</a>
+      <a class="toc-pill" href="#limits">Limits</a>
+    </nav>
+  </div>
+</div>
+
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('zh')">中文</button>
+</div>
+
+<div class="main">
+
+  <!-- SECTION 1: FROM CSR TO ACTIVISM -->
+  <div class="section" id="evolution">
+    <div class="section-tag en-only">Section 01</div>
+    <div class="section-tag zh-only" style="font-family:'Noto Serif SC',serif">第一节</div>
+    <h2 class="section-title en-only">The Brand as Political Actor: From CSR to Brand Activism</h2>
+    <h2 class="section-title zh-only" style="font-family:'Noto Serif SC',serif">品牌作为政治行动者：从企业社会责任到品牌活动主义</h2>
+
+    <p class="prose en-only">We live in a world in which the boundaries between the economic, social, and political spheres are becoming increasingly permeable. Brands are no longer merely economic actors — they are increasingly expected to take positions on the sociopolitical challenges of our time. The brand as a <strong>political actor</strong> is becoming a new normal.</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif">我们生活在一个经济、社会和政治领域之间的边界日益模糊的世界中。品牌不再仅仅是经济行动者——它们越来越被期待在当代社会政治挑战上表明立场。品牌作为<strong>政治行动者</strong>正成为新常态。</p>
+
+    <p class="prose en-only">Brands have mostly used <strong>CSR</strong> in the past to demonstrate their social responsibility and profile themselves within the economic context. However, CSR has its limits:</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif">过去，品牌主要通过<strong>企业社会责任</strong>来展示其社会责任并在经济背景下塑造形象。然而，CSR有其局限性：</p>
+
+    <div class="callout-accent en-only">
+      <strong>"It is not enough to perceive corporate Social Responsibility (CSR) as a compulsory exercise. It is not sufficient any longer to do well only for not looking bad. Far too long, CSR was used for publicly proclaiming and showing. A broad range of superficial assistance to social projects was given. This outdated approach to CSR may have worked in the past but is not suitable for today's world."</strong><br>
+      <span style="font-size:13px;color:var(--ink3)">Kotler et al. 2021: 4</span>
+    </div>
+    <div class="callout-accent zh-only" style="font-family:'Noto Serif SC',serif">
+      <strong>"将企业社会责任视为强制性任务是不够的。仅仅为了不显得糟糕而做好事已经不够了。长期以来，企业社会责任被用于公开宣告和展示。对社会项目提供了大量表面性援助。这种过时的CSR方法在过去可能有效，但不适合当今世界。"</strong><br>
+      <span style="font-size:13px;color:var(--ink3)">Kotler et al. 2021: 4</span>
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- SECTION 2: DEFINITION -->
+  <div class="section" id="definition">
+    <div class="section-tag en-only">Section 02</div>
+    <div class="section-tag zh-only" style="font-family:'Noto Serif SC',serif">第二节</div>
+    <h2 class="section-title en-only">Brand Activism: Definition and Core Concept</h2>
+    <h2 class="section-title zh-only" style="font-family:'Noto Serif SC',serif">品牌活动主义：定义与核心概念</h2>
+
+    <p class="prose en-only"><strong>Brand Activism</strong> was developed as a further evolution of CSR. Its goal: societal change through the power of brands. Where CSR seeks broad acceptance by providing tangible societal added value, brand activism takes unambiguous positions on sometimes controversial social issues — and must therefore factor in potential resistance.</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif"><strong>品牌活动主义</strong>是企业社会责任的进一步发展。其目标：通过品牌的力量推动社会变革。CSR通过提供切实的社会附加价值寻求广泛认可，而品牌活动主义则对有时存在争议的社会问题采取明确立场——因此必须考虑潜在的阻力。</p>
+
+    <div class="quote-block">
+      <blockquote>"Brand Activism consists of business efforts to promote, impede, or direct social, political, economic and/or environmental reform with the desire to improve society."</blockquote>
+      <cite>Sarkar/Kotler 2018: 468</cite>
+    </div>
+
+    <div class="quote-block">
+      <blockquote>"A purpose and values-driven strategy in which a brand adopts a non-neutral stance on institutionally contested sociopolitical issues, to create social change and marketing success."</blockquote>
+      <cite>Vredenburg et al. 2020: 446</cite>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card">
+        <h4>CSR</h4>
+        <ul class="en-only">
+          <li>Offers economic, ecological, and social engagement</li>
+          <li>Provides directly tangible societal added value</li>
+          <li>Seeks broad societal acceptance</li>
+          <li>Generally non-controversial</li>
+        </ul>
+        <ul class="zh-only" style="font-family:'Noto Serif SC',serif">
+          <li>提供经济、生态和社会参与</li>
+          <li>提供直接可感知的社会附加价值</li>
+          <li>寻求广泛的社会认可</li>
+          <li>通常无争议</li>
+        </ul>
+      </div>
+      <div class="compare-card">
+        <h4 class="en-only">Brand Activism</h4>
+        <h4 class="zh-only" style="font-family:'Noto Serif SC',serif">品牌活动主义</h4>
+        <ul class="en-only">
+          <li>Takes positions on sometimes controversial social issues</li>
+          <li>Adopts a non-neutral stance</li>
+          <li>Must factor in potential societal resistance</li>
+          <li>Responds to an increasingly polarized environment</li>
+        </ul>
+        <ul class="zh-only" style="font-family:'Noto Serif SC',serif">
+          <li>对有时存在争议的社会问题表明立场</li>
+          <li>采取非中立立场</li>
+          <li>必须考虑潜在的社会阻力</li>
+          <li>回应日益两极化的环境</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="prose en-only">Brands must be managed with a focus on values. When brand values have a social or political dimension, they must clearly position themselves on socio-political controversies — and thus themselves become <strong>political actors</strong>. This is not optional: a stance that costs nothing is worth nothing.</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif">品牌必须以价值观为核心进行管理。当品牌价值观具有社会或政治维度时，必须在社会政治争议上明确定位——从而使自身成为<strong>政治行动者</strong>。这不是可选项：不付出代价的立场毫无价值。</p>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- SECTION 3: PROFILING & RISKS -->
+  <div class="section" id="profiling">
+    <div class="section-tag en-only">Section 03</div>
+    <div class="section-tag zh-only" style="font-family:'Noto Serif SC',serif">第三节</div>
+    <h2 class="section-title en-only">Profiling via Brand Activism: Opportunities and Risks</h2>
+    <h2 class="section-title zh-only" style="font-family:'Noto Serif SC',serif">通过品牌活动主义塑造形象：机遇与风险</h2>
+
+    <p class="prose en-only">Brand activism is a value-oriented approach in which the brand adopts a clear position on certain socio-political topics — both to drive social change and to strengthen the brand itself (Vredenburg et al. 2020: 446). Consumers apparently prefer brands that support causes they personally agree with (Francioni et al. 2024: 2).</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif">品牌活动主义是一种价值导向的方法，品牌对某些社会政治话题采取明确立场——既推动社会变革，又增强品牌自身（Vredenburg et al. 2020: 446）。消费者显然更倾向于支持他们个人认同的事业的品牌（Francioni et al. 2024: 2）。</p>
+
+    <div class="callout en-only">
+      <strong>The connection between brands and people:</strong> Brand values must be linked to the human value system. Only in this way can strong emotional connections between brands and people be created — connections that go far beyond a functional quality promise.
+    </div>
+    <div class="callout zh-only" style="font-family:'Noto Serif SC',serif">
+      <strong>品牌与人之间的联系：</strong>品牌价值观必须与人类价值体系相连接。只有这样才能在品牌和人之间创造强烈的情感连接——远超功能性质量承诺的连接。
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card">
+        <h4 class="en-only">Community Building (Inward)</h4>
+        <h4 class="zh-only" style="font-family:'Noto Serif SC',serif">社群建设（向内）</h4>
+        <ul class="en-only">
+          <li>Shared values create a common community of like-minded people</li>
+          <li>Strong emotional brand loyalty</li>
+          <li>Brand becomes a tribe marker</li>
+        </ul>
+        <ul class="zh-only" style="font-family:'Noto Serif SC',serif">
+          <li>共同价值观创造志同道合者的社群</li>
+          <li>强烈的情感品牌忠诚度</li>
+          <li>品牌成为部落标志</li>
+        </ul>
+      </div>
+      <div class="compare-card">
+        <h4 class="en-only">Exclusion Risk (Outward)</h4>
+        <h4 class="zh-only" style="font-family:'Noto Serif SC',serif">排斥风险（向外）</h4>
+        <ul class="en-only">
+          <li>Clear demarcation can alienate certain societal groups</li>
+          <li>Polarization may reduce market reach</li>
+          <li>Backlash risk when stance is perceived as inauthentic</li>
+        </ul>
+        <ul class="zh-only" style="font-family:'Noto Serif SC',serif">
+          <li>明确的界定可能疏远某些社会群体</li>
+          <li>两极分化可能缩小市场覆盖</li>
+          <li>当立场被视为不真实时面临反弹风险</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout-accent en-only">
+      <strong>The balancing act:</strong> "However, there's a thin line between being relevant and controversial which may backlash negatively on the brand, daring some brands to address any social causes" (Eyada 2020: 30). Brand activism is always a balancing act between approval and disapproval.
+    </div>
+    <div class="callout-accent zh-only" style="font-family:'Noto Serif SC',serif">
+      <strong>平衡之道：</strong>"然而，相关性与争议性之间只有一线之隔，这可能对品牌产生负面反弹，使一些品牌不敢涉及任何社会事业"（Eyada 2020: 30）。品牌活动主义始终是认可与反对之间的平衡行为。
+    </div>
+
+    <div class="case-box">
+      <div class="case-box-header">
+        <h4>Nike: Dream Crazy &amp; "For Once, Just Don't Do It"</h4>
+        <span class="en-only">Case study: Authentic brand activism with societal risk</span>
+        <span class="zh-only" style="font-family:'Noto Serif SC',serif">案例：具有社会风险的真实品牌活动主义</span>
+      </div>
+      <div class="case-box-body">
+        <p class="en-only">Nike's campaigns featuring Colin Kaepernick ("Dream Crazy", 2018) and the anti-racism "For Once, Just Don't Do It" spot (2020) were credible because they were not a single action — Nike has supported Black athletes for decades and actively advocates for the interests of minorities (Eyada 2020: 33f.). Although the campaigns triggered boycott calls and stock price dips, Nike's long-term brand value and sales grew significantly.</p>
+        <p class="zh-only" style="font-family:'Noto Serif SC',serif">耐克以科林·卡佩尼克为主角的活动（"梦想疯狂"，2018年）和反种族主义广告"就这一次，不要去做"（2020年）之所以可信，是因为它们不是单一行动——耐克数十年来一直支持黑人运动员并积极倡导少数群体利益（Eyada 2020: 33f.）。尽管这些活动引发了抵制呼声和股价下跌，但耐克的长期品牌价值和销售额大幅增长。</p>
+        <p class="en-only" style="margin-top:12px">Key lesson: Authenticity comes from a track record — a long-term commitment that precedes and outlasts any single campaign. "<em>A value isn't a value unless it costs you something</em>" (Bill Bernbach).</p>
+        <p class="zh-only" style="font-family:'Noto Serif SC',serif;margin-top:12px">核心教训：真实性来自于记录——一种先于并超越任何单一活动的长期承诺。"<em>价值观只有在需要付出代价时才是真正的价值观</em>"（比尔·伯恩巴克）。</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- SECTION 4: CREDIBILITY - PEPSI CASE -->
+  <div class="section" id="credibility">
+    <div class="section-tag en-only">Section 04</div>
+    <div class="section-tag zh-only" style="font-family:'Noto Serif SC',serif">第四节</div>
+    <h2 class="section-title en-only">Credibility: The Hard Currency of Brand Activism</h2>
+    <h2 class="section-title zh-only" style="font-family:'Noto Serif SC',serif">可信度：品牌活动主义的硬通货</h2>
+
+    <p class="prose en-only">The credibility with which a brand takes a stance on relevant social controversies is the decisive factor in brand activism. The social issue must be at the center — not the sale of a product. The crucial factor is how independent of a direct commercial interest the brand's position appears (Neye/Bongard 2025: 77).</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif">品牌在相关社会争议上表明立场的可信度是品牌活动主义的决定性因素。社会议题必须处于核心位置——而非产品销售。关键因素在于品牌立场看起来与直接商业利益的独立程度（Neye/Bongard 2025: 77）。</p>
+
+    <div class="case-box">
+      <div class="case-box-header">
+        <h4>Pepsi "Live For Now" — A Cautionary Tale</h4>
+        <span class="en-only">Case study: Credibility failure in brand activism (2017)</span>
+        <span class="zh-only" style="font-family:'Noto Serif SC',serif">案例：品牌活动主义的可信度失败（2017年）</span>
+      </div>
+      <div class="case-box-body">
+        <p class="en-only">In April 2017, Pepsi launched the "Jump In" campaign, featuring celebrity model Kendall Jenner. The recipe was simple: use the Black Lives Matter movement and its prominent media presence to convey a message of social commitment and reach a young, demanding target audience.</p>
+        <p class="zh-only" style="font-family:'Noto Serif SC',serif">2017年4月，百事可乐推出以名人模特肯达尔·詹纳为主角的"加入"活动。配方很简单：借助"黑人的命也是命"运动及其在媒体的突出存在，传递社会承诺信息，触达年轻、挑剔的目标受众。</p>
+        <p class="en-only" style="margin-top:12px">The spot showed Jenner joining a protest and — in its culminating scene — handing a police officer a can of Pepsi. This "act of solidarity" leads demonstrators to joyfully embrace each other and police to relax with a knowing smile. The scene deliberately evoked Ieshia Evans' iconic image from a 2016 protest against police violence in Baton Rouge — where Evans was arrested moments after the photo was taken.</p>
+        <p class="zh-only" style="font-family:'Noto Serif SC',serif;margin-top:12px">广告展示詹纳加入抗议并在高潮场景中向警察递上一罐百事可乐。这个"团结之举"使示威者喜悦地相拥，警察则会心一笑地放松。这个场景刻意唤起Ieshia Evans 2016年在巴吞鲁日反对警察暴力抗议中的标志性图像——Evans在照片拍摄后数分钟即被逮捕。</p>
+        <ul class="en-only" style="margin-top:12px;padding-left:20px;color:var(--ink2)">
+          <li>The public reaction was immediate and massively negative — social media erupted in protest</li>
+          <li>Core criticism: Pepsi commercialized and trivialized the Black Lives Matter movement and its legitimate grievances</li>
+          <li><em>"This ad trivializes the urgency of the issues and it diminishes the seriousness and the gravity of why we got into the street in the first place"</em> (Smith 2017)</li>
+          <li>Less than 48 hours after publication, Pepsi withdrew the campaign and issued a public apology</li>
+          <li>The failure stemmed from: no established brand purpose, no prior social engagement, interchangeable platitudes instead of genuine commitment</li>
+        </ul>
+        <ul class="zh-only" style="font-family:'Noto Serif SC',serif;margin-top:12px;padding-left:20px;color:var(--ink2)">
+          <li>公众反应立即且极为负面——社交媒体爆发抗议</li>
+          <li>核心批评：百事将"黑人的命也是命"运动及其正当诉求商业化和琐碎化</li>
+          <li><em>"这则广告将问题的紧迫性平庸化，削弱了我们走上街头原因的严肃性和重要性"</em>（Smith 2017）</li>
+          <li>发布不到48小时，百事撤回活动并发表公开道歉</li>
+          <li>失败源于：没有既定的品牌目标、没有先前的社会参与、以可互换的陈词滥调替代真正的承诺</li>
+        </ul>
+        <div class="callout-accent" style="margin-top:16px">
+          <strong class="en-only">Key lesson:</strong>
+          <strong class="zh-only" style="font-family:'Noto Serif SC',serif">核心教训：</strong>
+          <span class="en-only">"Black Lives Matter grew in response to police brutality and death. Pepsi had no business trying to profit from it." (Goodson and Walker 2021: 21). Brand activism requires authentic, long-term commitment — not opportunistic co-optation of movements.</span>
+          <span class="zh-only" style="font-family:'Noto Serif SC',serif">"'黑人的命也是命'运动是对警察暴力和死亡的回应。百事没有资格试图从中获利。"（Goodson and Walker 2021: 21）。品牌活动主义需要真实的长期承诺——而非机会主义地借用运动。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <h4 class="en-only">The Basic Rules of Brand Activism</h4>
+      <h4 class="zh-only" style="font-family:'Noto Serif SC',serif">品牌活动主义的基本规则</h4>
+      <ul class="en-only">
+        <li>Show a clear <strong>attitude</strong> — take a clear position on a specific and relevant social issue</li>
+        <li>Put the <strong>social concern in focus</strong> — not the sale of your products</li>
+        <li>Build on a <strong>track record</strong> — credibility requires prior commitment, not just a single campaign</li>
+        <li>Anchor activism in the <strong>entire value chain</strong> — not just in communication</li>
+        <li>Accept that <strong>something must be at stake</strong> — a value isn't a value unless it costs you something</li>
+      </ul>
+      <ul class="zh-only" style="font-family:'Noto Serif SC',serif">
+        <li>展现明确的<strong>态度</strong>——对特定且相关的社会问题采取清晰立场</li>
+        <li>将<strong>社会关切置于核心</strong>——而非产品销售</li>
+        <li>建立在<strong>历史记录</strong>之上——可信度需要事前承诺，不仅仅是单一活动</li>
+        <li>将活动主义嵌入<strong>整个价值链</strong>——不仅仅是传播</li>
+        <li>接受<strong>必须有所付出</strong>——价值观只有在需要付出代价时才有价值</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- SECTION 5: OATLY CASE -->
+  <div class="section" id="oatly">
+    <div class="section-tag en-only">Section 05</div>
+    <div class="section-tag zh-only" style="font-family:'Noto Serif SC',serif">第五节</div>
+    <h2 class="section-title en-only">Oatly: Brand Activism Anchored at the Core</h2>
+    <h2 class="section-title zh-only" style="font-family:'Noto Serif SC',serif">燕麦奶：植根核心的品牌活动主义</h2>
+
+    <p class="prose en-only">While Pepsi represents a worst-case scenario for brand activism, <strong>Oatly</strong> — the Swedish oat milk pioneer — is considered a best-case example. Founded by researcher Rickard Öste, Oatly has been a pioneer of sustainability in the food industry since 1994, characterized by a clear public stance from the very beginning.</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif">百事代表了品牌活动主义的最糟糕案例，而瑞典燕麦奶先驱<strong>燕麦奶（Oatly）</strong>则被视为最佳案例。由研究员Rickard Öste创立，燕麦奶自1994年起就是食品行业可持续发展的先驱，从一开始就以明确的公开立场为特征。</p>
+
+    <div class="stage-grid">
+      <div class="stage-card">
+        <div class="stage-num">01</div>
+        <h4 class="en-only">Functional Brand Positioning</h4>
+        <h4 class="zh-only" style="font-family:'Noto Serif SC',serif">功能性品牌定位</h4>
+        <p class="en-only">Starting 2001 as an independent brand, Oatly targeted groups with lactose intolerance, marketing oat milk as a healthy substitute for conventional milk. The positioning was functional, supported by a scientific background — keeping the brand in a niche with limited growth potential (Koch 2020: 598).</p>
+        <p class="zh-only" style="font-family:'Noto Serif SC',serif">2001年作为独立品牌成立后，燕麦奶瞄准乳糖不耐受人群，将燕麦奶作为传统牛奶的健康替代品进行营销。定位是功能性的，以科学背景为支撑——使品牌保持在增长潜力有限的细分市场中（Koch 2020: 598）。</p>
+      </div>
+      <div class="stage-card">
+        <div class="stage-num">02</div>
+        <h4 class="en-only">Emotional Lifestyle Positioning</h4>
+        <h4 class="zh-only" style="font-family:'Noto Serif SC',serif">情感生活方式定位</h4>
+        <p class="en-only">After ten years, Oatly was repositioned — adding ecological advantages to the health dimension. The aim: no longer just establishing the product category, but achieving comprehensive societal change — with Oatly at the forefront. The brand's purpose became change itself. A new usage context — urban barista culture — unlocked lifestyle appeal. Oatly sued the dairy industry; losing the suit gained publicity and public support.</p>
+        <p class="zh-only" style="font-family:'Noto Serif SC',serif">十年后，燕麦奶进行重新定位——在健康维度上增加了生态优势。目标不再仅仅是建立产品类别，而是实现全面的社会变革——以燕麦奶为先锋。品牌的目标本身变成了变革。新的使用场景——城市咖啡师文化——开启了生活方式吸引力。燕麦奶起诉乳品行业；输掉官司反而获得了知名度和公众支持。</p>
+      </div>
+      <div class="stage-card">
+        <div class="stage-num">03</div>
+        <h4 class="en-only">Brand Activism</h4>
+        <h4 class="zh-only" style="font-family:'Noto Serif SC',serif">品牌活动主义</h4>
+        <p class="en-only">Following international success, Oatly now addresses global social challenges — climate change, factory farming — in the interest of comprehensive change in the food industry. Oatly's commitment goes beyond creative communication to encompass the entire value chain. It has become "a political food project that now aims at transforming the food industry" (Koch 2020: 601) — a proof that "doing well by doing good" is possible.</p>
+        <p class="zh-only" style="font-family:'Noto Serif SC',serif">在国际成功之后，燕麦奶现在应对全球社会挑战——气候变化、工厂化养殖——以推动食品行业的全面变革。燕麦奶的承诺超越了创意传播，涵盖整个价值链。它已成为"一个旨在改变食品行业的政治食品项目"（Koch 2020: 601）——证明"行善而受益"是可能的。</p>
+      </div>
+    </div>
+
+    <div class="callout en-only">
+      <strong>Oatly as proof of concept:</strong> With its global success story, Oatly demonstrates that entrepreneurial activity based on the Triple Bottom Line is possible — and can be economically successful in the long term without causing irresponsible ecological and social costs (Neye/Bongard 2025: 83).
+    </div>
+    <div class="callout zh-only" style="font-family:'Noto Serif SC',serif">
+      <strong>燕麦奶作为概念验证：</strong>凭借其全球成功故事，燕麦奶证明了基于三重底线的企业活动是可能的——并且可以在不造成不负责任的生态和社会成本的情况下实现长期经济成功（Neye/Bongard 2025: 83）。
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- SECTION 6: LIMITS -->
+  <div class="section" id="limits">
+    <div class="section-tag en-only">Section 06</div>
+    <div class="section-tag zh-only" style="font-family:'Noto Serif SC',serif">第六节</div>
+    <h2 class="section-title en-only">Limits of Brand Activism: Consumption vs. Sustainability</h2>
+    <h2 class="section-title zh-only" style="font-family:'Noto Serif SC',serif">品牌活动主义的局限：消费与可持续性</h2>
+
+    <p class="prose en-only">A fundamental question underlies all brand activism: Can consumption and sustainability be reconciled, or are they in fundamental conflict? Even sustainable brands like Patagonia and Oatly need to generate profits to fulfill their responsibilities. They must sell products in order to pursue their purpose of saving the world (Neye/Bongard 2025: 84).</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif">一个根本性问题贯穿所有品牌活动主义：消费与可持续性能否协调，还是它们存在根本性冲突？即使是巴塔哥尼亚和燕麦奶这样的可持续品牌也需要产生利润来履行其责任。它们必须销售产品才能追求拯救世界的目标（Neye/Bongard 2025: 84）。</p>
+
+    <div class="callout-accent en-only">
+      <strong>The safe middle ground trap:</strong> "Brand managers don't really want to pick sides. Instead, they want a broad audience, so they act like crafty centralist politicians, seeking the safe, flat, nonthreatening middle ground" (Koch 2020: 594). This is a dead end — a brand's stance is only valuable when something is at stake.
+    </div>
+    <div class="callout-accent zh-only" style="font-family:'Noto Serif SC',serif">
+      <strong>安全中间地带陷阱：</strong>"品牌经理们真的不想选边站。相反，他们想要广泛的受众，所以他们像老练的中间派政客一样，寻求安全、平淡、无威胁的中间地带"（Koch 2020: 594）。这是死路一条——品牌立场只有在有所付出时才有价值。</span>
+    </div>
+
+    <div class="quote-block">
+      <blockquote>"Brands that take a stance on important sociopolitical issues can create strong emotional connections with consumers, but only if it is seen as more than just communication. This implies that commerciality and cause can coexist, as long as the former does not compromise the latter."</blockquote>
+      <cite>Moumade et al. 2024: 4</cite>
+    </div>
+
+    <p class="prose en-only">Brand activism requires brands to go beyond clear attitudes toward social controversies and take the entire value chain into account. Commerciality and social cause can coexist — but only when the cause retains primacy. The moment commercial interest compromises the social commitment, credibility collapses.</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif">品牌活动主义要求品牌超越对社会争议的明确态度，将整个价值链纳入考量。商业性和社会事业可以共存——但只有当事业保持优先时。一旦商业利益损害社会承诺，可信度就会崩塌。</p>
+  </div>
+
+  <!-- ASSIGNMENT -->
+  <div class="assignment">
+    <div class="assignment-badge en-only">Semester Assignment</div>
+    <div class="assignment-badge zh-only" style="font-family:'Noto Serif SC',serif">学期作业</div>
+    <div class="assignment-title en-only">Group Presentation — Brand &amp; Responsibility Analysis</div>
+    <div class="assignment-title zh-only" style="font-family:'Noto Serif SC',serif">小组报告——品牌与责任分析</div>
+    <p class="assignment-body en-only">Develop your brand analysis with a focus on activism: Does your chosen brand take clear positions on sociopolitical issues? Evaluate the authenticity and credibility of these positions using the criteria discussed in this session (prior commitment, value chain integration, social vs. commercial focus).</p>
+    <p class="assignment-body zh-only" style="font-family:'Noto Serif SC',serif">以活动主义为重点开发品牌分析：您选择的品牌是否在社会政治问题上采取明确立场？使用本节讨论的标准（事前承诺、价值链整合、社会与商业焦点）评估这些立场的真实性和可信度。</p>
+    <p class="assignment-body en-only" style="margin-top:12px">
+      <strong>Filename:</strong> BT-03_Marke-und-Verantwortung_LastName_MatriculationNumber
+    </p>
+    <p class="assignment-body zh-only" style="font-family:'Noto Serif SC',serif;margin-top:12px">
+      <strong>文件名：</strong>BT-03_Marke-und-Verantwortung_姓名_学号
+    </p>
+  </div>
+
+</div><!-- /main -->
+
+<div class="nav-bar">
+  <a class="nav-btn" href="session6-brand-purpose.html">← Session 6: Brand Purpose</a>
+  <span class="nav-info">Session 07 of 08</span>
+  <a class="nav-btn" href="session8-individual-ethics.html">Session 8: Individual Ethics →</a>
+</div>
+
+<script>
+function setLang(l){
+  document.body.className=l;
+  document.querySelectorAll('.lang-btn').forEach(function(b){
+    b.classList.toggle('active', b.textContent.trim().toLowerCase()===l||
+      (l==='zh'&&b.textContent.trim()==='中文'));
+  });
+}
+</script>
+</body>
+</html>

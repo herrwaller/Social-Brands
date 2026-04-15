@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Session 4 — Ethics Management &amp; Trust Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F2EB;--bg2:#EBE7DE;--bg3:#DAD5C8;--card:#FDFAF4;
+  --ink:#1A1714;--ink2:#46403A;--ink3:#7A756C;
+  --border:rgba(26,23,20,.10);--border2:rgba(26,23,20,.06);
+  --green:#4A8A28;--r:12px;--accent:#C84020;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7}
+body.en .zh-only{display:none!important}
+body.zh .en-only{display:none!important}
+
+.header{background:#1A1714;padding:0;position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;top:-60px;right:-80px;width:420px;height:420px;background:radial-gradient(circle,rgba(74,138,40,.28) 0%,transparent 70%);pointer-events:none}
+.header-inner{max-width:860px;margin:0 auto;padding:36px 32px 40px}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:rgba(245,242,235,.45);text-decoration:none;font-size:12px;letter-spacing:.05em;margin-bottom:24px;transition:color .15s}
+.back-link:hover{color:rgba(245,242,235,.8)}
+.session-tag{display:inline-block;background:rgba(74,138,40,.22);color:#7EC855;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:18px}
+.header-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4.5vw,48px);font-weight:600;color:#F5F2EB;line-height:1.15;margin-bottom:8px}
+.header-title span{color:#7EC855}
+.header-subtitle{font-family:'Noto Serif SC',serif;font-size:16px;color:rgba(245,242,235,.5);margin-bottom:24px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.toc-pill{background:rgba(245,242,235,.07);border:1px solid rgba(245,242,235,.12);color:rgba(245,242,235,.6);padding:5px 14px;border-radius:20px;font-size:12px;text-decoration:none;transition:all .15s}
+.toc-pill:hover{background:rgba(74,138,40,.2);border-color:rgba(74,138,40,.4);color:#7EC855}
+
+.lang-bar{background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 32px}
+.lang-wrap{max-width:860px;margin:0 auto;display:flex;justify-content:flex-end}
+.lang-btn{background:none;border:1px solid var(--border);padding:5px 16px;border-radius:20px;font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;color:var(--ink2);transition:all .15s}
+.lang-btn:hover,.lang-btn.active{background:var(--green);border-color:var(--green);color:#fff}
+
+.main{max-width:860px;margin:0 auto;padding:40px 32px 60px}
+
+.section{margin-bottom:52px}
+.sec-label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3.5vw,30px);font-weight:600;color:var(--ink);line-height:1.25;margin-bottom:18px}
+.sec-text{color:var(--ink2);line-height:1.8;margin-bottom:12px}
+.sec-text-zh{font-family:'Noto Serif SC',serif;color:var(--ink3);line-height:2;margin-bottom:12px;font-size:14px}
+
+.callout{border-left:3px solid var(--green);background:var(--card);border-radius:0 var(--r) var(--r) 0;padding:18px 22px;margin:24px 0;box-shadow:0 2px 8px var(--border2)}
+.callout p{font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;color:var(--ink);line-height:1.6;margin-bottom:0}
+.callout .callout-src{font-size:12px;color:var(--ink3);margin-top:8px;font-style:normal;font-family:'DM Sans',sans-serif}
+.callout-accent{border-left-color:var(--accent)}
+.callout-accent p{color:var(--ink)}
+
+.card-grid{display:grid;gap:16px;margin:24px 0}
+.card-grid.col2{grid-template-columns:repeat(2,1fr)}
+.card-grid.col3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:600px){.card-grid.col2,.card-grid.col3{grid-template-columns:1fr}}
+
+.info-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px;box-shadow:0 2px 6px var(--border2)}
+.info-card-label{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:10px;color:var(--green)}
+.info-card ul{padding-left:0;list-style:none}
+.info-card ul li{font-size:13.5px;color:var(--ink2);padding:5px 0;border-bottom:1px solid var(--border2)}
+.info-card ul li:last-child{border-bottom:none}
+.info-card ul li::before{content:'→ ';color:var(--ink3)}
+
+.approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
+@media(max-width:680px){.approach-grid{grid-template-columns:1fr}}
+.approach-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;box-shadow:0 2px 6px var(--border2)}
+.approach-card-num{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.approach-card-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--ink);margin-bottom:8px}
+.approach-card-body{font-size:13px;color:var(--ink2);line-height:1.65}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+@media(max-width:560px){.compare-grid{grid-template-columns:1fr}}
+.compare-card{background:var(--card);border-radius:var(--r);padding:22px;box-shadow:0 2px 8px var(--border2)}
+.compare-card.accent-card{border-top:3px solid var(--accent)}
+.compare-card.green-card{border-top:3px solid var(--green)}
+.compare-card-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+.compare-card.accent-card .compare-card-label{color:var(--accent)}
+.compare-card.green-card .compare-card-label{color:var(--green)}
+.compare-list{list-style:none;padding:0}
+.compare-list li{font-size:13.5px;color:var(--ink2);padding:5px 0;border-bottom:1px solid var(--border2);display:flex;align-items:flex-start;gap:8px}
+.compare-list li:last-child{border-bottom:none}
+.compare-list li::before{content:'·';font-size:18px;line-height:1;flex-shrink:0;color:var(--ink3)}
+
+.case-box{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:24px 28px;margin:24px 0;box-shadow:0 2px 8px var(--border2)}
+.case-box-label{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.case-box-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--ink);margin-bottom:12px}
+.case-list{list-style:none;padding:0}
+.case-list li{font-size:13.5px;color:var(--ink2);padding:5px 0 5px 14px;border-bottom:1px solid var(--border2);position:relative}
+.case-list li:last-child{border-bottom:none}
+.case-list li::before{content:'–';position:absolute;left:0;color:var(--ink3)}
+
+.assignment{background:var(--card);border:1px solid rgba(74,138,40,.25);border-radius:var(--r);padding:28px 28px 24px;margin:40px 0 28px;box-shadow:0 2px 12px var(--border2)}
+.assignment-badge{display:inline-block;background:var(--green);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:14px}
+.assignment-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--ink);margin-bottom:14px}
+.assignment-body{font-size:14px;color:var(--ink2);line-height:1.8}
+
+.section-divider{border:none;border-top:1px solid var(--border);margin:0 0 48px}
+
+.nav-bar{background:#1A1714;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;margin-top:40px}
+.nav-btn{color:rgba(245,242,235,.6);text-decoration:none;font-size:13px;transition:color .15s}
+.nav-btn:hover{color:#F5F2EB}
+.nav-info{font-size:12px;color:rgba(245,242,235,.3);letter-spacing:.06em}
+</style>
+</head>
+<body class="en">
+
+<div class="header">
+  <div class="header-inner">
+    <a class="back-link" href="index.html">← Course Overview</a>
+    <div class="session-tag">Session 04</div>
+    <h1 class="header-title en-only">Ethics Management &amp; <span>Trust Management</span></h1>
+    <h1 class="header-title zh-only" style="font-family:'Noto Serif SC',serif">伦理管理与<span>信任管理</span></h1>
+    <p class="header-subtitle zh-only">BT-03：品牌与责任 · 第四讲</p>
+    <nav class="toc">
+      <a class="toc-pill en-only" href="#s-lipobay">Lipobay Case</a>
+      <a class="toc-pill zh-only" href="#s-lipobay">利泊贝案例</a>
+      <a class="toc-pill en-only" href="#s-ethics-mgmt">Ethics Management</a>
+      <a class="toc-pill zh-only" href="#s-ethics-mgmt">伦理管理</a>
+      <a class="toc-pill en-only" href="#s-trust">Trust Management</a>
+      <a class="toc-pill zh-only" href="#s-trust">信任管理</a>
+      <a class="toc-pill en-only" href="#s-product-decisions">Product Portfolio Ethics</a>
+      <a class="toc-pill zh-only" href="#s-product-decisions">产品组合伦理</a>
+      <a class="toc-pill en-only" href="#s-stakeholders">Stakeholders</a>
+      <a class="toc-pill zh-only" href="#s-stakeholders">利益相关者</a>
+    </nav>
+  </div>
+</div>
+
+<div class="lang-bar">
+  <div class="lang-wrap">
+    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-zh" onclick="setLang('zh')" style="margin-left:6px">中文</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- SECTION 1: LIPOBAY CASE -->
+  <section class="section" id="s-lipobay">
+    <div class="sec-label en-only">Section 1 · Case Study</div>
+    <div class="sec-label zh-only">第一节 · 案例研究</div>
+    <h2 class="sec-title en-only">The Lipobay Case: Weighing Interests</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">利泊贝案例：权衡利益</h2>
+
+    <p class="sec-text en-only">We have already established that companies depend on their public image and reputation. The Lipobay case from Bayer demonstrates the dilemma at the heart of corporate ethics: when a company's product helps many but harms some, how do we weigh competing patient interests?</p>
+    <p class="sec-text-zh zh-only">我们已经确认，企业依赖其公众形象和声誉。拜耳的利泊贝案例展示了企业伦理核心的困境：当公司产品帮助许多人但伤害部分人时，我们如何权衡相互竞争的患者利益？</p>
+
+    <div class="case-box">
+      <div class="case-box-label en-only">Case Study</div>
+      <div class="case-box-label zh-only">案例详情</div>
+      <div class="case-box-title en-only">Lipobay (Bayer): The Cholesterol Drug Scandal</div>
+      <div class="case-box-title zh-only" style="font-family:'Noto Serif SC',serif">利泊贝（拜耳）：降胆固醇药物丑闻</div>
+      <ul class="case-list">
+        <li class="en-only">Lipobay was an effective cholesterol-lowering preparation and the main revenue generator of Bayer Group's pharmaceutical division — with a life-prolonging effect for many patients with cardiovascular risk</li>
+        <li class="zh-only" style="font-family:'Noto Serif SC',serif">利泊贝是一种有效的降胆固醇制剂，是拜耳集团制药部门的主要收入来源——对许多有心血管风险的患者具有延长寿命的效果</li>
+        <li class="en-only">Lipobay was suspected of causing deaths in a small number of patients who, against Bayer's explicit announcements, took it simultaneously with other preparations</li>
+        <li class="zh-only" style="font-family:'Noto Serif SC',serif">利泊贝被怀疑在少数患者中造成死亡，这些患者违反拜耳的明确声明，同时服用了其他制剂</li>
+        <li class="en-only">Bayer was accused of covering up the side effect of muscle shrinkage. CFO Werner Wenning's interview statement — "The use of highly effective medications is always associated with side effects, those which can also lead to death" — was tabloid-ised as "Bayer manager mocks victims"</li>
+        <li class="zh-only" style="font-family:'Noto Serif SC',serif">拜耳被指控掩盖肌肉萎缩的副作用。首席财务官韦纳·文宁的采访声明——"使用高效药物总是与副作用相关，这些副作用也可能导致死亡"——被小报标题化为"拜耳经理嘲笑受害者"</li>
+      </ul>
+    </div>
+
+    <p class="sec-text en-only">Bayer had to weigh the competing interests of affected patients based on two criteria: (1) the <em>number</em> of patients who were helped, versus (2) the <em>extent</em> of the consequences for the few who experienced serious side effects. Even though Bayer was not proven guilty of any wrongdoing, the responsible parties withdrew Lipobay from the market:</p>
+    <p class="sec-text-zh zh-only">拜耳必须基于两个标准权衡受影响患者的相互竞争利益：（1）获得帮助的患者<em>数量</em>，与（2）经历严重副作用的少数人所受影响的<em>程度</em>。尽管拜耳未被证明有任何不当行为，负责人仍将利泊贝撤出市场：</p>
+
+    <div class="card-grid col3">
+      <div class="info-card">
+        <div class="info-card-label en-only">Reason 1</div>
+        <div class="info-card-label zh-only">原因 1</div>
+        <ul>
+          <li class="en-only" style="border:none;padding:0">The <strong>quality</strong> (severity) of the consequences was given greater weight than the <strong>quantity</strong> of patients helped</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif;border:none;padding:0">后果的<strong>质量</strong>（严重程度）被赋予比获益患者<strong>数量</strong>更大的权重</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label en-only">Reason 2</div>
+        <div class="info-card-label zh-only">原因 2</div>
+        <ul>
+          <li class="en-only" style="border:none;padding:0">Public pressure became very high — Bayer was accused of purely profit-driven motives</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif;border:none;padding:0">公众压力变得非常大——拜耳被指控纯粹出于利润驱动</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label en-only">Reason 3</div>
+        <div class="info-card-label zh-only">原因 3</div>
+        <ul>
+          <li class="en-only" style="border:none;padding:0">Continued marketing would have further amplified the "Bayer values profit over patient lives" narrative</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif;border:none;padding:0">继续销售将进一步放大"拜耳将利润置于患者生命之上"的叙事</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 2: ETHICS MANAGEMENT -->
+  <section class="section" id="s-ethics-mgmt">
+    <div class="sec-label en-only">Section 2</div>
+    <div class="sec-label zh-only">第二节</div>
+    <h2 class="sec-title en-only">The Relevance of Systematic Ethics Management</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">系统性伦理管理的重要性</h2>
+
+    <p class="sec-text en-only">Companies depend on their public image and reputation. To justify their actions to the public and build trust, they must address questions of business ethics systematically — with specific trust and values management processes. Companies and brands can only gain a positive economic effect from ethical positioning when the moral claims are <strong>sincere</strong>.</p>
+    <p class="sec-text-zh zh-only">企业依赖其公众形象和声誉。为了向公众证明其行动的正当性并建立信任，他们必须系统性地处理商业伦理问题——通过特定的信任和价值观管理流程。只有当道德主张是<strong>真诚的</strong>时，企业和品牌才能从道德定位中获得积极的经济效果。</p>
+
+    <div class="callout">
+      <p class="en-only">Ethics management is "the entirety of all efforts with which moral concerns are brought to the attention of employees and departments internally, as well as in external communication towards the market and the public."</p>
+      <p class="callout-src">Noll 2013: 157</p>
+    </div>
+
+    <p class="sec-text en-only">Ethics management ensures coordination of value-oriented corporate management. Its central function lies in <strong>self-commitment and self-obligation</strong> — the formulation and enforcement of self-chosen moral standards and their implementation and communication (Noll 2013: 157). Ethics management thus becomes a central part of overall management processes, and morality is understood as:</p>
+    <p class="sec-text-zh zh-only">伦理管理确保价值导向企业管理的协调。其核心功能在于<strong>自我承诺和自我约束</strong>——制定和执行自选道德标准及其实施和传播（Noll 2013: 157）。伦理管理因此成为整体管理流程的核心部分，道德被理解为：</p>
+
+    <div class="compare-grid">
+      <div class="compare-card green-card">
+        <div class="compare-card-label en-only">Morality as Resource</div>
+        <div class="compare-card-label zh-only">道德作为资源</div>
+        <ul class="compare-list">
+          <li class="en-only">A productive resource alongside capital, technology, and trained workers</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">与资本、技术和熟练工人并列的生产性资源</li>
+          <li class="en-only">In principle exploitable — not an independent or superior authority for evaluating actions</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">原则上可开发——不是评估行动的独立或高级权威</li>
+          <li class="en-only">Becomes part of the strategic management toolkit</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">成为战略管理工具包的一部分</li>
+        </ul>
+      </div>
+      <div class="compare-card accent-card">
+        <div class="compare-card-label en-only">Self-Commitment Goes Beyond Law</div>
+        <div class="compare-card-label zh-only">自我承诺超越法律</div>
+        <ul class="compare-list">
+          <li class="en-only">Holding on to recognised legitimate rights even without sanctions to fear</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">即使没有制裁也坚持公认的合法权利</li>
+          <li class="en-only">Adding own norms beyond statutory regulations</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">在法定法规之外添加自己的规范</li>
+          <li class="en-only">Using resources to constructively change existing law</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">利用资源建设性地改变现有法律</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 3: TRUST MANAGEMENT -->
+  <section class="section" id="s-trust">
+    <div class="sec-label en-only">Section 3</div>
+    <div class="sec-label zh-only">第三节</div>
+    <h2 class="sec-title en-only">Ethics Management as Trust Management</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">伦理管理作为信任管理</h2>
+
+    <p class="sec-text en-only">Self-imposed standards, fixed in codes of ethics, act as trust-building measures against various stakeholders and the public. They can therefore be understood as <strong>Trust Management</strong> (Grüninger/John 2004: 170ff.). Ethics management is part of the strategic corporate management and is therefore effective at all levels of entrepreneurial decision-making processes.</p>
+    <p class="sec-text-zh zh-only">在伦理守则中固定的自我施加标准，作为针对各种利益相关者和公众的信任建立措施。因此，它们可以被理解为<strong>信任管理</strong>（Grüninger/John 2004: 170ff.）。伦理管理是战略企业管理的一部分，因此在企业决策过程的所有层面上都有效。</p>
+
+    <div class="approach-grid">
+      <div class="approach-card">
+        <div class="approach-card-num en-only">Internally</div>
+        <div class="approach-card-num zh-only">内部</div>
+        <div class="approach-card-title en-only">Building Ethical Culture</div>
+        <div class="approach-card-title zh-only" style="font-family:'Noto Serif SC',serif">建立道德文化</div>
+        <div class="approach-card-body en-only">Moral concerns are brought to the attention of employees and departments. Creates a shared value basis across the organisation that guides decision-making at all levels.</div>
+        <div class="approach-card-body zh-only" style="font-family:'Noto Serif SC',serif">道德关切被带到员工和部门的注意。在整个组织内创造共同的价值基础，指导所有层面的决策。</div>
+      </div>
+      <div class="approach-card">
+        <div class="approach-card-num en-only">Externally</div>
+        <div class="approach-card-num zh-only">外部</div>
+        <div class="approach-card-title en-only">Communicating to Market &amp; Public</div>
+        <div class="approach-card-title zh-only" style="font-family:'Noto Serif SC',serif">向市场与公众传播</div>
+        <div class="approach-card-body en-only">Ethics commitments are communicated towards the market and the public — but must be credible. Claims that cannot be substantiated damage trust more than silence would.</div>
+        <div class="approach-card-body zh-only" style="font-family:'Noto Serif SC',serif">伦理承诺向市场和公众传播——但必须可信。无法证实的主张比沉默更能损害信任。</div>
+      </div>
+      <div class="approach-card">
+        <div class="approach-card-num en-only">Strategically</div>
+        <div class="approach-card-num zh-only">战略层面</div>
+        <div class="approach-card-title en-only">Competitive Advantage via Trust</div>
+        <div class="approach-card-title zh-only" style="font-family:'Noto Serif SC',serif">通过信任获得竞争优势</div>
+        <div class="approach-card-body en-only">Companies and brands can only gain a positive economic effect from ethical positioning when the moral claims are sincere. Ethics must be concrete, credible, and the testing ground of economic ethics beliefs (Noll 2013: 19).</div>
+        <div class="approach-card-body zh-only" style="font-family:'Noto Serif SC',serif">只有当道德主张真诚时，企业和品牌才能从道德定位中获得积极的经济效果。伦理必须具体、可信，并成为经济伦理信念的试验场（Noll 2013: 19）。</div>
+      </div>
+    </div>
+
+    <div class="callout callout-accent">
+      <p class="en-only">Especially ethical and moral issues such as sustainability must be carefully planned and implemented due to the associated risks. Ethics must be concrete and credibly proven — not merely claimed.</p>
+      <p class="callout-zh zh-only">尤其是可持续性等伦理和道德问题，由于相关风险必须仔细规划和实施。伦理必须具体且可信地得到证明——而不仅仅是声称。</p>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 4: PRODUCT PORTFOLIO ETHICS -->
+  <section class="section" id="s-product-decisions">
+    <div class="sec-label en-only">Section 4</div>
+    <div class="sec-label zh-only">第四节</div>
+    <h2 class="sec-title en-only">Ethics in Product Portfolio Decisions</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">产品组合决策中的伦理</h2>
+
+    <p class="sec-text en-only">When making decisions about the product portfolio, a brand must also answer ethical and moral questions. Ethics management is part of the strategic corporate management and is therefore effective at all levels of entrepreneurial decision-making processes.</p>
+    <p class="sec-text-zh zh-only">在制定产品组合决策时，品牌还必须回答伦理和道德问题。伦理管理是战略企业管理的一部分，因此在企业决策过程的所有层面上都有效。</p>
+
+    <div class="card-grid col2">
+      <div class="info-card">
+        <div class="info-card-label en-only">Product Decisions Requiring Ethical Reflection</div>
+        <div class="info-card-label zh-only">需要伦理反思的产品决策</div>
+        <ul>
+          <li class="en-only">Whether and to what extent the production of addictive substances (alcohol, nicotine) is acceptable</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">成瘾物质（酒精、尼古丁）的生产在多大程度上可以接受</li>
+          <li class="en-only">Should a product be sold despite safety defects or health hazards (cf. Ford Pinto case)?</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">尽管存在安全缺陷或健康危害，产品是否应该继续销售（参见福特平托案例）？</li>
+          <li class="en-only">Should products be produced and distributed in countries where human rights are violated (e.g. VW production in Xinjiang)?</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">产品是否应该在人权受到侵犯的国家生产和销售（例如大众汽车在新疆的生产）？</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label en-only">Further Ethical Questions</div>
+        <div class="info-card-label zh-only">更多伦理问题</div>
+        <ul>
+          <li class="en-only">Are animal experiments in the chemical and cosmetic industry legitimate?</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">化学和化妆品行业的动物实验是否合法？</li>
+          <li class="en-only">Can factory farming in agriculture be accepted?</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">农业中的工厂化养殖是否可以被接受？</li>
+          <li class="en-only">Can bribes in awarding contracts abroad be justified as unavoidable?</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">在国外授予合同时行贿是否可以被证明为不可避免？</li>
+          <li class="en-only">Are pollutant emissions acceptable because filter system costs reduce competitiveness?</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">污染物排放是否可以接受，因为过滤系统成本会降低竞争力？</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 5: STAKEHOLDERS -->
+  <section class="section" id="s-stakeholders">
+    <div class="sec-label en-only">Section 5</div>
+    <div class="sec-label zh-only">第五节</div>
+    <h2 class="sec-title en-only">Ethics Management &amp; External Stakeholders</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">伦理管理与外部利益相关者</h2>
+
+    <p class="sec-text en-only">Ethics management as trust and reputation management aims at a company's relationships with external stakeholders and the public. The necessary social acceptance often depends on so-called <em>secondary stakeholders</em> — citizens' initiatives, legal or environmental protection organisations — who formulate demands on companies even without being in any direct market relationship with them.</p>
+    <p class="sec-text-zh zh-only">作为信任和声誉管理的伦理管理，旨在建立企业与外部利益相关者和公众的关系。必要的社会认可往往取决于所谓的<em>次要利益相关者</em>——公民行动、法律或环境保护组织——他们在与企业没有任何直接市场关系的情况下也向企业提出要求。</p>
+
+    <div class="callout">
+      <p class="en-only">As part of the so-called "third civil society sector," secondary stakeholders have legitimising power — the ability to grant or withdraw social acceptance (Curbach 2008: 370). Their achievements consist precisely in building up or withdrawing societal acceptance.</p>
+      <p class="callout-zh zh-only">作为所谓"第三公民社会部门"的一部分，次要利益相关者拥有合法化权力——授予或撤回社会认可的能力（Curbach 2008: 370）。他们的成就恰恰在于建立或撤回社会认可。</p>
+    </div>
+
+    <p class="sec-text en-only">This is why ethics management must address not only direct market relationships but also the broader ecosystem of civil society. It is not enough to satisfy shareholders and direct customers — companies must justify themselves to a broader public and demonstrate that they are acting in the common interest.</p>
+    <p class="sec-text-zh zh-only">这就是为什么伦理管理不仅必须处理直接的市场关系，还必须处理更广泛的公民社会生态系统。仅仅满足股东和直接客户是不够的——企业必须向更广泛的公众证明自己的行为符合公共利益。</p>
+
+    <div class="callout callout-accent">
+      <p class="en-only">Unlike natural persons, companies are not an end in themselves — they are only viable if they serve the interests of their shareholders and are useful to their contractual partners (including employees). But companies do not operate in a vacuum: they depend on societal acceptance as a whole (Noll 2013: 129).</p>
+      <p class="callout-zh zh-only">与自然人不同，企业本身不是目的——只有当它们服务于股东利益并对合同伙伴（包括员工）有用时，才能存在。但企业不是在真空中运作的：它们作为整体依赖于社会认可（Noll 2013: 129）。</p>
+    </div>
+  </section>
+
+  <!-- ASSIGNMENT -->
+  <div class="assignment">
+    <div class="assignment-badge en-only">Semester Assignment</div>
+    <div class="assignment-badge zh-only" style="font-family:'Noto Serif SC',serif">学期作业</div>
+    <div class="assignment-title en-only">Group Presentation — Brand &amp; Responsibility Analysis</div>
+    <div class="assignment-title zh-only" style="font-family:'Noto Serif SC',serif">小组展示——品牌与责任分析</div>
+    <p class="assignment-body en-only">Apply this session's frameworks to your chosen brand. Consider: Does your brand have a systematic ethics management approach? What product portfolio decisions has your brand made that raise ethical questions? How does your brand manage its relationships with secondary stakeholders — NGOs, civil society organisations, regulatory bodies?</p>
+    <p class="assignment-body en-only" style="margin-top:12px"><strong>Examiners:</strong> Prof. Dr. Bongard &amp; Prof. Dr. Groll | <strong>Filename:</strong> BT-03_Marke-und-Verantwortung_LastName_MatriculationNumber</p>
+    <p class="assignment-body zh-only" style="font-family:'Noto Serif SC',serif">将本节课的框架应用于您选择的品牌。思考：您的品牌是否有系统性的伦理管理方法？您的品牌做出了哪些引发伦理问题的产品组合决策？您的品牌如何管理与次要利益相关者——非政府组织、公民社会组织、监管机构的关系？</p>
+    <p class="assignment-body zh-only" style="font-family:'Noto Serif SC',serif;margin-top:12px"><strong>主考：</strong>邦加德教授 &amp; 格罗尔教授 | <strong>文件名：</strong>BT-03_Marke-und-Verantwortung_姓名_学号</p>
+  </div>
+
+</div>
+
+<div class="nav-bar">
+  <a class="nav-btn" href="session3-corporate-ethics.html">← Session 3: Corporate &amp; Marketing Ethics</a>
+  <span class="nav-info">Session 04 of 08</span>
+  <a class="nav-btn" href="session5-csr-esg.html">Session 5: CSR &amp; Sustainability →</a>
+</div>
+
+<script>
+function setLang(l){
+  document.body.className=l;
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  document.getElementById('btn-zh').classList.toggle('active',l==='zh');
+}
+</script>
+</body>
+</html>

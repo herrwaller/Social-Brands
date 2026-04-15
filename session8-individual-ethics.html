@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Session 8 – Individual Ethics | BT-03 Brand and Responsibility</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F2EB;--bg2:#EBE7DE;--card:#FDFAF4;--ink:#1A1714;--ink2:#46403A;--ink3:#7A756C;
+  --border:rgba(26,23,20,.10);--border2:rgba(26,23,20,.06);
+  --green:#4A8A28;--r:12px;--accent:#C84020;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6}
+body.en .zh-only{display:none!important}
+body.zh .en-only{display:none!important}
+
+.header{background:#1A1714;padding:48px 0 36px;position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);
+  width:700px;height:400px;background:radial-gradient(ellipse,rgba(74,138,40,.22) 0%,transparent 70%);pointer-events:none}
+.header-inner{max-width:900px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+.back-link{color:rgba(255,255,255,.45);font-size:13px;text-decoration:none;letter-spacing:.04em}
+.back-link:hover{color:#fff}
+.session-tag{color:rgba(255,255,255,.35);font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:18px 0 14px}
+.header-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,48px);font-weight:600;
+  line-height:1.15;color:#fff;margin-bottom:22px}
+.header-title span{color:#7EC855}
+
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.toc-pill{background:var(--green);color:#fff;font-size:11.5px;font-weight:500;letter-spacing:.04em;
+  padding:5px 14px;border-radius:20px;text-decoration:none;transition:opacity .15s}
+.toc-pill:hover{opacity:.82}
+
+.lang-bar{background:var(--bg2);border-bottom:1px solid var(--border);
+  display:flex;justify-content:flex-end;padding:8px 28px}
+.lang-btn{background:none;border:1.5px solid var(--border);border-radius:6px;
+  color:var(--ink3);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;
+  font-weight:500;letter-spacing:.06em;padding:4px 14px;transition:all .15s}
+.lang-btn+.lang-btn{margin-left:6px}
+.lang-btn.active{background:var(--green);border-color:var(--green);color:#fff}
+
+.main{max-width:900px;margin:0 auto;padding:52px 28px 80px}
+.section{margin-bottom:64px}
+.section-tag{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3.5vw,32px);
+  font-weight:600;line-height:1.2;margin-bottom:20px;color:var(--ink)}
+.prose{color:var(--ink2);line-height:1.75;margin-bottom:16px}
+.prose strong{color:var(--ink);font-weight:600}
+
+.callout{border-left:4px solid var(--green);background:var(--card);border-radius:0 var(--r) var(--r) 0;
+  padding:20px 24px;margin:24px 0;color:var(--ink2)}
+.callout-accent{border-left:4px solid var(--accent);background:var(--card);border-radius:0 var(--r) var(--r) 0;
+  padding:20px 24px;margin:24px 0;color:var(--ink2)}
+.callout strong,.callout-accent strong{color:var(--ink)}
+
+.quote-block{background:var(--card);border-radius:var(--r);padding:28px 32px;margin:24px 0;
+  border:1px solid var(--border)}
+.quote-block blockquote{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;
+  line-height:1.55;color:var(--ink);margin-bottom:12px}
+.quote-block cite{font-size:13px;color:var(--ink3);font-style:normal}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+@media(max-width:600px){.compare-grid{grid-template-columns:1fr}}
+.compare-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:22px}
+.compare-card h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;
+  margin-bottom:10px;color:var(--ink)}
+.compare-card ul{padding-left:18px;color:var(--ink2);font-size:0.93rem;line-height:1.7}
+
+.info-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:24px 28px;margin:20px 0}
+.info-card h4{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;
+  color:var(--ink);margin-bottom:12px}
+.info-card ul{padding-left:20px;color:var(--ink2);line-height:1.75}
+.info-card ul li{margin-bottom:6px}
+
+.case-box{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  overflow:hidden;margin:28px 0}
+.case-box-header{background:#1A1714;padding:16px 24px}
+.case-box-header h4{color:#fff;font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600}
+.case-box-header span{color:rgba(255,255,255,.5);font-size:12px;display:block;margin-top:2px}
+.case-box-body{padding:22px 24px;color:var(--ink2);line-height:1.75}
+.case-box-body ul{padding-left:20px}
+.case-box-body ul li{margin-bottom:6px}
+.case-box-body strong{color:var(--ink)}
+
+.thesis-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+@media(max-width:600px){.thesis-grid{grid-template-columns:1fr}}
+.thesis-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 18px;
+  display:flex;gap:12px;align-items:flex-start}
+.thesis-num{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;
+  color:var(--green);line-height:1;min-width:28px}
+.thesis-text{color:var(--ink2);font-size:0.9rem;line-height:1.55}
+.thesis-text strong{color:var(--ink)}
+
+/* closing section */
+.closing-box{background:#1A1714;border-radius:var(--r);padding:40px 44px;margin:52px 0 0;
+  text-align:center;position:relative;overflow:hidden}
+.closing-box::before{content:'';position:absolute;top:-40px;left:50%;transform:translateX(-50%);
+  width:500px;height:300px;background:radial-gradient(ellipse,rgba(74,138,40,.18) 0%,transparent 70%);pointer-events:none}
+.closing-box blockquote{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-style:italic;
+  line-height:1.5;color:#fff;margin-bottom:14px;position:relative;z-index:1}
+.closing-box cite{font-size:13px;color:rgba(255,255,255,.5);position:relative;z-index:1}
+
+.assignment{background:var(--card);border:2px solid var(--green);border-radius:var(--r);
+  padding:32px 36px;margin-top:52px}
+.assignment-badge{display:inline-block;background:var(--green);color:#fff;font-size:11px;
+  font-weight:600;letter-spacing:.10em;text-transform:uppercase;padding:4px 12px;
+  border-radius:20px;margin-bottom:14px}
+.assignment-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;
+  color:var(--ink);margin-bottom:14px}
+.assignment-body{color:var(--ink2);line-height:1.75;margin-bottom:8px}
+
+.nav-bar{background:#1A1714;padding:20px 28px;display:flex;align-items:center;
+  justify-content:space-between;gap:16px}
+.nav-btn{color:rgba(255,255,255,.7);text-decoration:none;font-size:13.5px;
+  font-weight:500;letter-spacing:.02em;transition:color .15s}
+.nav-btn:hover{color:#fff}
+.nav-info{color:rgba(255,255,255,.35);font-size:12px;letter-spacing:.08em;text-align:center}
+.nav-btn-disabled{color:rgba(255,255,255,.25);font-size:13.5px;pointer-events:none}
+
+hr.section-rule{border:none;border-top:1px solid var(--border);margin:52px 0}
+</style>
+</head>
+<body class="en">
+
+<div class="header">
+  <div class="header-inner">
+    <a class="back-link" href="index.html">← Course Overview</a>
+    <div class="session-tag">Session 08</div>
+    <h1 class="header-title en-only">Individual <span>Ethics</span></h1>
+    <h1 class="header-title zh-only" style="font-family:'Noto Serif SC',serif">个人<span>伦理</span></h1>
+    <nav class="toc">
+      <a class="toc-pill" href="#management">Management Responsibility</a>
+      <a class="toc-pill" href="#freedom">Freedom &amp; Responsibility</a>
+      <a class="toc-pill" href="#whistleblowing">Whistleblowing</a>
+      <a class="toc-pill" href="#consumers">Consumer Power</a>
+      <a class="toc-pill" href="#gap">Value-Action Gap</a>
+      <a class="toc-pill" href="#bottomline">Bottom Line</a>
+    </nav>
+  </div>
+</div>
+
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('zh')">中文</button>
+</div>
+
+<div class="main">
+
+  <!-- SECTION 1: MANAGEMENT RESPONSIBILITY -->
+  <div class="section" id="management">
+    <div class="section-tag en-only">Section 01</div>
+    <div class="section-tag zh-only" style="font-family:'Noto Serif SC',serif">第一节</div>
+    <h2 class="section-title en-only">Does Management Need Special Ethical Responsibility?</h2>
+    <h2 class="section-title zh-only" style="font-family:'Noto Serif SC',serif">管理层是否需要特殊的伦理责任？</h2>
+
+    <p class="prose en-only">Without doubt, managers are endowed with far-reaching power. To tame extreme ego and contain the associated abuse of power, economic history has produced diverse approaches — from the guilds of the Middle Ages, to the early modern ideal of the <strong>"honorable merchant"</strong>, to contemporary initiatives like the MBA Oath.</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif">毫无疑问，管理者被赋予了深远的权力。为了驯服极度自我并遏制相关的权力滥用，经济史上产生了多种方法——从中世纪的行会，到早期现代的<strong>"体面商人"</strong>理想，再到当代的MBA誓词等举措。</p>
+
+    <div class="quote-block">
+      <blockquote>"Be enthusiastic about your business, but only those kinds that allow you to sleep peacefully at night."</blockquote>
+      <cite>Senator Buddenbrock in Thomas Mann: <em>The Buddenbrooks</em></cite>
+    </div>
+
+    <div class="callout en-only">
+      <strong>The "Honorable Merchant" ideal</strong> — associated with concepts such as diligence, love of order, honesty, reliability, and justice — has been invoked since the early modern period as a counterweight to the profit motive. The MBA Oath (Harvard Business School, 2010): <em>"As a manager, my goal is to serve a higher good. I will act with the utmost integrity and accomplish my work wisely."</em>
+    </div>
+    <div class="callout zh-only" style="font-family:'Noto Serif SC',serif">
+      <strong>"体面商人"理想</strong>——与勤勉、秩序、诚实、可靠和公正等概念相关联——自早期现代以来一直被援引作为利润动机的制衡力量。MBA誓词（哈佛商学院，2010年）：<em>"作为管理者，我的目标是服务于更高的善。我将以最高的诚信行事，明智地完成我的工作。"</em>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card">
+        <h4 class="en-only">Individual Role Model Function</h4>
+        <h4 class="zh-only" style="font-family:'Noto Serif SC',serif">个人榜样功能</h4>
+        <ul class="en-only">
+          <li>Leaders fulfill an example function</li>
+          <li>Management shapes corporate culture</li>
+          <li>Culture influences employee behavior and retention</li>
+          <li>Moral leadership sets standards</li>
+        </ul>
+        <ul class="zh-only" style="font-family:'Noto Serif SC',serif">
+          <li>领导者发挥榜样功能</li>
+          <li>管理层塑造企业文化</li>
+          <li>文化影响员工行为和留存</li>
+          <li>道德领导力设定标准</li>
+        </ul>
+      </div>
+      <div class="compare-card">
+        <h4 class="en-only">Organisational Morality</h4>
+        <h4 class="zh-only" style="font-family:'Noto Serif SC',serif">组织道德</h4>
+        <ul class="en-only">
+          <li>Even good leadership does not protect against misconduct</li>
+          <li>Contemporary business ethics must primarily focus on <em>organisational</em> morality — not just actor morality (Noll 2013: 85)</li>
+          <li>Structures and systems, not just intentions, determine outcomes</li>
+        </ul>
+        <ul class="zh-only" style="font-family:'Noto Serif SC',serif">
+          <li>即使是好的领导力也无法防止不当行为</li>
+          <li>当代商业伦理必须主要关注<em>组织</em>道德——而不仅仅是行动者道德（Noll 2013: 85）</li>
+          <li>结构和系统，而非仅仅是意图，决定结果</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- SECTION 2: FREEDOM & RESPONSIBILITY -->
+  <div class="section" id="freedom">
+    <div class="section-tag en-only">Section 02</div>
+    <div class="section-tag zh-only" style="font-family:'Noto Serif SC',serif">第二节</div>
+    <h2 class="section-title en-only">Responsibility Requires Freedom</h2>
+    <h2 class="section-title zh-only" style="font-family:'Noto Serif SC',serif">责任需要自由</h2>
+
+    <p class="prose en-only">The ability to take responsibility places not only cognitive demands on individuals — it also requires <strong>freedom</strong>: the ability to make decisions independently. Only those who can exercise free will can be expected to distinguish "good" from "evil" and "right" from "wrong."</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif">承担责任的能力不仅对个人提出认知要求——还需要<strong>自由</strong>：独立做出决定的能力。只有能够行使自由意志的人才能被期待区分"善"与"恶"、"对"与"错"。</p>
+
+    <div class="callout en-only">
+      <strong>Key principle:</strong> Employees can only act responsibly when the company provides appropriate <em>free spaces</em> for taking responsibility. Workers on an assembly line in a strictly hierarchical organisation — with a clear separation between development and implementation — cannot be held responsible for quality or delivery reliability. These things are simply outside their control (Noll 2013: 86).
+    </div>
+    <div class="callout zh-only" style="font-family:'Noto Serif SC',serif">
+      <strong>核心原则：</strong>员工只有在公司提供适当的<em>自由空间</em>承担责任时才能负责任地行事。在严格层级组织中——开发与实施明确分离——从事流水线工作的工人无法为质量或交付可靠性负责。这些事情简单地超出了他们的控制范围（Noll 2013: 86）。
+    </div>
+
+    <div class="info-card">
+      <h4 class="en-only">Individual Value and Norm Conflicts</h4>
+      <h4 class="zh-only" style="font-family:'Noto Serif SC',serif">个人价值观与规范冲突</h4>
+      <ul class="en-only">
+        <li>The individual carries responsibility for <strong>oneself</strong> (moral integrity), for their <strong>social environment</strong> (e.g. parental responsibility), and for their <strong>natural environment</strong> (preservation of living conditions for future generations)</li>
+        <li>As employees, individuals always find themselves in moral dilemmas when their own interests clash with those of the organisation</li>
+        <li>Private use of company property, or entanglement of private and corporate interests, are typical intrapersonal conflicts</li>
+        <li>Example: Former Arcandor CEO Thomas Middelhoff considered it perfectly normal to travel by helicopter at company expense — he was later sentenced to a prison term for breach of trust (Untreue)</li>
+      </ul>
+      <ul class="zh-only" style="font-family:'Noto Serif SC',serif">
+        <li>个人承担对<strong>自身</strong>（道德诚信）、<strong>社会环境</strong>（如父母责任）和<strong>自然环境</strong>（为后代保护生存条件）的责任</li>
+        <li>作为员工，个人在自身利益与组织利益相冲突时总会陷入道德困境</li>
+        <li>私用公司财产或私人与企业利益纠缠是典型的内心冲突</li>
+        <li>案例：前阿坎多尔首席执行官托马斯·米德霍夫认为搭乘直升机报公司差旅费完全正常——他后来因不忠实（Untreue）被判处监禁</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- SECTION 3: WHISTLEBLOWING -->
+  <div class="section" id="whistleblowing">
+    <div class="section-tag en-only">Section 03</div>
+    <div class="section-tag zh-only" style="font-family:'Noto Serif SC',serif">第三节</div>
+    <h2 class="section-title en-only">Whistleblowing: Conscience vs. Loyalty</h2>
+    <h2 class="section-title zh-only" style="font-family:'Noto Serif SC',serif">举报揭发：良知与忠诚</h2>
+
+    <p class="prose en-only">Whistleblowing is a special case of individual value and norm conflict: the whistleblower reports misconduct within their organisation to persons or institutions outside the organisation — formally leaving the communication structures of their own organisation. The whistleblower is prompted by conscience and poses a question based on moral motives about the rationality of the organisation (Aßländer 2011: 237).</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif">举报揭发是个人价值观与规范冲突的特殊案例：举报人将组织内的不当行为报告给组织外的人员或机构——正式离开其组织的沟通结构。举报人受良知驱使，基于道德动机对组织的合理性提出质疑（Aßländer 2011: 237）。</p>
+
+    <div class="callout en-only">
+      <strong>Structural position:</strong> The whistleblower has a position within the organisation that gives them access to information — but not enough power to solve the problems themselves. They therefore turn to outsiders to draw attention to a problem that outsiders cannot see (Aßländer 2011: 239). Whistleblowing can be compared to civil disobedience — it is a form of <em>organisational disobedience</em>.
+    </div>
+    <div class="callout zh-only" style="font-family:'Noto Serif SC',serif">
+      <strong>结构性地位：</strong>举报人在组织内拥有能够获取信息的地位——但没有足够的权力自行解决问题。因此他们转向外部人士，吸引对局外人无法看到的问题的关注（Aßländer 2011: 239）。举报揭发可以比作公民不服从——它是一种<em>组织不服从</em>。
+    </div>
+
+    <div class="case-box">
+      <div class="case-box-header">
+        <h4>Edward Snowden: The Classic Case of Ambivalence</h4>
+        <span class="en-only">NSA whistleblower — case study in competing ethical obligations</span>
+        <span class="zh-only" style="font-family:'Noto Serif SC',serif">NSA举报人——相互竞争的伦理义务案例研究</span>
+      </div>
+      <div class="case-box-body">
+        <p class="en-only">In 2013, former NSA contractor Edward Snowden leaked classified surveillance programs to the press — revealing that the US government was conducting comprehensive surveillance of its citizens and allies. The case is considered the classic example of the ambivalence of whistleblowing: widely praised outside the US, widely condemned inside it.</p>
+        <p class="zh-only" style="font-family:'Noto Serif SC',serif">2013年，前NSA承包商爱德华·斯诺登向媒体泄露了机密监控项目——揭示美国政府正在对其公民和盟友进行全面监控。该案例被视为举报揭发矛盾性的经典范例：在美国境外广受赞誉，在美国国内则广受谴责。</p>
+        <div class="compare-grid" style="margin-top:16px">
+          <div class="compare-card">
+            <h4 class="en-only">The Whistleblower's Position</h4>
+            <h4 class="zh-only" style="font-family:'Noto Serif SC',serif">举报人的立场</h4>
+            <ul class="en-only">
+              <li>Comprehensive surveillance is incompatible with the freedom it claims to protect</li>
+              <li>The NSA is beyond democratic control — "who monitors the monitors?"</li>
+              <li>The US is developing into a super-surveillance state where citizens are dominated rather than represented</li>
+              <li><em>"I realized that I had become part of something far more damaging than beneficial"</em> (Snowden, 2013)</li>
+            </ul>
+            <ul class="zh-only" style="font-family:'Noto Serif SC',serif">
+              <li>全面监控与其声称保护的自由不相容</li>
+              <li>NSA超出民主控制范围——"谁来监控监控者？"</li>
+              <li>美国正在发展成为一个超级监控国家，公民被统治而非被代表</li>
+              <li><em>"我意识到我已成为弊大于利的事物的一部分"</em>（斯诺登，2013年）</li>
+            </ul>
+          </div>
+          <div class="compare-card">
+            <h4 class="en-only">The US Government's Position</h4>
+            <h4 class="zh-only" style="font-family:'Noto Serif SC',serif">美国政府的立场</h4>
+            <ul class="en-only">
+              <li>Snowden violated existing laws, including the Espionage Act of 1917</li>
+              <li>Charged with "unauthorized communication of national defense information"</li>
+              <li>The Espionage Act does not differentiate between espionage for material gain and publication to the public</li>
+              <li>The information published makes it more difficult to fight terrorism</li>
+              <li>Booz Allen Hamilton: "a serious violation of the code of conduct of our company"</li>
+            </ul>
+            <ul class="zh-only" style="font-family:'Noto Serif SC',serif">
+              <li>斯诺登违反了包括1917年《间谍法》在内的现行法律</li>
+              <li>被控"未经授权传播国防信息"</li>
+              <li>《间谍法》不区分为物质利益从事间谍活动和向公众披露信息</li>
+              <li>所披露的信息使打击恐怖主义更加困难</li>
+              <li>博思艾伦汉密顿：这是"对我公司行为准则的严重违反"</li>
+            </ul>
+          </div>
+        </div>
+        <div class="callout" style="margin-top:16px">
+          <strong class="en-only">The ethical dilemma:</strong>
+          <strong class="zh-only" style="font-family:'Noto Serif SC',serif">伦理困境：</strong>
+          <span class="en-only">Snowden's case illustrates the core tension of whistleblowing: the individual conscience and public interest vs. institutional loyalty and legal obligation. There is no clean resolution — both sides invoke legitimate moral arguments. The case forces us to ask: what do individuals owe to organisations, and what do they owe to the wider public?</span>
+          <span class="zh-only" style="font-family:'Noto Serif SC',serif">斯诺登案例揭示了举报揭发的核心张力：个人良知和公共利益vs.机构忠诚和法律义务。没有简单的解决方案——双方都援引合法的道德论据。该案例迫使我们思考：个人对组织负有什么义务，对更广泛的公众又负有什么义务？</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- SECTION 4: CONSUMER POWER -->
+  <div class="section" id="consumers">
+    <div class="section-tag en-only">Section 04</div>
+    <div class="section-tag zh-only" style="font-family:'Noto Serif SC',serif">第四节</div>
+    <h2 class="section-title en-only">Consumer Power and Ethical Responsibility</h2>
+    <h2 class="section-title zh-only" style="font-family:'Noto Serif SC',serif">消费者权力与伦理责任</h2>
+
+    <p class="prose en-only">In modern consumer societies, the production of goods is no end in itself — all services pursue their legitimacy only because there are demanders for them. <strong>Demand drives production.</strong> This "right to have a say" ensures continuous, differentiated coordination of production to meet consumer needs. Herein lies both the power and the ethical-moral responsibility of consumers (Noll 2013: 107).</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif">在现代消费社会中，商品生产本身不是目的——所有服务只有因为有需求者才获得其合法性。<strong>需求驱动生产。</strong>这种"发言权"确保了生产的持续、差异化协调以满足消费者需求。消费者的权力和伦理道德责任正在于此（Noll 2013: 107）。</p>
+
+    <div class="quote-block">
+      <blockquote>"Whether they like it or not: Consumers must, with every purchasing decision, also decide on a moral dimension."</blockquote>
+      <cite>Baetzgen 2022: 14</cite>
+    </div>
+
+    <p class="prose en-only">Consumer behavior always has an ethical and moral component. But consumption alone will probably not save the world. With decisions for sustainable brands, however, consumers can contribute to the success of those brands — supporting them in taking responsibility beyond purely economic contexts and contributing to sustainable societal change (Neye/Bongard 2025: 85).</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif">消费行为始终具有伦理和道德成分。但仅靠消费可能无法拯救世界。然而，通过选择可持续品牌，消费者可以为这些品牌的成功做出贡献——支持它们超越纯粹经济背景承担责任，并为可持续的社会变革做出贡献（Neye/Bongard 2025: 85）。</p>
+
+    <div class="callout en-only">
+      <strong>Freedom and responsibility:</strong> The freedom to consume is always tied to the question of responsibility. Personal responsibility extends beyond responsibility for oneself — it encompasses one's social environment and the natural environment, including the preservation of living conditions for future generations.
+    </div>
+    <div class="callout zh-only" style="font-family:'Noto Serif SC',serif">
+      <strong>自由与责任：</strong>消费自由始终与责任问题相联系。个人责任超越了对自身的责任——它包括对社会环境和自然环境的责任，包括为后代保护生存条件。
+    </div>
+
+    <div class="info-card">
+      <h4 class="en-only">The Otto Group Trend Study: Consumer Ethics in 9 Theses</h4>
+      <h4 class="zh-only" style="font-family:'Noto Serif SC',serif">奥托集团趋势研究：消费者伦理9条论点</h4>
+      <div class="thesis-grid">
+        <div class="thesis-item">
+          <span class="thesis-num">1</span>
+          <span class="thesis-text en-only"><strong>Sustainability</strong> has become a consensus factor</span>
+          <span class="thesis-text zh-only" style="font-family:'Noto Serif SC',serif"><strong>可持续性</strong>已成为共识因素</span>
+        </div>
+        <div class="thesis-item">
+          <span class="thesis-num">2</span>
+          <span class="thesis-text en-only">Shift in ethical consumption: from "organic" to "regional" to <strong>"socio"</strong></span>
+          <span class="thesis-text zh-only" style="font-family:'Noto Serif SC',serif">道德消费的转变：从"有机"到"地方"到<strong>"社会"</strong></span>
+        </div>
+        <div class="thesis-item">
+          <span class="thesis-num">3</span>
+          <span class="thesis-text en-only"><strong>Intangible values</strong> are becoming essential</span>
+          <span class="thesis-text zh-only" style="font-family:'Noto Serif SC',serif"><strong>无形价值观</strong>变得至关重要</span>
+        </div>
+        <div class="thesis-item">
+          <span class="thesis-num">4</span>
+          <span class="thesis-text en-only"><strong>Ethical pragmatism</strong>: balancing personal and social responsibility</span>
+          <span class="thesis-text zh-only" style="font-family:'Noto Serif SC',serif"><strong>伦理实用主义</strong>：平衡个人与社会责任</span>
+        </div>
+        <div class="thesis-item">
+          <span class="thesis-num">5</span>
+          <span class="thesis-text en-only">Improving quality of life — for me <strong>and</strong> others</span>
+          <span class="thesis-text zh-only" style="font-family:'Noto Serif SC',serif">提升生活质量——为我<strong>和</strong>他人</span>
+        </div>
+        <div class="thesis-item">
+          <span class="thesis-num">6</span>
+          <span class="thesis-text en-only">Media and NGOs remain significant <strong>drivers</strong> of consumer ethics</span>
+          <span class="thesis-text zh-only" style="font-family:'Noto Serif SC',serif">媒体和NGO仍是消费者伦理的重要<strong>推动力</strong></span>
+        </div>
+        <div class="thesis-item">
+          <span class="thesis-num">7</span>
+          <span class="thesis-text en-only"><strong>Life quality</strong> gaining importance over product quality</span>
+          <span class="thesis-text zh-only" style="font-family:'Noto Serif SC',serif"><strong>生活质量</strong>日益超越产品质量的重要性</span>
+        </div>
+        <div class="thesis-item">
+          <span class="thesis-num">8</span>
+          <span class="thesis-text en-only">Companies: enabling <strong>carefree consumption</strong> and increasing consumer well-being</span>
+          <span class="thesis-text zh-only" style="font-family:'Noto Serif SC',serif">企业：实现<strong>无忧消费</strong>并提升消费者福祉</span>
+        </div>
+        <div class="thesis-item">
+          <span class="thesis-num">9</span>
+          <span class="thesis-text en-only">From consumer ethics to <strong>business ethics</strong></span>
+          <span class="thesis-text zh-only" style="font-family:'Noto Serif SC',serif">从消费者伦理到<strong>商业伦理</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- SECTION 5: VALUE-ACTION GAP -->
+  <div class="section" id="gap">
+    <div class="section-tag en-only">Section 05</div>
+    <div class="section-tag zh-only" style="font-family:'Noto Serif SC',serif">第五节</div>
+    <h2 class="section-title en-only">The Value-Action Gap: Knowledge vs. Behaviour</h2>
+    <h2 class="section-title zh-only" style="font-family:'Noto Serif SC',serif">价值观-行动差距：知识与行为</h2>
+
+    <p class="prose en-only">The trend study shows that ethical consumerism is on the agenda — yet despite general awareness, ethical products have not yet found enough buyers to achieve broad market adoption. The gap between knowledge and action is real.</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif">趋势研究表明道德消费主义已成为议题——然而尽管有普遍意识，道德产品尚未找到足够的买家以实现广泛的市场采纳。知识与行动之间的差距是真实存在的。</p>
+
+    <div class="callout-accent en-only">
+      <strong>Why the gap exists:</strong>
+      <ul style="padding-left:18px;margin-top:8px">
+        <li>Knowledge about threats to natural resources says little about actual willingness to act "environmentally friendly"</li>
+        <li>Willingness to change is not very pronounced, or is associated with restrictions the individual is unwilling to accept</li>
+        <li>Environmental hazards are abstract; even the informed consumer possesses only "selective knowledge" in specific purchasing situations</li>
+        <li>Every purchase decision occurs under information deficits — no consumer has access to all information about complex production conditions</li>
+      </ul>
+    </div>
+    <div class="callout-accent zh-only" style="font-family:'Noto Serif SC',serif">
+      <strong>差距存在的原因：</strong>
+      <ul style="padding-left:18px;margin-top:8px">
+        <li>关于自然资源威胁的知识对实际"环保"行为意愿影响甚微</li>
+        <li>改变意愿并不强烈，或与个人不愿接受的限制相关联</li>
+        <li>环境危害是抽象的；即使是知情消费者在具体购买情境中也只具备"选择性知识"</li>
+        <li>每次购买决策都在信息不足的情况下进行——没有消费者能获取关于复杂生产条件的所有信息</li>
+      </ul>
+    </div>
+
+    <p class="prose en-only">The consequence: if brands are no longer able to provide orientation in the consumer jungle, it is not surprising that consumers lose the criteria by which they could assess consumption as ethical-moral. This is ultimately the <strong>ethical responsibility of brands</strong> — to provide an ethical-moral compass for the consumer (Neye/Bongard 2025: 85).</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif">结果是：如果品牌不再能在消费者丛林中提供指引，消费者失去据以评估道德消费的标准也就不足为奇了。这最终是<strong>品牌的伦理责任</strong>——为消费者提供伦理道德指南针（Neye/Bongard 2025: 85）。</p>
+
+    <div class="callout en-only">
+      <strong>The limits of consumer power:</strong> Demanding ethical behaviour from individual consumers without providing the structural conditions, information, and orientation to make ethical choices possible is not only unrealistic — it is unfair. The responsibility for ethical markets must be shared between brands, regulators, and consumers.
+    </div>
+    <div class="callout zh-only" style="font-family:'Noto Serif SC',serif">
+      <strong>消费者权力的局限：</strong>在不提供使道德选择成为可能的结构条件、信息和指引的情况下，要求个人消费者表现出道德行为不仅不现实——而且不公平。道德市场的责任必须由品牌、监管机构和消费者共同承担。
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- SECTION 6: BOTTOM LINE -->
+  <div class="section" id="bottomline">
+    <div class="section-tag en-only">Section 06</div>
+    <div class="section-tag zh-only" style="font-family:'Noto Serif SC',serif">第六节</div>
+    <h2 class="section-title en-only">Bottom Line: Ethics as Compass</h2>
+    <h2 class="section-title zh-only" style="font-family:'Noto Serif SC',serif">底线：伦理作为指南针</h2>
+
+    <p class="prose en-only">The goal of this seminar was to draw attention to the <strong>responsibility of brands</strong> and to provide an ethical-moral compass for the development and management of brands. Across eight sessions, we have moved from foundational business ethics through CSR, ESG, brand purpose, and brand activism — to the individual ethics of managers and consumers.</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif">本研讨会的目标是关注<strong>品牌的责任</strong>，并为品牌的开发和管理提供伦理道德指南针。跨越八个单元，我们从基础商业伦理，经过CSR、ESG、品牌目标和品牌活动主义——直至管理者和消费者的个人伦理。</p>
+
+    <div class="closing-box">
+      <blockquote>"We will address practical problems ourselves. They have to make decisions, because also ethical theories cannot exempt us from the burden of responsibility of making moral decisions."</blockquote>
+      <cite>Karl-Raimund Popper 1980: 111</cite>
+    </div>
+
+    <p class="prose en-only" style="margin-top:28px">Ethics is not a set of rules that exempts us from moral decisions — it is a set of tools that helps us make them better. Business ethics, CSR, brand purpose, and brand activism are not alternatives to moral courage: they are frameworks that structure, support, and — when properly implemented — give credibility to it.</p>
+    <p class="prose zh-only" style="font-family:'Noto Serif SC',serif;margin-top:28px">伦理不是一套使我们免于道德决策的规则——它是一套帮助我们做出更好决策的工具。商业伦理、企业社会责任、品牌目标和品牌活动主义不是道德勇气的替代品：它们是构建、支持并——当正确实施时——赋予其可信度的框架。</p>
+
+    <div class="info-card">
+      <h4 class="en-only">The Seminar Arc: From Theory to Practice</h4>
+      <h4 class="zh-only" style="font-family:'Noto Serif SC',serif">研讨会主线：从理论到实践</h4>
+      <ul class="en-only">
+        <li><strong>Session 1:</strong> Kick-off — brands, markets, and moral questions</li>
+        <li><strong>Session 2:</strong> Order Ethics — the primacy of institutional rules (Homann), Prisoner's Dilemma</li>
+        <li><strong>Session 3:</strong> Corporate & Marketing Ethics — morality as productive resource, Ford Pinto, consumer sovereignty</li>
+        <li><strong>Session 4:</strong> Ethics Management — trust as strategic asset, Lipobay crisis, stakeholder management</li>
+        <li><strong>Session 5:</strong> CSR & ESG — Triple Bottom Line, CSR strategy types, ESG reporting</li>
+        <li><strong>Session 6:</strong> Brand Purpose — Golden Circle, three levels, Vision-Mission-Purpose, Purpose Overflow</li>
+        <li><strong>Session 7:</strong> Brand Activism — the brand as political actor, Pepsi failure, Oatly success, credibility as currency</li>
+        <li><strong>Session 8:</strong> Individual Ethics — management responsibility, whistleblowing (Snowden), consumer power and limits</li>
+      </ul>
+      <ul class="zh-only" style="font-family:'Noto Serif SC',serif">
+        <li><strong>第1单元：</strong>启动课——品牌、市场和道德问题</li>
+        <li><strong>第2单元：</strong>秩序伦理——制度规则的首要性（霍曼），囚徒困境</li>
+        <li><strong>第3单元：</strong>企业与营销伦理——道德作为生产力资源，福特平托，消费者主权</li>
+        <li><strong>第4单元：</strong>伦理管理——信任作为战略资产，利百沙危机，利益相关者管理</li>
+        <li><strong>第5单元：</strong>企业社会责任与ESG——三重底线，CSR战略类型，ESG报告</li>
+        <li><strong>第6单元：</strong>品牌目标——黄金圈，三个层次，愿景-使命-目标，目标过载</li>
+        <li><strong>第7单元：</strong>品牌活动主义——品牌作为政治行动者，百事失败，燕麦奶成功，可信度作为货币</li>
+        <li><strong>第8单元：</strong>个人伦理——管理责任，举报揭发（斯诺登），消费者权力与局限</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ASSIGNMENT -->
+  <div class="assignment">
+    <div class="assignment-badge en-only">Semester Assignment</div>
+    <div class="assignment-badge zh-only" style="font-family:'Noto Serif SC',serif">学期作业</div>
+    <div class="assignment-title en-only">Group Presentation — Brand &amp; Responsibility Analysis</div>
+    <div class="assignment-title zh-only" style="font-family:'Noto Serif SC',serif">小组报告——品牌与责任分析</div>
+    <p class="assignment-body en-only">Your final presentation should integrate all dimensions covered in the seminar: the brand's CSR engagement and strategic anchoring, its brand purpose, its activism approach (or lack thereof), and — where relevant — ethical challenges at the individual level (management ethics, consumer communication).</p>
+    <p class="assignment-body zh-only" style="font-family:'Noto Serif SC',serif">您的最终报告应整合研讨会涵盖的所有维度：品牌的CSR参与和战略嵌入、品牌目标、活动主义方法（或缺乏）以及——在相关情况下——个人层面的伦理挑战（管理伦理、消费者传播）。</p>
+    <p class="assignment-body en-only" style="margin-top:12px">
+      <strong>Examiners:</strong> Prof. Dr. Bongard &amp; Prof. Dr. Groll |
+      <strong>Filename:</strong> BT-03_Marke-und-Verantwortung_LastName_MatriculationNumber
+    </p>
+    <p class="assignment-body zh-only" style="font-family:'Noto Serif SC',serif;margin-top:12px">
+      <strong>考官：</strong>Bongard教授&amp;Groll教授 |
+      <strong>文件名：</strong>BT-03_Marke-und-Verantwortung_姓名_学号
+    </p>
+  </div>
+
+</div><!-- /main -->
+
+<div class="nav-bar">
+  <a class="nav-btn" href="session7-brand-activism.html">← Session 7: Brand Activism</a>
+  <span class="nav-info">Session 08 of 08</span>
+  <span class="nav-btn-disabled">Course Complete ✓</span>
+</div>
+
+<script>
+function setLang(l){
+  document.body.className=l;
+  document.querySelectorAll('.lang-btn').forEach(function(b){
+    b.classList.toggle('active', b.textContent.trim().toLowerCase()===l||
+      (l==='zh'&&b.textContent.trim()==='中文'));
+  });
+}
+</script>
+</body>
+</html>

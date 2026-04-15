@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Session 1 — Kick-off &amp; Introduction to Business Ethics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F2EB;--bg2:#EBE7DE;--bg3:#DAD5C8;--card:#FDFAF4;
+  --ink:#1A1714;--ink2:#46403A;--ink3:#7A756C;
+  --border:rgba(26,23,20,.10);--border2:rgba(26,23,20,.06);
+  --green:#4A8A28;--r:12px;--accent:#C84020;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7}
+body.en .zh-only{display:none!important}
+body.zh .en-only{display:none!important}
+
+.header{background:#1A1714;padding:0;position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;top:-60px;right:-80px;width:420px;height:420px;background:radial-gradient(circle,rgba(74,138,40,.28) 0%,transparent 70%);pointer-events:none}
+.header-inner{max-width:860px;margin:0 auto;padding:36px 32px 40px}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:rgba(245,242,235,.45);text-decoration:none;font-size:12px;letter-spacing:.05em;margin-bottom:24px;transition:color .15s}
+.back-link:hover{color:rgba(245,242,235,.8)}
+.session-tag{display:inline-block;background:rgba(74,138,40,.22);color:#7EC855;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:18px}
+.header-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4.5vw,48px);font-weight:600;color:#F5F2EB;line-height:1.15;margin-bottom:8px}
+.header-title span{color:#7EC855}
+.header-subtitle{font-family:'Noto Serif SC',serif;font-size:16px;color:rgba(245,242,235,.5);margin-bottom:24px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.toc-pill{background:rgba(245,242,235,.07);border:1px solid rgba(245,242,235,.12);color:rgba(245,242,235,.6);padding:5px 14px;border-radius:20px;font-size:12px;text-decoration:none;transition:all .15s}
+.toc-pill:hover{background:rgba(74,138,40,.2);border-color:rgba(74,138,40,.4);color:#7EC855}
+
+.lang-bar{background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 32px}
+.lang-wrap{max-width:860px;margin:0 auto;display:flex;justify-content:flex-end}
+.lang-btn{background:none;border:1px solid var(--border);padding:5px 16px;border-radius:20px;font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;color:var(--ink2);transition:all .15s}
+.lang-btn:hover,.lang-btn.active{background:var(--green);border-color:var(--green);color:#fff}
+
+.main{max-width:860px;margin:0 auto;padding:40px 32px 60px}
+
+.section{margin-bottom:52px}
+.sec-label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3.5vw,30px);font-weight:600;color:var(--ink);line-height:1.25;margin-bottom:18px}
+.sec-text{color:var(--ink2);line-height:1.8;margin-bottom:12px}
+.sec-text-zh{font-family:'Noto Serif SC',serif;color:var(--ink3);line-height:2;margin-bottom:12px;font-size:14px}
+
+.callout{border-left:3px solid var(--green);background:var(--card);border-radius:0 var(--r) var(--r) 0;padding:18px 22px;margin:24px 0;box-shadow:0 2px 8px var(--border2)}
+.callout p{font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;color:var(--ink);line-height:1.6;margin-bottom:0}
+.callout .callout-zh{font-family:'Noto Serif SC',serif;font-size:15px;color:var(--ink3);margin-top:8px;font-style:normal}
+
+.callout-accent{border-left-color:var(--accent)}
+.callout-accent p{color:var(--ink)}
+
+.card-grid{display:grid;gap:16px;margin:24px 0}
+.card-grid.col2{grid-template-columns:repeat(2,1fr)}
+.card-grid.col3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:600px){.card-grid.col2,.card-grid.col3{grid-template-columns:1fr}}
+
+.info-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px;box-shadow:0 2px 6px var(--border2)}
+.info-card-label{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:10px;color:var(--green)}
+.info-card ul{padding-left:0;list-style:none}
+.info-card ul li{font-size:13.5px;color:var(--ink2);padding:5px 0;border-bottom:1px solid var(--border2)}
+.info-card ul li:last-child{border-bottom:none}
+.info-card ul li::before{content:'→ ';color:var(--ink3)}
+
+.approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
+@media(max-width:680px){.approach-grid{grid-template-columns:1fr}}
+.approach-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;box-shadow:0 2px 6px var(--border2)}
+.approach-card-num{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.approach-card-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--ink);margin-bottom:8px}
+.approach-card-body{font-size:13px;color:var(--ink2);line-height:1.65}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+@media(max-width:560px){.compare-grid{grid-template-columns:1fr}}
+.compare-card{background:var(--card);border-radius:var(--r);padding:22px;box-shadow:0 2px 8px var(--border2)}
+.compare-card.accent-card{border-top:3px solid var(--accent)}
+.compare-card.green-card{border-top:3px solid var(--green)}
+.compare-card-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+.compare-card.accent-card .compare-card-label{color:var(--accent)}
+.compare-card.green-card .compare-card-label{color:var(--green)}
+.compare-list{list-style:none;padding:0}
+.compare-list li{font-size:13.5px;color:var(--ink2);padding:5px 0;border-bottom:1px solid var(--border2);display:flex;align-items:flex-start;gap:8px}
+.compare-list li:last-child{border-bottom:none}
+.compare-list li::before{content:'·';font-size:18px;line-height:1;flex-shrink:0;color:var(--ink3)}
+
+.context-model{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:28px;margin:24px 0;box-shadow:0 2px 8px var(--border2)}
+.context-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;position:relative;margin-top:20px}
+.context-node{text-align:center;padding:16px 8px}
+.context-node-label{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.context-node-rel{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--green);font-weight:600}
+.context-center{text-align:center;padding:20px;border:2px solid var(--green);border-radius:50%;width:90px;height:90px;display:flex;align-items:center;justify-content:center;margin:0 auto;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--green)}
+.context-source{font-size:11px;color:var(--ink3);margin-top:12px}
+
+.assignment{background:var(--card);border:1px solid rgba(74,138,40,.25);border-radius:var(--r);padding:28px 28px 24px;margin:40px 0 28px;box-shadow:0 2px 12px var(--border2)}
+.assignment-badge{display:inline-block;background:var(--green);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:14px}
+.assignment-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--ink);margin-bottom:14px}
+.assignment-body{font-size:14px;color:var(--ink2);line-height:1.8}
+.assignment-body-zh{font-family:'Noto Serif SC',serif;font-size:13px;color:var(--ink3);line-height:2;margin-top:12px}
+
+.section-divider{border:none;border-top:1px solid var(--border);margin:0 0 48px}
+
+.nav-bar{background:#1A1714;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;margin-top:40px}
+.nav-btn{color:rgba(245,242,235,.6);text-decoration:none;font-size:13px;transition:color .15s}
+.nav-btn:hover{color:#F5F2EB}
+.nav-info{font-size:12px;color:rgba(245,242,235,.3);letter-spacing:.06em}
+</style>
+</head>
+<body class="en">
+
+<div class="header">
+  <div class="header-inner">
+    <a class="back-link" href="index.html">← Course Overview</a>
+    <div class="session-tag">Session 01</div>
+    <h1 class="header-title en-only">Kick-off &amp; Introduction to <span>Business Ethics</span></h1>
+    <h1 class="header-title zh-only" style="font-family:'Noto Serif SC',serif">开学课与<span>商业伦理</span>导论</h1>
+    <p class="header-subtitle zh-only">BT-03：品牌与责任 · 第一讲</p>
+    <nav class="toc">
+      <a class="toc-pill en-only" href="#s-objectives">Learning Objectives</a>
+      <a class="toc-pill zh-only" href="#s-objectives">学习目标</a>
+      <a class="toc-pill en-only" href="#s-skills">Skills</a>
+      <a class="toc-pill zh-only" href="#s-skills">能力</a>
+      <a class="toc-pill en-only" href="#s-law">1st Law of Branding</a>
+      <a class="toc-pill zh-only" href="#s-law">品牌第一法则</a>
+      <a class="toc-pill en-only" href="#s-what">What Brands Are</a>
+      <a class="toc-pill zh-only" href="#s-what">品牌是什么</a>
+      <a class="toc-pill en-only" href="#s-sustainability">Brand &amp; Sustainability</a>
+      <a class="toc-pill zh-only" href="#s-sustainability">品牌与可持续性</a>
+      <a class="toc-pill en-only" href="#s-society">Business &amp; Society</a>
+      <a class="toc-pill zh-only" href="#s-society">商业与社会</a>
+      <a class="toc-pill en-only" href="#s-ethics">Business Ethics</a>
+      <a class="toc-pill zh-only" href="#s-ethics">商业伦理</a>
+    </nav>
+  </div>
+</div>
+
+<div class="lang-bar">
+  <div class="lang-wrap">
+    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-zh" onclick="setLang('zh')" style="margin-left:6px">中文</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- SECTION 1: LEARNING OBJECTIVES -->
+  <section class="section" id="s-objectives">
+    <div class="sec-label en-only">Section 1</div>
+    <div class="sec-label zh-only">第一节</div>
+    <h2 class="sec-title en-only">Learning Objectives</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">学习目标</h2>
+
+    <p class="sec-text en-only">This module — <em>BT-03: Marke und Verantwortung</em> — examines what brands owe to society, and what society increasingly demands from brands. Extracted from the module handbook, the learning objectives are:</p>
+    <p class="sec-text-zh zh-only">本模块——<em>BT-03：品牌与责任</em>——探讨品牌对社会负有什么义务，以及社会对品牌日益增长的期望。根据模块手册，学习目标包括：</p>
+
+    <div class="card-grid col2">
+      <div class="info-card">
+        <div class="info-card-label">Knowledge / 知识</div>
+        <ul>
+          <li class="en-only">Relationship between economic and ethical issues in industry &amp; services</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">工业与服务业中经济问题与伦理问题的关系</li>
+          <li class="en-only">Dimensions of business ethics (Wirtschaftsethik)</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">商业伦理的各维度</li>
+          <li class="en-only">Interplay of different levels of business ethics</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">商业伦理不同层面的相互作用</li>
+          <li class="en-only">Brand Purpose as a driver of innovation</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">品牌使命作为创新驱动力</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Competencies / 能力</div>
+        <ul>
+          <li class="en-only">Critical attitude toward brands in the context of consumption &amp; politics</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">对品牌在消费与政治语境中的批判性立场</li>
+          <li class="en-only">Methodological competence for academic engagement with aesthetic experience</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">对审美体验进行学术研究的方法论能力</li>
+          <li class="en-only">Apply CSR &amp; Brand Purpose in brand management, marketing, design, communication</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">在品牌管理、营销、设计与传播中应用CSR与品牌使命</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sec-text en-only">The central question running through the entire module: <strong>Where does corporate responsibility begin — and where does it end?</strong> The module examines CSR from multiple perspectives and applies these frameworks to real brand cases through research, critical reflection, and group presentation.</p>
+    <p class="sec-text-zh zh-only">贯穿整个模块的核心问题：<strong>企业责任从哪里开始——又在哪里结束？</strong>本模块从多个视角审视企业社会责任，并通过研究、批判性反思与小组展示，将这些框架应用于真实品牌案例。</p>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 2: SKILLS -->
+  <section class="section" id="s-skills">
+    <div class="sec-label en-only">Section 2</div>
+    <div class="sec-label zh-only">第二节</div>
+    <h2 class="sec-title en-only">Skills Developed in This Module</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">本模块培养的能力</h2>
+
+    <div class="approach-grid">
+      <div class="approach-card">
+        <div class="approach-card-num en-only">Academic Skills</div>
+        <div class="approach-card-num zh-only">学术能力</div>
+        <div class="approach-card-title en-only">Research &amp; Reflection</div>
+        <div class="approach-card-title zh-only" style="font-family:'Noto Serif SC',serif">研究与反思</div>
+        <div class="approach-card-body en-only">Identify, analyse and interpret the expectations and challenges of brand management and brand design in relation to corporate responsibility. Research current knowledge, critically reflect, evaluate, and question one's own actions in brand development.</div>
+        <div class="approach-card-body zh-only" style="font-family:'Noto Serif SC',serif">识别、分析与解读品牌管理和品牌设计在企业责任层面的期待与挑战，研究当前知识体系，批判性反思、评估并审视自身的品牌发展行为。</div>
+      </div>
+      <div class="approach-card">
+        <div class="approach-card-num en-only">Professional Skills</div>
+        <div class="approach-card-num zh-only">专业能力</div>
+        <div class="approach-card-title en-only">CSR &amp; Sustainable Concepts</div>
+        <div class="approach-card-title zh-only" style="font-family:'Noto Serif SC',serif">CSR与可持续概念</div>
+        <div class="approach-card-body en-only">Assess and apply approaches of Corporate Social Responsibility (CSR) and corresponding models in a targeted manner. Independently develop sustainable concepts for solving problems in brand development and brand management.</div>
+        <div class="approach-card-body zh-only" style="font-family:'Noto Serif SC',serif">有针对性地评估并运用企业社会责任（CSR）的各类方法及相应模型，独立开发可持续概念以解决品牌发展与品牌管理中的问题。</div>
+      </div>
+      <div class="approach-card">
+        <div class="approach-card-num en-only">Social Skills</div>
+        <div class="approach-card-num zh-only">社交能力</div>
+        <div class="approach-card-title en-only">Teamwork &amp; Presentation</div>
+        <div class="approach-card-title zh-only" style="font-family:'Noto Serif SC',serif">团队协作与展示</div>
+        <div class="approach-card-body en-only">Organise as a team and work together in a goal-oriented way. Respectfully moderate conflicts and resolve them while protecting the interests of all team members. Present developed solutions freely before an audience.</div>
+        <div class="approach-card-body zh-only" style="font-family:'Noto Serif SC',serif">以团队形式组织并有目标地协同工作，尊重地协调冲突并在维护所有成员利益的前提下解决冲突，在观众面前自由展示所开发的解决方案。</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 3: 1ST LAW OF BRANDING -->
+  <section class="section" id="s-law">
+    <div class="sec-label en-only">Section 3</div>
+    <div class="sec-label zh-only">第三节</div>
+    <h2 class="sec-title en-only">The 1st Law of Branding</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">品牌第一法则</h2>
+
+    <p class="sec-text en-only">As markets become saturated and products increasingly similar, consumers cannot rely on functional differentiation alone. This is the central business problem that brands were invented to solve. The <em>Pepsi Challenge</em> (1975/1983) illustrated this strikingly: in blind taste tests, consumers preferred Pepsi over Coca-Cola. But in open tests — with brands visible — Coke won decisively. The brand's emotional associations overrode taste perception entirely.</p>
+    <p class="sec-text-zh zh-only">随着市场日趋饱和、产品越来越相似，消费者无法仅靠功能差异做出判断。这是品牌诞生的核心商业问题。<em>百事挑战</em>（1975/1983年）鲜明地说明了这一点：在盲测中，消费者更偏好百事可乐；但在展示品牌标识的开放测试中，可口可乐以绝对优势胜出。品牌的情感联想完全凌驾于味觉感知之上。</p>
+
+    <div class="callout">
+      <p class="en-only">"The less perceptible the functional differences between products, the more important the emotional components of brands become. That is our entry ticket into the business world — and our reason for existence."</p>
+      <p class="callout-zh zh-only">产品间功能差异越难被感知，品牌的情感成分就越重要。这是我们进入商业世界的入场券——也是我们存在的理由。</p>
+    </div>
+
+    <p class="sec-text en-only">In saturated markets with largely interchangeable products and services, advertising becomes <strong>indispensable</strong> — it contributes to the positioning and profiling of products and services against competition (Schenk 2005: 91). This is not just a marketing insight; it is the foundational argument for why brands matter — and why the ethical dimensions of branding matter equally.</p>
+    <p class="sec-text-zh zh-only">在产品与服务高度同质化的饱和市场中，广告变得<strong>不可或缺</strong>——它通过定位与形象塑造，帮助产品和服务在竞争中脱颖而出（Schenk 2005: 91）。这不仅是一个营销洞见，更是品牌重要性的基础论据——也是品牌伦理同等重要的原因。</p>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 4: WHAT BRANDS ARE -->
+  <section class="section" id="s-what">
+    <div class="sec-label en-only">Section 4</div>
+    <div class="sec-label zh-only">第四节</div>
+    <h2 class="sec-title en-only">What Brands Are</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">品牌是什么</h2>
+
+    <p class="sec-text en-only">Three progressive statements — each one expanding the definition:</p>
+    <p class="sec-text-zh zh-only">三个递进的论断——每一个都扩展了品牌的定义：</p>
+
+    <div class="card-grid col3">
+      <div class="info-card">
+        <div class="info-card-label">Statement 1</div>
+        <ul>
+          <li class="en-only" style="border:none;padding:0">A brand is <strong>more than a logo</strong>. Apple's logo is recognizable worldwide — but Apple's brand is the ecosystem, the culture, the philosophy of "think different."</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif;border:none;padding:0">品牌<strong>不仅仅是一个标志</strong>。苹果的标志举世闻名——但苹果品牌是整个生态系统、文化与"非同凡想"的哲学。</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Statement 2</div>
+        <ul>
+          <li class="en-only" style="border:none;padding:0">A brand is <strong>more than an advertising campaign</strong>. The iPod silhouette ads were iconic — but Apple's brand persists across and beyond any single campaign.</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif;border:none;padding:0">品牌<strong>不仅仅是一个广告活动</strong>。iPod剪影广告具有标志性——但苹果的品牌跨越并超越了任何一次单独的广告活动。</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Statement 3</div>
+        <ul>
+          <li class="en-only" style="border:none;padding:0">A brand is <strong>even more than a product</strong>. Products change across iPhone generations — the brand remains consistent. The brand is what customers are actually buying.</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif;border:none;padding:0">品牌<strong>甚至超越了产品本身</strong>。不同代iPhone的产品在变化——品牌却始终如一。品牌才是顾客真正购买的东西。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p class="en-only">A brand is a <strong>holistic identity concept</strong> that is implemented across all departments, builds trust, and makes brand-driven companies successful in all areas of their business.</p>
+      <p class="callout-zh zh-only">品牌是一个<strong>整体性身份概念</strong>，在所有部门中得到贯彻实施，建立信任，并使品牌驱动型企业在其业务的所有领域都取得成功。</p>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 5: BRAND & SUSTAINABILITY -->
+  <section class="section" id="s-sustainability">
+    <div class="sec-label en-only">Section 5</div>
+    <div class="sec-label zh-only">第五节</div>
+    <h2 class="sec-title en-only">Brand &amp; Sustainability</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">品牌与可持续性</div>
+
+    <p class="sec-text en-only">Brands today must account for their full value chain. In the holistic sense of brand development and company policy, sustainability also includes <strong>sustainable production conditions and supply chains</strong>. This is not merely an ethical imperative — it is increasingly a business one.</p>
+    <p class="sec-text-zh zh-only">当今品牌必须对其整个价值链负责。从整体品牌发展与企业政策的意义上说，可持续性也包括<strong>可持续的生产条件与供应链</strong>。这不仅仅是道德命令——它越来越成为一种商业必要。</p>
+
+    <div class="compare-grid">
+      <div class="compare-card green-card">
+        <div class="compare-card-label en-only">Gen Z &amp; Sustainability</div>
+        <div class="compare-card-label zh-only">Z世代与可持续性</div>
+        <ul class="compare-list">
+          <li class="en-only">For Gen Z, sustainability is an <strong>extremely important topic</strong></li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">对Z世代而言，可持续性是一个<strong>极其重要的话题</strong></li>
+          <li class="en-only">They expect more than other generations that companies act sustainably</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">他们比其他世代更期待企业采取可持续行动</li>
+          <li class="en-only">Sustainability becomes a <strong>decisive factor</strong> in purchase decisions</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">可持续性成为购买决策中的<strong>决定性因素</strong></li>
+          <li class="en-only">Social &amp; economic responsibility equally decisive</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">社会责任与经济责任同样具有决定性影响</li>
+        </ul>
+      </div>
+      <div class="compare-card accent-card">
+        <div class="compare-card-label en-only">Corporate Social Responsibility</div>
+        <div class="compare-card-label zh-only">企业社会责任</div>
+        <ul class="compare-list">
+          <li class="en-only">Corporate responsibility goes far <strong>beyond economic responsibility</strong></li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">企业责任远远超出<strong>经济责任</strong>的范畴</li>
+          <li class="en-only">Addresses <strong>ecological</strong> and <strong>social</strong> responsibility</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">涵盖<strong>生态责任</strong>与<strong>社会责任</strong></li>
+          <li class="en-only">Known as the Triple Bottom Line of CSR</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">即CSR的三重底线</li>
+          <li class="en-only">People · Planet · Profit</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">人 · 地球 · 利润</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 6: BUSINESS & SOCIETY -->
+  <section class="section" id="s-society">
+    <div class="sec-label en-only">Section 6</div>
+    <div class="sec-label zh-only">第六节</div>
+    <h2 class="sec-title en-only">Business &amp; Society</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">商业与社会</h2>
+
+    <div class="callout callout-accent">
+      <p class="en-only">"Economic activity <em>always</em> has consequences for society."</p>
+      <p class="callout-zh zh-only">经济活动<em>始终</em>对社会产生影响。</p>
+    </div>
+
+    <p class="sec-text en-only">Companies and brands must demonstrate their legitimacy at a superordinate level — obtaining <strong>societal acceptance</strong> in the sense of a <em>"license to operate."</em> This creates the central tension of the course: the traditional purpose of branding is to get more people to buy more things, for more years, at a higher price. But is this compatible with ethical and social responsibility?</p>
+    <p class="sec-text-zh zh-only">企业与品牌必须在更高层面证明其存在的合理性——获得社会认可，即<em>"运营许可证"</em>。这构成了本课程的核心张力：品牌传统目的是让更多人购买更多产品、持续更多年、以更高价格。但这与伦理责任和社会责任相容吗？</p>
+
+    <div class="context-model">
+      <div class="info-card-label" style="color:var(--green);font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:700">The Brand Context Model / 品牌语境模型</div>
+      <p class="sec-text en-only" style="margin-top:12px;font-size:13.5px">Three forces shape the context in which every brand must operate:</p>
+      <p class="sec-text-zh zh-only" style="font-family:'Noto Serif SC',serif;margin-top:12px;font-size:13px">三种力量塑造了每个品牌必须运作的语境：</p>
+      <div class="card-grid col3" style="margin-top:16px">
+        <div class="info-card" style="text-align:center">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;margin-bottom:4px">Society</div>
+          <div style="font-family:'Noto Serif SC',serif;font-size:12px;color:var(--ink3);margin-bottom:8px">社会</div>
+          <div style="font-size:11px;color:var(--green);font-weight:600;letter-spacing:.08em;text-transform:uppercase">Legitimation</div>
+          <div style="font-family:'Noto Serif SC',serif;font-size:11px;color:var(--ink3)">合法性</div>
+        </div>
+        <div class="info-card" style="text-align:center;border-color:rgba(74,138,40,.3);background:rgba(74,138,40,.05)">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--green)">BRAND</div>
+          <div style="font-family:'Noto Serif SC',serif;font-size:13px;color:var(--green)">品牌</div>
+          <div style="font-size:11px;color:var(--ink3);margin-top:8px">Neye/Bongard 2024</div>
+        </div>
+        <div class="info-card" style="text-align:center">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;margin-bottom:4px">Competition</div>
+          <div style="font-family:'Noto Serif SC',serif;font-size:12px;color:var(--ink3);margin-bottom:8px">竞争</div>
+          <div style="font-size:11px;color:var(--green);font-weight:600;letter-spacing:.08em;text-transform:uppercase">Differentiation</div>
+          <div style="font-family:'Noto Serif SC',serif;font-size:11px;color:var(--ink3)">差异化</div>
+        </div>
+      </div>
+      <div class="info-card" style="margin-top:12px;text-align:center">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;margin-bottom:4px">Individual</div>
+        <div style="font-family:'Noto Serif SC',serif;font-size:12px;color:var(--ink3);margin-bottom:4px">个体</div>
+        <div style="font-size:11px;color:var(--green);font-weight:600;letter-spacing:.08em;text-transform:uppercase">Relevance · 相关性</div>
+      </div>
+      <p class="sec-text en-only" style="font-size:12.5px;margin-top:16px">A brand must simultaneously justify its existence to society (legitimation), be relevant to individuals (relevance), and stand out from competitors (differentiation). In this model, CSR and brand purpose are not optional add-ons — they are the foundation of societal legitimation.</p>
+      <p class="sec-text-zh zh-only" style="font-family:'Noto Serif SC',serif;font-size:12.5px;margin-top:16px">品牌必须同时向社会证明其存在的合理性（合法性）、与个体保持相关性（相关性），并从竞争对手中脱颖而出（差异化）。在此模型中，CSR与品牌使命并非可选的附加项——它们是社会合法性的基础。</p>
+    </div>
+
+    <p class="sec-text en-only">The goal of this seminar: to develop a fundamental brand understanding by placing brands in a broader social context — and to identify our own social responsibility in brand development. The key questions: <em>What do brands of the future look like? What responsibility must and can brands and companies take on?</em></p>
+    <p class="sec-text-zh zh-only">本研讨课的目标：通过将品牌置于更广泛的社会语境中，培养基本的品牌理解——并明确我们在品牌发展中的社会责任。核心问题：<em>未来的品牌是什么样的？品牌与企业必须并能够承担什么样的责任？</em></p>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 7: BUSINESS ETHICS -->
+  <section class="section" id="s-ethics">
+    <div class="sec-label en-only">Section 7</div>
+    <div class="sec-label zh-only">第七节</div>
+    <h2 class="sec-title en-only">Business Ethics: An Introduction</h2>
+    <h2 class="sec-title zh-only" style="font-family:'Noto Serif SC',serif">商业伦理：导论</h2>
+
+    <p class="sec-text en-only">For more than twenty years, there has been a <strong>"business ethics boom"</strong> (Wirtschaftsethikboom) in academic discourse — a seemingly permanent high season for the field. This is not surprising: every major economic scandal, environmental disaster, and working condition exposé renews the call for ethical accountability in business.</p>
+    <p class="sec-text-zh zh-only">二十余年来，学术讨论中出现了<strong>"商业伦理热潮"</strong>（Wirtschaftsethikboom）——该领域仿佛处于持续的高峰期。这并不令人惊讶：每一次重大经济丑闻、环境灾难与劳工条件曝光，都会重新引发对商业道德问责的呼声。</p>
+
+    <div class="callout">
+      <p class="en-only">"As a manager, my goal is to serve a higher good. I will act with the utmost integrity and accomplish my work in a morally impeccable way."</p>
+      <p class="callout-zh zh-only">作为管理者，我的目标是服务于更高的善。我将以最高的诚信行事，以道德无可指摘的方式完成我的工作。</p>
+      <p style="font-size:12px;color:var(--ink3);margin-top:10px">MBA Oath, Harvard Business School (cited after Noll 2013: 83)</p>
+    </div>
+
+    <p class="sec-text en-only">But the gap between aspiration and reality is wide. Consider: Despite well-known consequences of CO₂ emissions and climate change, lobbyists from the energy and automotive industries continue to prevent the implementation of truly deep reforms. SUVs remain on the rise. According to the World Food Programme (UN), there is enough food in the world to feed the entire global population — yet 925 million people suffer from hunger, because food is so unequally distributed.</p>
+    <p class="sec-text-zh zh-only">然而，理想与现实之间的差距依然巨大。试看：尽管CO₂排放与气候变化的后果已广为人知，能源与汽车行业的游说者仍在成功阻止真正深刻改革的推进。SUV依然大行其道。根据联合国世界粮食计划署，世界上有足够的粮食养活全体人类——然而有9.25亿人饥寒交迫，因为粮食分配极为不均。</p>
+
+    <div class="compare-grid">
+      <div class="compare-card accent-card">
+        <div class="compare-card-label en-only">The Contradiction</div>
+        <div class="compare-card-label zh-only">矛盾所在</div>
+        <ul class="compare-list">
+          <li class="en-only">The <em>main purpose</em> of branding is traditionally: get more people to buy more stuff, for more years, at a higher price</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">品牌传统上的<em>核心目的</em>是：让更多人购买更多产品、持续更多年、以更高价格</li>
+          <li class="en-only">Economic actors are incentivized to externalize costs — to the environment, workers, society</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">经济主体有动力将成本外部化——转嫁给环境、工人和社会</li>
+          <li class="en-only">Climate damage, inequality, and social harm are often the price of profit</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">气候破坏、不平等与社会伤害往往是利润的代价</li>
+        </ul>
+      </div>
+      <div class="compare-card green-card">
+        <div class="compare-card-label en-only">The Opportunity</div>
+        <div class="compare-card-label zh-only">机遇所在</div>
+        <ul class="compare-list">
+          <li class="en-only">Brands that embed ethical responsibility into their core identity build more durable trust</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">将道德责任嵌入核心身份的品牌，能够建立更持久的信任</li>
+          <li class="en-only">Purpose-driven brands outperform purely profit-driven ones in long-term value</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">使命驱动型品牌在长期价值上优于纯粹利润驱动型品牌</li>
+          <li class="en-only">CSR is not just ethics — it is competitive advantage</li>
+          <li class="zh-only" style="font-family:'Noto Serif SC',serif">CSR不只是道德——它是竞争优势</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout callout-accent">
+      <p class="en-only">"Branding without a stance is fraud." — Brand conference</p>
+      <p class="callout-zh zh-only">"没有立场的品牌是欺骗。"——品牌大会</p>
+    </div>
+  </section>
+
+  <!-- ASSIGNMENT -->
+  <div class="assignment">
+    <div class="assignment-badge en-only">Semester Assignment</div>
+    <div class="assignment-badge zh-only" style="font-family:'Noto Serif SC',serif">学期作业</div>
+    <div class="assignment-title en-only">Group Presentation — Brand &amp; Responsibility Analysis</div>
+    <div class="assignment-title zh-only" style="font-family:'Noto Serif SC',serif">小组展示——品牌与责任分析</div>
+    <p class="assignment-body en-only">Choose a brand to analyse through the lens of responsibility throughout this semester. The brand should have a documented CSR strategy, brand purpose statement, or documented social stance. Your group presentation should cover:</p>
+    <ul class="assignment-body en-only" style="padding-left:20px;margin-top:10px">
+      <li>Brand identity, positioning and core values</li>
+      <li>CSR strategy — what does the brand claim? What does it actually do?</li>
+      <li>Critical evaluation: where does the brand fall short? Where is it genuinely responsible?</li>
+      <li>Recommendations: what could the brand do better?</li>
+    </ul>
+    <p class="assignment-body en-only" style="margin-top:12px"><strong>Examiners:</strong> Prof. Dr. Bongard &amp; Prof. Dr. Groll | <strong>Filename:</strong> BT-03_Marke-und-Verantwortung_LastName_MatriculationNumber</p>
+    <p class="assignment-body-zh zh-only">选择一个品牌，在本学期从责任视角进行分析。该品牌应具有有据可查的CSR战略、品牌使命声明或社会立场。小组展示内容应涵盖：品牌身份、定位与核心价值；CSR战略——品牌声称什么？实际上做了什么？批判性评估：品牌在哪里做得不够？哪里真正履行了责任？建议：品牌可以做得更好的是什么？</p>
+    <p class="assignment-body-zh zh-only" style="margin-top:12px"><strong>主考：</strong>邦加德教授 &amp; 格罗尔教授 | <strong>文件名：</strong>BT-03_Marke-und-Verantwortung_姓名_学号</p>
+  </div>
+
+</div>
+
+<div class="nav-bar">
+  <a class="nav-btn" href="index.html">← Course Overview</a>
+  <span class="nav-info">Session 01 of 08</span>
+  <a class="nav-btn" href="session2-ordnungsethik.html">Session 2: Regulatory Ethics →</a>
+</div>
+
+<script>
+function setLang(l){
+  document.body.className=l;
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  document.getElementById('btn-zh').classList.toggle('active',l==='zh');
+}
+</script>
+</body>
+</html>
